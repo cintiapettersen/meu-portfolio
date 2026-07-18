@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outros Projetos - Cintia Pettersen</title>
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    .others-hero { padding-top: var(--space-7); padding-bottom: var(--space-5); }
+    .page-title { font-size: clamp(3rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: var(--space-4); }
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-5);
+      margin-top: var(--space-6);
+      margin-bottom: var(--space-6);
+    }
+
+    .project-card {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .project-image-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background-color: var(--bg-tertiary);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-3);
+      transition: transform var(--transition-fast);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+    }
+
+    .project-card:hover .project-image-placeholder {
+      transform: scale(0.98);
+    }
+
+    .project-info h3 {
+      font-size: 1.25rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+      margin-bottom: var(--space-1);
+    }
+
+    .project-info p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">CP.</a>
+      <ul class="nav-links">
+        <li><a href="about.html">Why I Design</a></li>
+        <li><a href="philosophy.html">What I Believe</a></li>
+        <li><a href="cases.html" class="active">Case Studies</a></li>
+        <li><a href="how-i-think.html">Behind the Work</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <header class="others-hero container">
+      <div class="reveal">
+        <h1 class="page-title">More Work</h1>
+        <p class="text-large">Uma seleção de outros projetos e explorações.</p>
+      </div>
+    </header>
+
+    <section class="container">
+      <div class="projects-grid">
+        
+        <a href="#" class="project-card reveal delay-1">
+          <div class="project-image-placeholder">
+            [Imagem Aqui: Leve ao Mar]
+          </div>
+          <div class="project-info">
+            <h3>Leve ao Mar</h3>
+            <p>Product Design & Identidade</p>
+          </div>
+        </a>
+
+        <a href="#" class="project-card reveal delay-2">
+          <div class="project-image-placeholder">
+            [Imagem Aqui: App Exemplo]
+          </div>
+          <div class="project-info">
+            <h3>App Concepts</h3>
+            <p>Mobile UX & Interfaces</p>
+          </div>
+        </a>
+
+        <a href="#" class="project-card reveal delay-1">
+          <div class="project-image-placeholder">
+            [Imagem Aqui: Site Exemplo]
+          </div>
+          <div class="project-info">
+            <h3>Web Design</h3>
+            <p>Landing Pages & Portais</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="container" style="padding-bottom: var(--space-6);">
+      <a href="how-i-think.html" class="btn btn-outline">Ver Behind the Work →</a>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

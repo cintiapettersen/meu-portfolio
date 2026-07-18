@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leve ao Mar Case Study - Cintia Pettersen</title>
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    /* Leve ao Mar Custom Aesthetic: Dynamic Gallery */
+    body {
+      background-color: #FFFFFF; /* Crisp white gallery wall */
+      color: #111111;
+    }
+
+    /* Hero Section */
+    .leve-hero {
+      min-height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: var(--space-7) var(--space-4) var(--space-5);
+    }
+
+    .leve-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-tertiary);
+      margin-bottom: var(--space-4);
+      border: 1px solid var(--border-color);
+      padding: 0.25rem 1rem;
+      border-radius: 100px;
+    }
+
+    .leve-title {
+      font-size: clamp(4rem, 10vw, 7rem);
+      font-family: var(--font-display);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: var(--space-6);
+      text-transform: uppercase;
+    }
+
+    /* Content Layout */
+    .leve-section {
+      padding: var(--space-6) 0;
+    }
+
+    .leve-text-block {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .leve-heading {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-family: var(--font-display);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-4);
+      color: #111;
+    }
+
+    .leve-text {
+      font-size: clamp(1.125rem, 2vw, 1.5rem);
+      line-height: 1.6;
+      color: var(--text-secondary);
+      font-weight: 300;
+      margin-bottom: var(--space-4);
+    }
+
+    /* Asymmetrical Gallery Grid */
+    .leve-gallery {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--space-4);
+      padding: var(--space-6) 0;
+      align-items: center;
+    }
+
+    .leve-img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .leve-img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Positioning the gallery items */
+    .img-1 { grid-column: 1 / 8; }
+    .img-2 { grid-column: 9 / 13; margin-top: 20%; }
+    .img-3 { grid-column: 2 / 6; margin-top: -10%; z-index: 2; }
+    .img-4 { grid-column: 6 / 12; }
+
+    @media (max-width: 768px) {
+      .leve-gallery {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+      }
+      .img-2, .img-3 { margin-top: 0; }
+    }
+
+    /* Video Split Section */
+    .leve-video-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      align-items: center;
+      padding: var(--space-6) 0;
+    }
+
+    .leve-video-wrapper video {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 768px) {
+      .leve-video-split {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .leve-video-split .leve-text-block {
+        text-align: center !important;
+      }
+    }
+
+    /* External Link */
+    .external-link-container {
+      text-align: center;
+      margin-top: var(--space-6);
+      padding-bottom: var(--space-6);
+    }
+
+    .external-link {
+      display: inline-block;
+      font-size: 1.5rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: #111;
+      text-decoration: none;
+      border-bottom: 2px solid #111;
+      padding-bottom: 4px;
+      transition: color 0.3s, border-color 0.3s;
+    }
+
+    .external-link:hover {
+      color: #0070f3; /* Accent color */
+      border-color: #0070f3;
+    }
+
+    /* Footer Back Link */
+    .leve-footer {
+      text-align: center;
+      padding: var(--space-6) 0;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .leve-back {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .leve-back:hover {
+      color: #111;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">CP.</a>
+      <ul class="nav-links">
+        <li>
+          <a href="about.html" data-lang="en">Why I Design</a>
+          <a href="about.html" data-lang="pt">Por que Desenho</a>
+        </li>
+        <li>
+          <a href="philosophy.html" data-lang="en">What I Believe</a>
+          <a href="philosophy.html" data-lang="pt">No que Acredito</a>
+        </li>
+        <li>
+          <a href="cases.html" class="active" data-lang="en">Case Studies</a>
+          <a href="cases.html" class="active" data-lang="pt">Estudos de Caso</a>
+        </li>
+        <li>
+          <a href="how-i-think.html" data-lang="en">Behind the Work</a>
+          <a href="how-i-think.html" data-lang="pt">Por Trás do Trabalho</a>
+        </li>
+        <li><button id="lang-toggle" class="lang-toggle-btn">PT</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="leve-hero reveal">
+      <div class="leve-tag" data-lang="en">Direction for artistic expression.</div>
+      <div class="leve-tag" data-lang="pt">Direção para expressão artística.</div>
+      <h1 class="leve-title">Leve ao Mar</h1>
+    </section>
+
+    <!-- Challenge -->
+    <section class="container leve-section reveal delay-1">
+      <div class="leve-text-block">
+        <h2 class="leve-heading" data-lang="en">The Challenge</h2>
+        <h2 class="leve-heading" data-lang="pt">O Desafio</h2>
+        <p class="leve-text" data-lang="en">
+          How can original artwork become part of everyday life instead of remaining confined to a screen or a gallery?
+        </p>
+        <p class="leve-text" data-lang="pt">
+          Como a arte original pode fazer parte da vida cotidiana em vez de ficar confinada a uma tela ou galeria?
+        </p>
+      </div>
+    </section>
+
+    <!-- Lookbook Gallery 1 (Now Video) -->
+    <section class="container reveal" style="text-align: center; padding: var(--space-4) 0 var(--space-6) 0;">
+      <video autoplay loop muted playsinline style="max-width: 900px; width: 100%; aspect-ratio: 1.15 / 1; object-fit: cover; border-radius: 8px; background-color: #fff;">
+        <source src="assets/images/Leve ao Mar/Abstract_art_covers_organic_anim…_202607181546.mp4" type="video/mp4">
+      </video>
+    </section>
+
+    <!-- Approach -->
+    <section class="container leve-section reveal" style="padding: var(--space-4) 0;">
+      <div class="leve-text-block">
+        <h2 class="leve-heading" data-lang="en">The Approach</h2>
+        <h2 class="leve-heading" data-lang="pt">A Abordagem</h2>
+        <p class="leve-text" data-lang="en">
+          Leve ao Mar explores how illustration can evolve into thoughtfully designed products while preserving the essence of the original artwork. Each collection is developed as a complete visual system, allowing a single creative idea to naturally extend across prints, stationery, apparel, home goods, and other everyday objects.
+        </p>
+        <p class="leve-text" data-lang="pt">
+          Leve ao Mar explora como a ilustração pode evoluir para produtos cuidadosamente desenhados, preservando a essência da obra original. Cada coleção é desenvolvida como um sistema visual completo, permitindo que uma única ideia criativa se estenda naturalmente para estampas, papelaria, vestuário, artigos para casa e outros objetos do dia a dia.
+        </p>
+      </div>
+    </section>
+
+    <!-- Single Video Gallery -->
+    <section class="container reveal" style="text-align: center; padding: var(--space-4) 0 var(--space-6) 0;">
+      <video autoplay loop muted playsinline style="max-width: 900px; width: 100%; border-radius: 8px;">
+        <source src="assets/images/Leve ao Mar/Living_room_with_framed_illustra…_202607181448.mp4" type="video/mp4">
+      </video>
+    </section>
+
+    <!-- Video Split Section -->
+    <section class="container leve-video-split reveal">
+      <div class="leve-video-wrapper">
+        <video autoplay loop muted playsinline>
+          <source src="assets/images/Premium_product_gallery_video_202607181424.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="leve-text-block" style="text-align: left; margin: 0; max-width: none;">
+        <h2 class="leve-heading" data-lang="en">A collection designed to evolve.</h2>
+        <h2 class="leve-heading" data-lang="pt">Uma coleção desenhada para evoluir.</h2>
+        <p class="leve-text" data-lang="en">
+          Every illustration is created with adaptability in mind, allowing the same visual language to extend naturally across different products without losing its identity. Rather than designing isolated pieces, I build cohesive collections that preserve the original concept while creating new ways for people to experience the artwork.
+        </p>
+        <p class="leve-text" data-lang="pt">
+          Cada ilustração é criada com a adaptabilidade em mente, permitindo que a mesma linguagem visual se estenda naturalmente por diferentes produtos sem perder a sua identidade. Em vez de criar peças isoladas, construo coleções coesas que preservam o conceito original, criando novas formas para que as pessoas vivenciem a arte.
+        </p>
+      </div>
+    </section>
+
+    <!-- Outcome -->
+    <section class="container leve-section reveal">
+      <div class="leve-text-block">
+        <h2 class="leve-heading" data-lang="en">The Outcome</h2>
+        <h2 class="leve-heading" data-lang="pt">O Resultado</h2>
+        <p class="leve-text" data-lang="en">
+          The project demonstrates how art can move beyond decoration to become something people use, experience, and connect with. It is an exploration of transforming imagination into tangible products without losing the identity, emotion, and spirit that inspired them.
+        </p>
+        <p class="leve-text" data-lang="pt">
+          O projeto demonstra como a arte pode ir além da decoração para se tornar algo que as pessoas usam, vivenciam e com o qual se conectam. É uma exploração sobre transformar a imaginação em produtos tangíveis sem perder a identidade, a emoção e o espírito que a inspirou.
+        </p>
+      </div>
+      
+      <!-- External Link -->
+      <div class="external-link-container reveal delay-1">
+        <a href="#" class="external-link" data-lang="en">→ Explore Collection</a>
+        <a href="#" class="external-link" data-lang="pt">→ Explorar Coleção</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="leve-footer reveal">
+      <a href="cases.html" class="leve-back" data-lang="en">Return to Case Studies</a>
+      <a href="cases.html" class="leve-back" data-lang="pt">Voltar para Estudos de Caso</a>
+    </footer>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

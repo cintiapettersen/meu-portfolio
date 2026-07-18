@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Let's Connect - Cintia Pettersen</title>
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    .contact-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-bottom: var(--space-6);
+    }
+    
+    .contact-title {
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      line-height: 1;
+      margin-bottom: var(--space-4);
+      letter-spacing: -0.03em;
+    }
+
+    .contact-subtitle {
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
+      color: var(--text-secondary);
+      font-weight: 300;
+      margin-bottom: var(--space-6);
+      max-width: 40ch;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .contact-link {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 500;
+      color: var(--text-primary);
+      text-decoration: none;
+      display: inline-block;
+      transition: color var(--transition-fast);
+      position: relative;
+      width: fit-content;
+    }
+
+    .contact-link::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--accent);
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform var(--transition-fast);
+    }
+
+    .contact-link:hover {
+      color: var(--accent);
+    }
+
+    .contact-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    .contact-footer {
+      position: absolute;
+      bottom: var(--space-4);
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">CP.</a>
+      <ul class="nav-links">
+        <li>
+          <a href="about.html" data-lang="en">Why I Design</a>
+          <a href="about.html" data-lang="pt">Por que Desenho</a>
+        </li>
+        <li>
+          <a href="philosophy.html" data-lang="en">What I Believe</a>
+          <a href="philosophy.html" data-lang="pt">No que Acredito</a>
+        </li>
+        <li>
+          <a href="cases.html" data-lang="en">Case Studies</a>
+          <a href="cases.html" data-lang="pt">Estudos de Caso</a>
+        </li>
+        <li>
+          <a href="how-i-think.html" data-lang="en">Behind the Work</a>
+          <a href="how-i-think.html" data-lang="pt">Por Trás do Trabalho</a>
+        </li>
+        <li><button id="lang-toggle" class="lang-toggle-btn">PT</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="contact-section container">
+    <div class="reveal">
+      <h1 class="contact-title" data-lang="en">Let's connect.</h1>
+      <h1 class="contact-title" data-lang="pt">Vamos conversar.</h1>
+      <p class="contact-subtitle" data-lang="en">
+        I'm always open to chat about design, product strategy, or how we can simplify complex decisions together.
+      </p>
+      <p class="contact-subtitle" data-lang="pt">
+        Estou sempre aberta a conversar sobre design, estratégia de produto ou como podemos simplificar decisões complexas juntos.
+      </p>
+    </div>
+
+    <div class="contact-links reveal delay-1">
+      <a href="mailto:cintiapettersen@gmail.com" class="contact-link">cintiapettersen@gmail.com ↗</a>
+      <a href="https://www.linkedin.com/in/cintiapettersen/" target="_blank" rel="noopener" class="contact-link">LinkedIn ↗</a>
+    </div>
+
+    <div class="contact-footer reveal delay-2">
+      <span data-lang="en">© 2024 Cintia Pettersen. Designed with intention.</span>
+      <span data-lang="pt">© 2024 Cintia Pettersen. Desenhado com intenção.</span>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

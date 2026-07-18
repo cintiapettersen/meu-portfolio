@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Brand Box - Cintia Pettersen</title>
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    .case-detail-header {
+      padding-top: var(--space-7);
+      padding-bottom: var(--space-7);
+    }
+    
+    .case-detail-title {
+      font-size: clamp(3.5rem, 8vw, 6rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-5);
+    }
+    
+    .case-roles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      letter-spacing: 0.05em;
+      color: var(--text-primary);
+    }
+    
+    .case-roles span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .case-roles .dimmed {
+      color: var(--text-tertiary);
+    }
+
+    /* STORY THREAD - The new linear/apple layout */
+    .story-thread {
+      max-width: 800px;
+      margin: 0 auto;
+      padding-bottom: var(--space-7);
+    }
+    
+    .story-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--bg-color);
+      background-color: var(--text-primary);
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-weight: 500;
+    }
+    
+    .story-p {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+    
+    .story-h2 {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 400;
+      color: var(--text-primary);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+    
+    .story-h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1.1;
+      font-weight: 400;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+    }
+
+    /* Media Full Width Breakout */
+    .case-media-full {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      background-color: #F8F8F8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: var(--space-5) var(--space-4);
+    }
+    
+    .case-media-full img {
+      width: 100%;
+      max-width: 1200px;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    }
+
+    /* Image Placeholder Component */
+    .image-placeholder {
+      width: 100%;
+      max-width: 1200px;
+      height: 60vh;
+      background-color: #EFEFEF;
+      border: 1px dashed #CCCCCC;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-radius: 4px;
+    }
+
+    /* Balanced Gallery */
+    .mosaic-gallery {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-auto-rows: clamp(150px, 15vw, 220px);
+      gap: 16px;
+      max-width: 1200px;
+      width: 100%;
+    }
+    
+    .mosaic-gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: transform var(--transition-fast);
+    }
+
+    .mosaic-gallery img:hover {
+      transform: scale(1.05);
+      z-index: 2;
+      position: relative;
+    }
+    
+    /* Video Two Column Layout */
+    .video-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      align-items: center;
+      margin-bottom: var(--space-7);
+    }
+    
+    .video-two-col video {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      border: 1px solid var(--border-color);
+    }
+    
+    @media (max-width: 768px) {
+      .case-detail-title {
+        font-size: 3rem;
+      }
+      .mosaic-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 120px;
+        gap: 8px;
+      }
+      .video-two-col {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">CP.</a>
+      <ul class="nav-links">
+        <li>
+          <a href="about.html" data-lang="en">Why I Design</a>
+          <a href="about.html" data-lang="pt">Por que Desenho</a>
+        </li>
+        <li>
+          <a href="philosophy.html" data-lang="en">What I Believe</a>
+          <a href="philosophy.html" data-lang="pt">No que Acredito</a>
+        </li>
+        <li>
+          <a href="cases.html" class="active" data-lang="en">Case Studies</a>
+          <a href="cases.html" class="active" data-lang="pt">Estudos de Caso</a>
+        </li>
+        <li>
+          <a href="how-i-think.html" data-lang="en">Behind the Work</a>
+          <a href="how-i-think.html" data-lang="pt">Por Trás do Trabalho</a>
+        </li>
+        <li><button id="lang-toggle" class="lang-toggle-btn">PT</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <header class="container case-detail-header reveal">
+      
+      <div class="case-roles" style="margin-bottom: var(--space-4);">
+        <span style="font-weight: 600; color: var(--text-tertiary); margin-right: 1rem;" data-lang="en">MY ROLE</span>
+        <span style="font-weight: 600; color: var(--text-tertiary); margin-right: 1rem;" data-lang="pt">MEU PAPEL</span>
+        
+        <span data-lang="en">Product Strategy</span>
+        <span data-lang="pt">Estratégia de Produto</span>
+        <span style="color: var(--text-tertiary);">/</span>
+        
+        <span data-lang="en">UX Design</span>
+        <span data-lang="pt">Design de UX</span>
+        <span style="color: var(--text-tertiary);">/</span>
+        
+        <span data-lang="en">UI Design</span>
+        <span data-lang="pt">Design de UI</span>
+        <span style="color: var(--text-tertiary);">/</span>
+        
+        <span data-lang="en">Branding</span>
+        <span data-lang="pt">Branding</span>
+      </div>
+
+      <h1 class="case-detail-title" style="margin-bottom: var(--space-5);">The Brand Box</h1>
+      
+      <p class="story-h2 mb-80" style="max-width: 25ch; color: var(--text-primary);" data-lang="en">The Brand Box transforms overwhelming creative freedom into a guided experience that helps entrepreneurs build a complete brand through confident decisions, one step at a time.</p>
+      <p class="story-h2 mb-80" style="max-width: 25ch; color: var(--text-primary);" data-lang="pt">O Brand Box transforma a liberdade criativa esmagadora em uma experiência guiada que ajuda empreendedores a construir uma marca completa através de decisões confiantes, um passo de cada vez.</p>
+    </header>
+
+    <div class="container story-thread">
+      
+      <!-- CAPÍTULO: THE PROBLEM -->
+      <div class="story-label mb-40 reveal" data-lang="en">The Problem</div>
+      <div class="story-label mb-40 reveal" data-lang="pt">O Problema</div>
+      
+      <p class="story-p mb-40 reveal" data-lang="en">When AI made branding accessible, something unexpected happened. Creating became easier. Choosing became dramatically harder.</p>
+      <p class="story-p mb-40 reveal" data-lang="pt">Quando a IA tornou o branding acessível, algo inesperado aconteceu. Criar ficou mais fácil. Escolher ficou dramaticamente mais difícil.</p>
+      
+      <p class="story-h2 mb-80 reveal" style="color: var(--text-primary); letter-spacing: -0.01em;" data-lang="en">Entrepreneurs suddenly had access to thousands of tools, styles, and references. Instead of feeling empowered, many felt overwhelmed. The hardest question was no longer: "How do I create?" It became: "How do I know which direction to take?"</p>
+      <p class="story-h2 mb-80 reveal" style="color: var(--text-primary); letter-spacing: -0.01em;" data-lang="pt">Empreendedores de repente tiveram acesso a milhares de ferramentas, estilos e referências. Em vez de se sentirem empoderados, muitos se sentiram sobrecarregados. A pergunta mais difícil não era mais: "Como eu crio?" Tornou-se: "Como sei qual direção seguir?"</p>
+      
+      <div class="case-media-full mb-160 reveal">
+        <img src="assets/images/the brand box/Gemini_Generated_Image_54j23m54j23m54j2.png" alt="The Problem">
+      </div>
+
+      <!-- CAPÍTULO: THE INSIGHT -->
+      <div class="story-label mb-40 reveal" data-lang="en">The Insight</div>
+      <div class="story-label mb-40 reveal" data-lang="pt">O Insight</div>
+      
+      <p class="story-h1 mb-40 reveal" data-lang="en">They wanted creative freedom.</p>
+      <p class="story-h1 mb-40 reveal" data-lang="pt">Eles queriam liberdade criativa.</p>
+      
+      <p class="story-p mb-160 reveal" data-lang="en">They also wanted the confidence that comes from professional guidance.</p>
+      <p class="story-p mb-160 reveal" data-lang="pt">Eles também queriam a confiança que vem da orientação profissional.</p>
+      
+      <div class="case-media-full mb-160 reveal">
+        <img src="assets/images/the brand box/Gemini_Generated_Image_l8bxnhl8bxnhl8bx.png" alt="Process Insights">
+      </div>
+
+      <!-- CAPÍTULO: THE SOLUTION -->
+      <div class="story-label mb-40 reveal" data-lang="en">The Solution</div>
+      <div class="story-label mb-40 reveal" data-lang="pt">A Solução</div>
+      
+      <p class="story-p mb-40 reveal" data-lang="en">The experience doesn't replace creativity. It gives it direction.</p>
+      <p class="story-p mb-40 reveal" data-lang="pt">A experiência não substitui a criatividade. Ela dá direção.</p>
+      
+      <p class="story-h2 mb-80 reveal" style="color: var(--text-primary);" data-lang="en">Every answer narrows the possibilities until the next decision feels obvious.</p>
+      <p class="story-h2 mb-80 reveal" style="color: var(--text-primary);" data-lang="pt">Cada resposta afunila as possibilidades até que a próxima decisão pareça óbvia.</p>
+      
+      <div class="case-media-full mb-80 reveal">
+        <img src="assets/images/the brand box/Gemini_Generated_Image_nqqeyunqqeyunqqe.png" alt="Design Principle">
+      </div>
+      
+      <p class="story-h1 mb-80 reveal" style="text-align: center;" data-lang="en">Not just another design tool.<br><span style="color: var(--text-secondary);">A guided branding journey.</span></p>
+      <p class="story-h1 mb-80 reveal" style="text-align: center;" data-lang="pt">Não apenas mais uma ferramenta.<br><span style="color: var(--text-secondary);">Uma jornada guiada de identidade visual.</span></p>
+      
+      <div class="case-media-full mb-80 reveal" style="background-color: var(--bg-color);">
+        <img src="assets/images/the brand box/mockup_ the brand box.png" alt="The Solution Mockup">
+      </div>
+
+      <div class="video-two-col reveal mb-160">
+        <div class="video-text">
+          <p class="story-h2 mb-40" data-lang="en" style="line-height: 1.2;">Confidence is the ultimate design outcome.</p>
+          <p class="story-h2 mb-40" data-lang="pt" style="line-height: 1.2;">A confiança é o resultado final do design.</p>
+          
+          <p class="story-p" data-lang="en" style="color: var(--text-secondary);">Watch how the experience gently guides the user, making progress feel effortless.</p>
+          <p class="story-p" data-lang="pt" style="color: var(--text-secondary);">Veja como a experiência guia suavemente o usuário, fazendo o progresso parecer fluido.</p>
+        </div>
+        
+        <div class="video-player">
+          <video src="assets/images/the brand box/0712.mov" autoplay loop muted playsinline></video>
+        </div>
+      </div>
+
+      <!-- CAPÍTULO: THE OUTPUT -->
+      <div class="story-label mb-40 reveal" data-lang="en">The Output</div>
+      <div class="story-label mb-40 reveal" data-lang="pt">O Resultado</div>
+      
+      <div class="video-two-col reveal mb-160">
+        <div class="video-text">
+          <p class="story-h2 mb-40" data-lang="en" style="line-height: 1.2;">A complete identity.</p>
+          <p class="story-h2 mb-40" data-lang="pt" style="line-height: 1.2;">Uma identidade completa.</p>
+          
+          <ul style="list-style: none; padding: 0; margin: 0; margin-bottom: 40px;">
+            <li class="story-p" style="margin-bottom: 12px; display: flex; align-items: center; gap: 12px;" data-lang="en"><span style="color: var(--text-tertiary);">→</span> Ready for packaging.</li>
+            <li class="story-p" style="margin-bottom: 12px; display: flex; align-items: center; gap: 12px;" data-lang="pt"><span style="color: var(--text-tertiary);">→</span> Pronto para embalagem.</li>
+            
+            <li class="story-p" style="margin-bottom: 12px; display: flex; align-items: center; gap: 12px;" data-lang="en"><span style="color: var(--text-tertiary);">→</span> Ready for print.</li>
+            <li class="story-p" style="margin-bottom: 12px; display: flex; align-items: center; gap: 12px;" data-lang="pt"><span style="color: var(--text-tertiary);">→</span> Pronto para impressão.</li>
+            
+            <li class="story-p" style="margin-bottom: 12px; display: flex; align-items: center; gap: 12px;" data-lang="en"><span style="color: var(--text-tertiary);">→</span> Ready for social media.</li>
+            <li class="story-p" style="margin-bottom: 12px; display: flex; align-items: center; gap: 12px;" data-lang="pt"><span style="color: var(--text-tertiary);">→</span> Pronto para redes sociais.</li>
+            
+            <li class="story-p" style="display: flex; align-items: center; gap: 12px;" data-lang="en"><span style="color: var(--text-tertiary);">→</span> Ready for growth.</li>
+            <li class="story-p" style="display: flex; align-items: center; gap: 12px;" data-lang="pt"><span style="color: var(--text-tertiary);">→</span> Pronto para o crescimento.</li>
+          </ul>
+          
+          <p class="story-h2" style="color: var(--text-secondary); line-height: 1.2;" data-lang="en">Not just beautiful.<br><span style="color: var(--text-primary);">Ready to be used.</span></p>
+          <p class="story-h2" style="color: var(--text-secondary); line-height: 1.2;" data-lang="pt">Não apenas bonito.<br><span style="color: var(--text-primary);">Pronto para ser usado.</span></p>
+        </div>
+        
+        <div class="video-player">
+          <video src="assets/images/the brand box/the-Brand-box-OliveSkin.mov" autoplay loop muted playsinline></video>
+        </div>
+      </div>
+      
+      <!-- External Link -->
+      <div class="mt-80 mb-80 reveal" style="text-align: center;">
+        <a href="#" style="display: inline-block; font-size: 1.5rem; font-weight: 600; color: var(--text-primary); text-decoration: none; border-bottom: 2px solid var(--text-primary); padding-bottom: 4px; transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1" data-lang="en">→ Visit Project</a>
+        <a href="#" style="display: inline-block; font-size: 1.5rem; font-weight: 600; color: var(--text-primary); text-decoration: none; border-bottom: 2px solid var(--text-primary); padding-bottom: 4px; transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1" data-lang="pt">→ Visitar o Projeto</a>
+      </div>
+      
+      <!-- Back Button -->
+      <div class="mt-80" style="text-align: center;">
+        <a href="cases.html" class="btn btn-outline" data-lang="en">← Back to Case Studies</a>
+        <a href="cases.html" class="btn btn-outline" data-lang="pt">← Voltar aos Casos</a>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

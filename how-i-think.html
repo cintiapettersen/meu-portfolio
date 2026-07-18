@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Behind the Work - Cintia Pettersen</title>
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    body {
+      background-color: var(--bg-color); /* Very clean, light background */
+      color: var(--text-primary);
+    }
+
+    /* Manifesto Hero */
+    .manifesto-intro {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: var(--space-7);
+    }
+
+    .intro-label {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-tertiary);
+      margin-bottom: var(--space-4);
+    }
+
+    .manifesto-title {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: var(--space-3);
+    }
+
+    /* Stacking Sticky CSS */
+    .stack-container {
+      padding-bottom: 20vh; /* Extra scroll space to fully view the final stack before profile */
+    }
+
+    .phil-item {
+      position: sticky;
+      margin-bottom: 90vh; /* Long scroll distance between items */
+      transition: color 0.6s ease;
+      background-color: var(--bg-color); /* Prevent overlap visibility issues */
+      padding-bottom: var(--space-4); /* Safe area */
+      z-index: 10;
+    }
+
+    /* Dim past items to build the visual stack */
+    .phil-item.is-past .main-line {
+      color: var(--text-tertiary);
+    }
+    
+    .phil-item.is-past .subtext {
+      opacity: 0.2;
+    }
+
+    /* Rhythmic Sizing */
+    .size-large .main-line {
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      transition: color 0.6s ease;
+      font-family: var(--font-display);
+    }
+    
+    .size-medium .main-line {
+      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      transition: color 0.6s ease;
+      font-family: var(--font-display);
+    }
+    
+    .size-massive .main-line {
+      font-size: clamp(3.5rem, 6vw, 5rem);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      transition: color 0.6s ease;
+      font-family: var(--font-display);
+    }
+
+    .subtext {
+      font-size: clamp(1.125rem, 2vw, 1.35rem);
+      font-weight: 300;
+      color: var(--text-secondary);
+      margin-top: var(--space-3);
+      max-width: 50ch;
+      transition: opacity 0.6s ease;
+      line-height: 1.6;
+    }
+    
+    /* Sticky Top Stops (Building the stack) */
+    .item-1 { top: 5vh; z-index: 1; }
+    .item-2 { top: 18vh; z-index: 2; }
+    .item-3 { top: 31vh; z-index: 3; }
+    .item-4 { top: 44vh; z-index: 4; }
+    .item-5 { top: 57vh; z-index: 5; }
+    .item-6 { top: 70vh; z-index: 6; margin-bottom: 20vh; }
+    
+    @media (max-width: 768px) {
+      .item-1 { top: 10vh; }
+      .item-2 { top: 22vh; }
+      .item-3 { top: 34vh; }
+      .item-4 { top: 46vh; }
+      .item-5 { top: 58vh; }
+      .item-6 { top: 72vh; }
+      .phil-item { margin-bottom: 110vh; }
+    }
+
+    /* Profile Section */
+    .profile-section {
+      max-width: 600px;
+      margin: var(--space-7) auto var(--space-7);
+      padding: 0 var(--space-4);
+      text-align: center;
+      position: relative;
+      z-index: 20;
+      background-color: var(--bg-color);
+    }
+
+    .profile-img-container {
+      margin-bottom: var(--space-5);
+    }
+
+    .profile-img {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      display: inline-block;
+    }
+
+    .profile-h3 {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: var(--space-3);
+    }
+
+    .profile-text {
+      font-size: clamp(1.125rem, 2vw, 1.25rem);
+      line-height: 1.6;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    /* Footer Back Link */
+    .footer-link-area {
+      text-align: center;
+      padding: var(--space-6) 0;
+      border-top: 1px solid var(--border-color);
+      margin-top: var(--space-5);
+      position: relative;
+      z-index: 20;
+      background-color: var(--bg-color);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">CP.</a>
+      <ul class="nav-links">
+        <li>
+          <a href="about.html" data-lang="en">Why I Design</a>
+          <a href="about.html" data-lang="pt">Por que Desenho</a>
+        </li>
+        <li>
+          <a href="philosophy.html" data-lang="en">What I Believe</a>
+          <a href="philosophy.html" data-lang="pt">No que Acredito</a>
+        </li>
+        <li>
+          <a href="cases.html" data-lang="en">Case Studies</a>
+          <a href="cases.html" data-lang="pt">Estudos de Caso</a>
+        </li>
+        <li>
+          <a href="how-i-think.html" class="active" data-lang="en">Behind the Work</a>
+          <a href="how-i-think.html" class="active" data-lang="pt">Por Trás do Trabalho</a>
+        </li>
+        <li><button id="lang-toggle" class="lang-toggle-btn">PT</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- Header -->
+    <section class="manifesto-intro reveal">
+      <div class="intro-label" data-lang="en">Behind the Work</div>
+      <div class="intro-label" data-lang="pt">Por Trás do Trabalho</div>
+      <h1 class="manifesto-title" data-lang="en">How I Think.</h1>
+      <h1 class="manifesto-title" data-lang="pt">Como Eu Penso.</h1>
+    </section>
+
+    <!-- Manifesto Content -->
+    <div class="stack-container">
+      
+      <div class="phil-item size-medium item-1">
+        <div class="main-line" data-lang="en">I believe good design creates clarity.</div>
+        <div class="main-line" data-lang="pt">Acredito que um bom design cria clareza.</div>
+        <div class="subtext" data-lang="en">Not by simplifying everything, but by helping people make confident decisions.</div>
+        <div class="subtext" data-lang="pt">Não simplificando tudo, mas ajudando as pessoas a tomarem decisões confiantes.</div>
+      </div>
+
+      <div class="phil-item size-medium item-2">
+        <div class="main-line" data-lang="en">I start with people, not interfaces.</div>
+        <div class="main-line" data-lang="pt">Eu começo pelas pessoas, não pelas interfaces.</div>
+        <div class="subtext" data-lang="en">Every project begins by understanding emotions, motivations, and the decisions people are trying to make.</div>
+        <div class="subtext" data-lang="pt">Cada projeto começa entendendo emoções, motivações e as decisões que as pessoas estão tentando tomar.</div>
+      </div>
+
+      <div class="phil-item size-medium item-3">
+        <div class="main-line" data-lang="en">Systems matter more than individual screens.</div>
+        <div class="main-line" data-lang="pt">Sistemas importam mais do que telas individuais.</div>
+        <div class="subtext" data-lang="en">A beautiful interface is valuable, but a coherent experience is what people remember.</div>
+        <div class="subtext" data-lang="pt">Uma interface bonita tem valor, mas uma experiência coerente é o que as pessoas lembram.</div>
+      </div>
+
+      <div class="phil-item size-medium item-4">
+        <div class="main-line" data-lang="en">AI should amplify creativity, not replace it.</div>
+        <div class="main-line" data-lang="pt">A IA deve amplificar a criatividade, não substituí-la.</div>
+        <div class="subtext" data-lang="en">The best AI experiences don't make decisions for people. They help people make better decisions.</div>
+        <div class="subtext" data-lang="pt">As melhores experiências com IA não tomam decisões pelas pessoas. Elas ajudam as pessoas a tomarem melhores decisões.</div>
+      </div>
+
+      <div class="phil-item size-medium item-5">
+        <div class="main-line" data-lang="en">Curiosity is my favorite design tool.</div>
+        <div class="main-line" data-lang="pt">A curiosidade é minha ferramenta de design favorita.</div>
+        <div class="subtext" data-lang="en">I enjoy exploring new technologies, experimenting with ideas, and asking better questions before searching for answers.</div>
+        <div class="subtext" data-lang="pt">Gosto de explorar novas tecnologias, experimentar ideias e fazer perguntas melhores antes de procurar por respostas.</div>
+      </div>
+
+      <div class="phil-item size-massive item-6">
+        <div class="main-line" data-lang="en">I love building things that become real.</div>
+        <div class="main-line" data-lang="pt">Eu amo construir coisas que se tornam reais.</div>
+        <div class="subtext" style="font-size: clamp(1.25rem, 2.5vw, 1.5rem);" data-lang="en">Whether it's a brand, an app, a coloring book, or an AI platform, I enjoy turning ideas into experiences people can actually use.</div>
+        <div class="subtext" style="font-size: clamp(1.25rem, 2.5vw, 1.5rem);" data-lang="pt">Seja uma marca, um aplicativo, um livro de colorir ou uma plataforma de IA, gosto de transformar ideias em experiências que as pessoas possam realmente usar.</div>
+      </div>
+
+    </div>
+
+    <!-- Profile Section -->
+    <section class="profile-section reveal">
+      <div style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-tertiary); margin-bottom: var(--space-4);" data-lang="en">Behind the work</div>
+      <div style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-tertiary); margin-bottom: var(--space-4);" data-lang="pt">Por trás do trabalho</div>
+      <div class="profile-img-container">
+        <img src="assets/images/Photo_perfil_cintia.ai-02.png" alt="Cintia Pettersen" class="profile-img">
+      </div>
+      <h3 class="profile-h3" data-lang="en">Hi, I'm Cintia.</h3>
+      <h3 class="profile-h3" data-lang="pt">Oi, sou a Cintia.</h3>
+      <p class="profile-text" data-lang="en">
+        I'm a Brazilian designer based in Norway, passionate about branding, product design, illustration, and AI-assisted experiences. I enjoy creating systems that help people navigate uncertainty with more clarity, confidence, and creativity.
+      </p>
+      <p class="profile-text" data-lang="pt">
+        Sou uma designer brasileira baseada na Noruega, apaixonada por branding, design de produto, ilustração e experiências guiadas por IA. Gosto de criar sistemas que ajudam as pessoas a navegarem pela incerteza com mais clareza, confiança e criatividade.
+      </p>
+    </section>
+
+    <!-- Footer Let's Connect -->
+    <div class="footer-link-area reveal">
+      <p style="font-size: clamp(1.5rem, 3vw, 2.5rem); font-family: var(--font-display); font-weight: 500; color: var(--text-primary); margin-bottom: var(--space-5); letter-spacing: -0.01em; max-width: 25ch; margin-left: auto; margin-right: auto; line-height: 1.2;" data-lang="en">
+        Let's create experiences that people genuinely enjoy using.
+      </p>
+      <p style="font-size: clamp(1.5rem, 3vw, 2.5rem); font-family: var(--font-display); font-weight: 500; color: var(--text-primary); margin-bottom: var(--space-5); letter-spacing: -0.01em; max-width: 25ch; margin-left: auto; margin-right: auto; line-height: 1.2;" data-lang="pt">
+        Vamos criar experiências que as pessoas genuinamente gostem de usar.
+      </p>
+      <a href="contact.html" class="btn btn-primary" style="font-size: 1.125rem; padding: 1rem 2.5rem; border-radius: 100px;" data-lang="en">Let's Connect →</a>
+      <a href="contact.html" class="btn btn-primary" style="font-size: 1.125rem; padding: 1rem 2.5rem; border-radius: 100px;" data-lang="pt">Vamos Conectar →</a>
+      
+      <div style="margin-top: var(--space-6); font-size: 0.75rem; color: var(--text-tertiary); letter-spacing: 0.05em;" data-lang="en">
+        Currently based in Norway &middot; Working globally
+      </div>
+      <div style="margin-top: var(--space-6); font-size: 0.75rem; color: var(--text-tertiary); letter-spacing: 0.05em;" data-lang="pt">
+        Atualmente na Noruega &middot; Trabalhando globalmente
+      </div>
+    </div>
+
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Specific logic for the stacking cinematic scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      const items = document.querySelectorAll('.phil-item');
+      
+      window.addEventListener('scroll', () => {
+        let stuckIndex = -1;
+        
+        items.forEach((item, index) => {
+          const rect = item.getBoundingClientRect();
+          const stickyTop = parseInt(window.getComputedStyle(item).top);
+          
+          if (rect.top <= stickyTop + 2) {
+            stuckIndex = index;
+          }
+        });
+
+        items.forEach((item, index) => {
+          if (index < stuckIndex) {
+            item.classList.add('is-past');
+          } else {
+            item.classList.remove('is-past');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

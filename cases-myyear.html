@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Year, My Story - Cintia Pettersen</title>
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    /* Dark Mode Aesthetic */
+    :root {
+      --myms-bg: #111216; /* Deep, calm dark tone */
+      --myms-text: #E2E8F0;
+      --myms-muted: #94A3B8;
+      --myms-border: #272A35;
+    }
+
+    body {
+      background-color: var(--myms-bg);
+      color: var(--myms-text);
+    }
+
+    /* Navbar override for Dark Mode */
+    .navbar { background-color: rgba(17, 18, 22, 0.8); }
+    .nav-logo, .nav-links a { color: var(--myms-text); }
+    .nav-links a:hover, .nav-links a.active { color: #FFFFFF; }
+    .lang-toggle-btn { color: var(--myms-text); border-color: var(--myms-text); }
+    .lang-toggle-btn:hover { background-color: var(--myms-text); color: var(--myms-bg); }
+
+    /* Hero Section */
+    .myms-hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: var(--space-7) var(--space-4) var(--space-5);
+    }
+
+    .myms-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--myms-muted);
+      margin-bottom: var(--space-4);
+      border: 1px solid var(--myms-border);
+      padding: 0.25rem 1rem;
+      border-radius: 100px;
+    }
+
+    .myms-title {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: var(--space-6);
+    }
+
+    /* Content Blocks */
+    .myms-section {
+      padding-top: var(--space-6);
+      padding-bottom: var(--space-6);
+    }
+
+    .myms-block {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .myms-heading {
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-family: var(--font-body);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin-bottom: var(--space-4);
+      color: #FFFFFF;
+    }
+
+    .myms-text {
+      font-size: clamp(1.125rem, 2vw, 1.35rem);
+      line-height: 1.7;
+      color: var(--myms-muted);
+      font-weight: 300;
+      margin-bottom: var(--space-4);
+    }
+
+    /* Image Layout */
+    .myms-showcase {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: var(--space-4);
+      padding-bottom: var(--space-6);
+    }
+
+    .myms-phone {
+      width: 100%;
+      max-width: 320px; /* Smaller phone size */
+      height: auto;
+      border-radius: 24px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--myms-border);
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+      background-color: var(--myms-border);
+    }
+    
+    .myms-phone:hover {
+      transform: translateY(-10px);
+    }
+
+    .myms-separator {
+      margin: var(--space-6) 0;
+      text-align: center;
+      max-width: 500px;
+    }
+
+    .myms-separator-text {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-family: var(--font-display);
+      font-style: italic;
+      color: #FFFFFF;
+      line-height: 1.4;
+    }
+
+    /* Video Section */
+    .myms-video-wrapper {
+      max-width: 400px; /* Constrain for mobile portrait videos */
+      margin: 0 auto;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+      border: 1px solid var(--myms-border);
+      background-color: var(--myms-border); /* Flash prevention */
+    }
+
+    .myms-video-wrapper video {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* External Link */
+    .external-link-container {
+      text-align: center;
+      margin-top: var(--space-7);
+      padding-bottom: var(--space-5);
+    }
+
+    .external-link {
+      display: inline-block;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #FFFFFF;
+      text-decoration: none;
+      border-bottom: 2px solid #FFFFFF;
+      padding-bottom: 4px;
+      transition: opacity 0.3s;
+    }
+
+    .external-link:hover {
+      opacity: 0.7;
+    }
+
+    /* Footer Back Link */
+    .myms-footer {
+      text-align: center;
+      padding: var(--space-6) 0;
+      border-top: 1px solid var(--myms-border);
+    }
+
+    .myms-back {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--myms-muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .myms-back:hover {
+      color: #FFFFFF;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">CP.</a>
+      <ul class="nav-links">
+        <li>
+          <a href="about.html" data-lang="en">Why I Design</a>
+          <a href="about.html" data-lang="pt">Por que Desenho</a>
+        </li>
+        <li>
+          <a href="philosophy.html" data-lang="en">What I Believe</a>
+          <a href="philosophy.html" data-lang="pt">No que Acredito</a>
+        </li>
+        <li>
+          <a href="cases.html" class="active" data-lang="en">Case Studies</a>
+          <a href="cases.html" class="active" data-lang="pt">Estudos de Caso</a>
+        </li>
+        <li>
+          <a href="how-i-think.html" data-lang="en">Behind the Work</a>
+          <a href="how-i-think.html" data-lang="pt">Por Trás do Trabalho</a>
+        </li>
+        <li><button id="lang-toggle" class="lang-toggle-btn">PT</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="myms-hero reveal">
+      <div class="myms-tag">Direction for self reflection.</div>
+      <h1 class="myms-title">My Year, My Story</h1>
+    </section>
+
+    <!-- Intro Quote -->
+    <section class="container reveal delay-1">
+      <div class="myms-separator" style="margin: 0 auto var(--space-6) auto;">
+        <p class="myms-separator-text">"Designed to help people understand themselves, one day at a time."</p>
+      </div>
+    </section>
+
+    <!-- The Challenge -->
+    <section class="container myms-section reveal delay-1">
+      <div class="myms-block">
+        <h2 class="myms-heading">The Challenge</h2>
+        <p class="myms-text">
+          Growing up involves constant emotional change, but young people are rarely given a calm and accessible space to understand what they are feeling, recognize their progress, and preserve the moments that shape them.
+        </p>
+      </div>
+    </section>
+
+    <!-- App Interface Showcase -->
+    <section class="container myms-showcase reveal">
+      <img src="assets/images/APP_my-year-my-story_print01-15-13.png" alt="MYMS Dashboard" class="myms-phone">
+      
+      <div class="myms-separator reveal delay-1">
+        <p class="myms-separator-text">"Every screen is another chapter in a story that's uniquely yours."</p>
+      </div>
+
+      <img src="assets/images/APP_my-year-my-story_print01-91-13-14-14-13.png" alt="MYMS Prompts" class="myms-phone reveal">
+    </section>
+
+    <!-- The Approach -->
+    <section class="container myms-section reveal">
+      <div class="myms-block">
+        <h2 class="myms-heading">The Approach</h2>
+        <p class="myms-text">
+          My Year, My Story was created as a guided digital journal where self-reflection feels natural rather than intimidating. Through mood tracking, daily prompts, monthly goals, gratitude pages, photographs, personal notes, and creative exercises, the app helps users explore their inner world one small moment at a time.
+        </p>
+        <p class="myms-text">
+          The experience was carefully designed to feel supportive and flexible, giving users enough direction to begin while preserving the freedom to express themselves in their own way.
+        </p>
+      </div>
+    </section>
+
+    <!-- Video Showcase (Promo) -->
+    <section class="container reveal">
+      <div class="myms-separator" style="margin: 0 auto var(--space-6) auto;">
+        <p class="myms-separator-text">"Guiding reflection through thoughtful interactions and meaningful experiences."</p>
+      </div>
+      
+      <div class="myms-video-wrapper">
+        <video autoplay loop muted playsinline poster="assets/images/Myms/0717(1)-Cover.jpg">
+          <source src="assets/images/Myms/0717(1).mov" type="video/mp4">
+        </video>
+      </div>
+    </section>
+
+    <!-- The Outcome -->
+    <section class="container myms-section reveal">
+      <div class="myms-separator" style="margin: 0 auto var(--space-6) auto;">
+        <p class="myms-separator-text">"Where everyday moments become lasting memories."</p>
+      </div>
+
+      <div class="myms-block">
+        <h2 class="myms-heading">The Outcome</h2>
+        <p class="myms-text">
+          Over time, individual entries become something larger: a visual record of emotions, memories, challenges, and personal growth. Each month works as a personal time capsule, helping users recognize patterns, celebrate progress, and understand how their story is changing.
+        </p>
+        <p class="myms-text">
+          My Year, My Story became an exploration of how digital design can encourage emotional awareness, self-expression, and meaningful reflection without pressure or judgment.
+        </p>
+      </div>
+      
+      <!-- External Link -->
+      <div class="external-link-container reveal delay-1">
+        <a href="#" class="external-link">→ Visit App Store</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="myms-footer reveal">
+      <a href="cases.html" class="myms-back">Return to Case Studies</a>
+    </footer>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

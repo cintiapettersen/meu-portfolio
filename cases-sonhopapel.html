@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sonho de Papel - Cintia Pettersen</title>
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    /* Atelier Aesthetic Variables */
+    :root {
+      --atelier-bg: #F8F7F4;
+      --atelier-text: #2A2A2A;
+      --atelier-accent: #D4A373;
+      --atelier-serif: "Playfair Display", "Georgia", serif;
+    }
+
+    body {
+      background-color: var(--atelier-bg);
+      color: var(--atelier-text);
+    }
+    
+    .navbar {
+      background-color: var(--atelier-bg);
+    }
+
+    .case-detail-header {
+      padding-top: var(--space-7);
+      padding-bottom: var(--space-7);
+      text-align: center;
+    }
+    
+    .case-detail-title {
+      font-size: clamp(3.5rem, 8vw, 6rem);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-4);
+      font-family: var(--atelier-serif);
+      font-style: italic;
+    }
+    
+    /* STORY THREAD - Atelier Layout */
+    .story-thread {
+      max-width: 800px;
+      margin: 0 auto;
+      padding-bottom: var(--space-7);
+    }
+    
+    .story-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--atelier-bg);
+      background-color: var(--atelier-text);
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-weight: 500;
+    }
+    
+    .story-p {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--atelier-text);
+      opacity: 0.8;
+    }
+    
+    .story-h2 {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 400;
+      color: var(--atelier-text);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+    
+    .story-h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1.1;
+      font-weight: 400;
+      color: var(--atelier-text);
+      letter-spacing: -0.02em;
+      font-family: var(--atelier-serif);
+      font-style: italic;
+    }
+
+    .quote-block {
+      text-align: center;
+      margin: var(--space-7) 0;
+      padding: var(--space-6) 0;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    /* Media Full Width Breakout */
+    .case-media-full {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: var(--space-5) var(--space-4);
+    }
+    
+    .case-media-full img {
+      width: 100%;
+      max-width: 1200px;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    }
+
+    /* Masonry/Atelier Gallery */
+    .atelier-gallery {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+      width: 100vw;
+      max-width: 1400px;
+      margin-left: calc(-50vw + 50%);
+      padding: 0 var(--space-4);
+      margin-bottom: var(--space-7);
+    }
+
+    .gallery-item {
+      background-color: #EFEFEF;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      min-height: 300px;
+      overflow: hidden;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-item.large { grid-column: span 8; min-height: 500px; }
+    .gallery-item.medium { grid-column: span 4; }
+    .gallery-item.tall { grid-column: span 4; grid-row: span 2; min-height: 600px; }
+    .gallery-item.wide { grid-column: span 8; }
+
+    @media (max-width: 768px) {
+      .atelier-gallery {
+        grid-template-columns: 1fr;
+      }
+      .gallery-item {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+        min-height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">CP.</a>
+      <ul class="nav-links">
+        <li>
+          <a href="about.html" data-lang="en">Why I Design</a>
+          <a href="about.html" data-lang="pt">Por que Desenho</a>
+        </li>
+        <li>
+          <a href="philosophy.html" data-lang="en">What I Believe</a>
+          <a href="philosophy.html" data-lang="pt">No que Acredito</a>
+        </li>
+        <li>
+          <a href="cases.html" class="active" data-lang="en">Case Studies</a>
+          <a href="cases.html" class="active" data-lang="pt">Estudos de Caso</a>
+        </li>
+        <li>
+          <a href="how-i-think.html" data-lang="en">Behind the Work</a>
+          <a href="how-i-think.html" data-lang="pt">Por Trás do Trabalho</a>
+        </li>
+        <li><button id="lang-toggle" class="lang-toggle-btn">PT</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <header class="container case-detail-header reveal">
+      <h1 class="case-detail-title">Sonho de Papel</h1>
+      
+      <p class="story-h2" style="max-width: 30ch; margin: 0 auto; color: var(--atelier-text); opacity: 0.8;" data-lang="en">A creative studio where imagination meets strategy.</p>
+      <p class="story-h2" style="max-width: 30ch; margin: 0 auto; color: var(--atelier-text); opacity: 0.8;" data-lang="pt">Um estúdio criativo onde a imaginação encontra a estratégia.</p>
+    </header>
+
+    <div class="container story-thread">
+      
+      <p class="story-p mb-80 reveal" style="text-align: center; max-width: 60ch; margin-left: auto; margin-right: auto;" data-lang="en">Sonho de Papel is my creative studio. It's where ideas are explored with more freedom, curiosity and personality. Every project starts with strategy, but has room to become something unexpected.</p>
+      <p class="story-p mb-80 reveal" style="text-align: center; max-width: 60ch; margin-left: auto; margin-right: auto;" data-lang="pt">Sonho de Papel é o meu estúdio criativo. É onde as ideias são exploradas com mais liberdade, curiosidade e personalidade. Todo projeto começa com estratégia, mas tem espaço para se tornar algo inesperado.</p>
+
+      <div class="quote-block reveal">
+        <p class="story-h1" data-lang="en" style="margin-bottom: var(--space-3);">Every brand has a story.</p>
+        <p class="story-h1" data-lang="pt" style="margin-bottom: var(--space-3);">Toda marca tem uma história.</p>
+        <p class="story-h2" data-lang="en" style="opacity: 0.7;">My job is to make it visible.</p>
+        <p class="story-h2" data-lang="pt" style="opacity: 0.7;">Meu trabalho é torná-la visível.</p>
+      </div>
+      
+      <!-- CAPÍTULO: THE PROBLEM -->
+      <div class="story-label mb-40 reveal" data-lang="en">The Problem</div>
+      <div class="story-label mb-40 reveal" data-lang="pt">O Problema</div>
+      
+      <p class="story-p mb-40 reveal" data-lang="en">Many businesses don't struggle because they lack a logo. They struggle because they look like everyone else.</p>
+      <p class="story-p mb-40 reveal" data-lang="pt">Muitos negócios não têm dificuldade porque lhes falta um logo. Eles têm dificuldade porque parecem com todos os outros.</p>
+      
+      <p class="story-h2 mb-160 reveal" style="letter-spacing: -0.01em;" data-lang="en">The real problem isn't "I need a brand."<br>It is: <span style="font-family: var(--atelier-serif); font-style: italic;">"I want my brand to have a soul."</span></p>
+      <p class="story-h2 mb-160 reveal" style="letter-spacing: -0.01em;" data-lang="pt">O problema real não é "preciso de uma marca."<br>É: <span style="font-family: var(--atelier-serif); font-style: italic;">"Quero que minha marca tenha alma."</span></p>
+
+      <!-- CAPÍTULO: THE INSIGHT -->
+      <div class="story-label mb-40 reveal" data-lang="en">The Insight</div>
+      <div class="story-label mb-40 reveal" data-lang="pt">O Insight</div>
+      
+      <p class="story-h1 mb-40 reveal" data-lang="en">People don't connect with polished brands.</p>
+      <p class="story-h1 mb-40 reveal" data-lang="pt">As pessoas não se conectam com marcas polidas.</p>
+      
+      <p class="story-p mb-160 reveal" data-lang="en">They connect with authentic ones.</p>
+      <p class="story-p mb-160 reveal" data-lang="pt">Elas se conectam com marcas autênticas.</p>
+
+      <!-- CAPÍTULO: THE SOLUTION -->
+      <div class="story-label mb-40 reveal" data-lang="en">The Solution</div>
+      <div class="story-label mb-40 reveal" data-lang="pt">A Solução</div>
+      
+      <p class="story-h2 mb-40 reveal" data-lang="en">I don't sell a format. I create the format the brand needs.</p>
+      <p class="story-h2 mb-40 reveal" data-lang="pt">Eu não vendo um formato. Eu crio o formato que a marca precisa.</p>
+      
+      <p class="story-p mb-80 reveal" data-lang="en">Patterns. Illustrations. Packaging. Book covers. Branding. Websites.</p>
+      <p class="story-p mb-80 reveal" data-lang="pt">Estampas. Ilustrações. Embalagens. Capas de livros. Branding. Sites.</p>
+
+      <!-- THE FORMATS COLLAGE -->
+      <div class="case-media-full mb-80 reveal" style="background-color: transparent;">
+        <img src="assets/images/sonho de papell.png" alt="Sonho de Papel Formats Gallery" style="max-width: 800px; box-shadow: none;">
+      </div>
+
+      <div class="quote-block reveal">
+        <p class="story-h1" data-lang="en" style="margin-bottom: var(--space-3);">Giving imagination a place to grow.</p>
+        <p class="story-h1" data-lang="pt" style="margin-bottom: var(--space-3);">Dando à imaginação um lugar para crescer.</p>
+        <p class="story-h2" data-lang="en" style="opacity: 0.7;">Where imagination finds direction.</p>
+        <p class="story-h2" data-lang="pt" style="opacity: 0.7;">Onde a imaginação encontra direção.</p>
+      </div>
+      
+      <!-- External Link -->
+      <div class="mt-80 mb-80 reveal" style="text-align: center;">
+        <a href="#" style="display: inline-block; font-size: 1.5rem; font-family: var(--atelier-serif); font-style: italic; color: var(--atelier-text); text-decoration: none; border-bottom: 2px solid var(--atelier-text); padding-bottom: 4px; transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1" data-lang="en">→ Visit Website</a>
+        <a href="#" style="display: inline-block; font-size: 1.5rem; font-family: var(--atelier-serif); font-style: italic; color: var(--atelier-text); text-decoration: none; border-bottom: 2px solid var(--atelier-text); padding-bottom: 4px; transition: opacity 0.3s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1" data-lang="pt">→ Visitar o Site</a>
+      </div>
+      
+      <!-- Back Button -->
+      <div class="mt-80" style="text-align: center;">
+        <a href="cases.html" class="btn btn-outline" data-lang="en">← Back to Case Studies</a>
+        <a href="cases.html" class="btn btn-outline" data-lang="pt">← Voltar aos Casos</a>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

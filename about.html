@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why I Design - Cintia Pettersen</title>
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    /* Base Body Transitions */
+    body {
+      transition: background-color 0.8s ease, color 0.8s ease;
+    }
+    
+    body.bg-gray {
+      background-color: #F4F4F4;
+    }
+    
+    body.bg-dark {
+      background-color: #111111;
+      color: #FFFFFF;
+    }
+
+    body.bg-dark .nav-logo,
+    body.bg-dark .nav-links a {
+      color: #FFFFFF;
+    }
+
+    /* Core Spacing for Sections */
+    .manifesto-section {
+      min-height: 40vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: var(--space-6);
+      padding-bottom: var(--space-6);
+    }
+
+    /* Act I: The Realization */
+    .intro-text {
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 300;
+      line-height: 1.2;
+      max-width: 20ch;
+    }
+
+    /* Act II: The Chaos */
+    .chaos-text {
+      font-size: clamp(1.5rem, 4vw, 3rem);
+      font-weight: 500;
+      max-width: 30ch;
+      line-height: 1.3;
+      margin-bottom: var(--space-6);
+    }
+    
+    .floating-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-5);
+    }
+    
+    .floating-item {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      border-top: 1px solid rgba(0,0,0,0.1);
+      padding-top: var(--space-2);
+    }
+
+    /* Act III: The System */
+    .system-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-5);
+      margin: var(--space-7) 0;
+    }
+
+    .system-col {
+      border-left: 1px solid var(--border-color);
+      padding-left: var(--space-4);
+    }
+
+    .system-text {
+      font-size: clamp(1.25rem, 2vw, 1.75rem);
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--text-secondary);
+    }
+    
+    .system-intro {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      max-width: 25ch;
+      line-height: 1.2;
+    }
+
+    /* Act IV: The Finale */
+    .finale-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-top: var(--space-7);
+    }
+
+    .giant-text {
+      font-size: clamp(3rem, 8vw, 7rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      font-weight: 400;
+      max-width: 15ch;
+      margin-bottom: var(--space-7);
+    }
+
+    /* Proof of Work Links */
+    .proof-links {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .proof-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 1.25rem;
+      transition: color var(--transition-fast), padding-left var(--transition-fast);
+    }
+
+    .proof-link:hover {
+      color: var(--text-tertiary);
+      padding-left: 10px;
+    }
+
+    .proof-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888888;
+    }
+
+    /* Mobile Adjustments */
+    @media (max-width: 768px) {
+      .manifesto-section {
+        min-height: auto;
+        padding-top: var(--space-4);
+        padding-bottom: var(--space-4);
+      }
+      .system-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+      }
+      .system-col {
+        border-left: none;
+        border-top: 1px solid var(--border-color);
+        padding-left: 0;
+        padding-top: var(--space-3);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">CP.</a>
+      <ul class="nav-links">
+        <li>
+          <a href="about.html" class="active" data-lang="en">Why I Design</a>
+          <a href="about.html" class="active" data-lang="pt">Por que Desenho</a>
+        </li>
+        <li>
+          <a href="philosophy.html" data-lang="en">What I Believe</a>
+          <a href="philosophy.html" data-lang="pt">No que Acredito</a>
+        </li>
+        <li>
+          <a href="cases.html" data-lang="en">Case Studies</a>
+          <a href="cases.html" data-lang="pt">Estudos de Caso</a>
+        </li>
+        <li>
+          <a href="how-i-think.html" data-lang="en">Behind the Work</a>
+          <a href="how-i-think.html" data-lang="pt">Por Trás do Trabalho</a>
+        </li>
+        <li><button id="lang-toggle" class="lang-toggle-btn">PT</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ACT I: The Realization -->
+    <section class="container manifesto-section" id="act-1">
+      <div class="intro-text reveal" data-lang="en">
+        I spent years designing brands.
+      </div>
+      <div class="intro-text reveal" data-lang="pt">
+        Passei anos desenhando marcas.
+      </div>
+      <div class="intro-text reveal delay-2" style="margin-top: var(--space-4); color: var(--text-secondary);" data-lang="en">
+        But eventually, I realized something.
+      </div>
+      <div class="intro-text reveal delay-2" style="margin-top: var(--space-4); color: var(--text-secondary);" data-lang="pt">
+        Mas, eventualmente, percebi algo.
+      </div>
+    </section>
+
+    <!-- ACT II: The Chaos -->
+    <section class="container manifesto-section" id="act-2" data-bg="bg-gray">
+      <div class="reveal">
+        <div class="chaos-text" data-lang="en">
+          People weren't struggling because they lacked creativity. They were struggling to see it clearly—overwhelmed by an endless sea of choices.
+        </div>
+        <div class="chaos-text" data-lang="pt">
+          As pessoas não estavam tendo dificuldades por falta de criatividade. Elas estavam tendo dificuldades para enxergar com clareza — sobrecarregadas por um mar infinito de escolhas.
+        </div>
+      </div>
+      
+      <div class="floating-list" data-lang="en">
+        <div class="floating-item reveal delay-1">The logo.</div>
+        <div class="floating-item reveal delay-2">The colors.</div>
+        <div class="floating-item reveal delay-3">The typography.</div>
+        <div class="floating-item reveal delay-4">The direction.</div>
+        <div class="floating-item reveal delay-5">The first step.</div>
+      </div>
+      <div class="floating-list" data-lang="pt">
+        <div class="floating-item reveal delay-1">O logotipo.</div>
+        <div class="floating-item reveal delay-2">As cores.</div>
+        <div class="floating-item reveal delay-3">A tipografia.</div>
+        <div class="floating-item reveal delay-4">A direção.</div>
+        <div class="floating-item reveal delay-5">O primeiro passo.</div>
+      </div>
+    </section>
+
+    <!-- ACT III: The System -->
+    <section class="container manifesto-section" id="act-3" data-bg="default">
+      <div class="system-intro reveal" data-lang="en">
+        Design wasn't simply about making things beautiful.<br>
+        <span style="color: var(--text-secondary);">It was about helping people move forward with confidence.</span>
+      </div>
+      <div class="system-intro reveal" data-lang="pt">
+        O design não era simplesmente sobre deixar as coisas bonitas.<br>
+        <span style="color: var(--text-secondary);">Era sobre ajudar as pessoas a avançarem com confiança.</span>
+      </div>
+      
+      <div class="system-intro reveal mt-80" data-lang="en">
+        That realization changed the way I approach every project.
+      </div>
+      <div class="system-intro reveal mt-80" data-lang="pt">
+        Essa percepção mudou a forma como abordo cada projeto.
+      </div>
+      
+      <div class="system-intro reveal mt-40" style="font-weight: 500;" data-lang="en">
+        Instead of just designing finished solutions, I began designing systems.
+      </div>
+      <div class="system-intro reveal mt-40" style="font-weight: 500;" data-lang="pt">
+        Em vez de apenas desenhar soluções prontas, comecei a desenhar sistemas.
+      </div>
+
+      <div class="system-grid">
+        <div class="system-col reveal delay-1">
+          <div class="system-text" data-lang="en">Systems that guide.</div>
+          <div class="system-text" data-lang="pt">Sistemas que guiam.</div>
+        </div>
+        <div class="system-col reveal delay-2">
+          <div class="system-text" data-lang="en">Systems that simplify.</div>
+          <div class="system-text" data-lang="pt">Sistemas que simplificam.</div>
+        </div>
+        <div class="system-col reveal delay-3">
+          <div class="system-text" data-lang="en">Systems that reduce uncertainty without taking creativity away.</div>
+          <div class="system-text" data-lang="pt">Sistemas que reduzem a incerteza sem tirar a criatividade.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACT IV: The Finale -->
+    <section class="manifesto-section finale-section" id="act-4" data-bg="bg-dark">
+      <div class="container reveal">
+        <div class="giant-text" data-lang="en">Helping people transform uncertainty into clarity.</div>
+        <div class="giant-text" data-lang="pt">Ajudando pessoas a transformar incerteza em clareza.</div>
+      </div>
+      
+      <div class="container reveal delay-1">
+        <div style="font-size: 1.25rem; font-weight: 300; max-width: 40ch; margin: 0 auto var(--space-6) auto; color: #AAAAAA; text-align: left;" data-lang="en">
+          Because, to me, good design isn't about decoration. It’s about making complex decisions feel intuitive. Today, whether I’m building an AI-assisted branding platform, creating a visual identity, designing a reflective journaling app, or developing an art collection, I am still solving the exact same problem.
+        </div>
+        <div style="font-size: 1.25rem; font-weight: 300; max-width: 40ch; margin: 0 auto var(--space-6) auto; color: #AAAAAA; text-align: left;" data-lang="pt">
+          Porque, para mim, um bom design não é sobre decoração. É sobre fazer com que decisões complexas pareçam intuitivas. Hoje, seja construindo uma plataforma de branding guiada por IA, criando uma identidade visual, desenhando um aplicativo de diário reflexivo ou desenvolvendo uma coleção de arte, continuo resolvendo exatamente o mesmo problema.
+        </div>
+        
+        <!-- PROOF OF WORK LINKS -->
+        <div class="proof-links">
+          <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #555555; margin-bottom: var(--space-3);" data-lang="en">Proof of Work</div>
+          <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #555555; margin-bottom: var(--space-3);" data-lang="pt">Provas de Trabalho</div>
+          
+          <a href="cases-brandbox.html" class="proof-link">
+            <span data-lang="en">AI-Assisted Branding</span>
+            <span data-lang="pt">Branding Assistido por IA</span>
+            <span class="proof-tag">The Brand Box</span>
+          </a>
+          
+          <a href="cases-sonhopapel.html" class="proof-link">
+            <span data-lang="en">Creative Studio</span>
+            <span data-lang="pt">Estúdio Criativo</span>
+            <span class="proof-tag">Sonho de Papel</span>
+          </a>
+          
+          <a href="cases-myyear.html" class="proof-link">
+            <span data-lang="en">Reflective Journaling</span>
+            <span data-lang="pt">Diário Reflexivo</span>
+            <span class="proof-tag">My Year My Story</span>
+          </a>
+          
+          <a href="cases-others.html" class="proof-link" style="border-bottom: none;">
+            <span data-lang="en">Art Collection</span>
+            <span data-lang="pt">Coleção de Arte</span>
+            <span class="proof-tag">Leve ao Mar</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Scroll Background Transition Logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('section[data-bg]');
+      
+      const checkBackground = () => {
+        let currentBg = '';
+        const scrollPosition = window.scrollY + (window.innerHeight / 2); // Check middle of screen
+        
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          const sectionTop = rect.top + window.scrollY;
+          const sectionBottom = sectionTop + rect.height;
+          
+          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            currentBg = section.getAttribute('data-bg');
+          }
+        });
+        
+        // Reset all classes
+        document.body.classList.remove('bg-gray', 'bg-dark');
+        
+        // Apply new class
+        if (currentBg && currentBg !== 'default') {
+          document.body.classList.add(currentBg);
+        }
+      };
+
+      window.addEventListener('scroll', checkBackground, { passive: true });
+      checkBackground(); // init
+    });
+  </script>
+</body>
+</html>

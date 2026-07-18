@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cintia Pettersen - Product & UX Designer</title>
+  <meta name="description" content="Portfolio of Cintia Pettersen, Product & UX Designer. Helping people move from uncertainty to clarity through thoughtful digital experiences.">
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    .cover-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      padding-bottom: 5rem;
+    }
+    
+    .cover-content {
+      position: relative;
+      z-index: 10;
+    }
+
+    .cover-title {
+      font-size: clamp(3rem, 8vw, 6rem);
+      margin-bottom: var(--space-2);
+      line-height: 1;
+    }
+
+    .cover-role {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-secondary);
+      font-weight: 600;
+      margin-bottom: var(--space-5);
+      padding: 0.6em 1.5em;
+      border: 1px solid var(--border-color);
+      border-radius: 100px;
+    }
+
+    .cover-quote {
+      font-family: var(--font-body);
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 300;
+      color: var(--text-primary);
+      max-width: 25ch;
+      line-height: 1.2;
+    }
+
+    .cover-subquote {
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
+      font-weight: 300;
+      color: var(--text-tertiary);
+      margin-top: var(--space-3);
+      max-width: 40ch;
+      line-height: 1.5;
+    }
+    
+    .slogan-container {
+      position: relative;
+      min-height: 180px;
+    }
+    
+    .quote-animated {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+    }
+    
+    .quote-1 {
+      opacity: 1;
+      transform: translateY(0);
+      color: var(--text-secondary); /* A bit softer for the question */
+    }
+    
+    .quote-1.fade-out {
+      opacity: 0;
+      transform: translateY(-10px);
+      pointer-events: none;
+    }
+    
+    .quote-2 {
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+    }
+    
+    .quote-2.fade-in {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    
+    .cover-footer {
+      position: absolute;
+      bottom: var(--space-5);
+      left: 0;
+      width: 100%;
+      z-index: 10;
+    }
+
+    .cover-footer .container {
+      display: flex;
+      justify-content: flex-start;
+      gap: var(--space-4);
+    }
+
+    .cover-footer a {
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    .cover-footer a:hover {
+      color: var(--text-primary);
+    }
+
+    .bg-flow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      opacity: 0.05;
+      pointer-events: none;
+      transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    
+    .bg-flow svg {
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
+    }
+    
+    .bg-flow path {
+      stroke-dasharray: 3000;
+      stroke-dashoffset: 3000;
+      animation: drawFlow 5s ease-out forwards;
+    }
+    
+    @keyframes drawFlow {
+      to { stroke-dashoffset: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Minimal Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">CP.</a>
+      <ul class="nav-links">
+        <li>
+          <a href="about.html" data-lang="en">Why I Design</a>
+          <a href="about.html" data-lang="pt">Por que Desenho</a>
+        </li>
+        <li>
+          <a href="philosophy.html" data-lang="en">What I Believe</a>
+          <a href="philosophy.html" data-lang="pt">No que Acredito</a>
+        </li>
+        <li>
+          <a href="cases.html" data-lang="en">Case Studies</a>
+          <a href="cases.html" data-lang="pt">Estudos de Caso</a>
+        </li>
+        <li>
+          <a href="how-i-think.html" data-lang="en">Behind the Work</a>
+          <a href="how-i-think.html" data-lang="pt">Por Trás do Trabalho</a>
+        </li>
+        <li><button id="lang-toggle" class="lang-toggle-btn">PT</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Background Flow Lines -->
+  <div class="bg-flow">
+    <svg viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#000000" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M-100,200 C150,200 300,400 500,300 C700,200 850,500 1100,400" />
+        <path d="M-100,500 C200,550 400,200 600,400 C800,600 900,300 1100,450" />
+        <path d="M100,800 C300,750 450,900 650,700 C850,500 950,800 1100,750" />
+        <path d="M300,-100 C400,150 200,300 500,600 C700,800 600,950 800,1100" />
+        <circle cx="500" cy="300" r="4" fill="#000000" />
+        <circle cx="600" cy="400" r="4" fill="#000000" />
+        <circle cx="650" cy="700" r="4" fill="#000000" />
+        <path d="M500,300 L600,400" stroke-dasharray="4 4" />
+      </g>
+    </svg>
+  </div>
+
+  <main class="cover-section">
+    <div class="container cover-content">
+      <div class="reveal">
+        <h1 class="cover-title">CINTIA PETTERSEN</h1>
+        <div class="cover-role" data-lang="en">PRODUCT &bull; UX &bull; BRAND SYSTEMS</div>
+        <div class="cover-role" data-lang="pt">PRODUTO &bull; UX &bull; SISTEMAS DE MARCA</div>
+      </div>
+      
+      <div class="slogan-container reveal delay-1">
+        <h2 class="cover-quote quote-animated quote-1" data-lang="en">What if design could make decisions easier?</h2>
+        <h2 class="cover-quote quote-animated quote-1" data-lang="pt">E se o design pudesse facilitar as decisões?</h2>
+        <div class="quote-animated quote-2">
+          <h2 class="cover-quote" data-lang="en">Designing systems that help people make better creative decisions.</h2>
+          <h2 class="cover-quote" data-lang="pt">Desenhando sistemas que ajudam pessoas a tomar melhores decisões criativas.</h2>
+          <p class="cover-subquote" data-lang="en">Across branding, digital products, and AI-assisted experiences.</p>
+          <p class="cover-subquote" data-lang="pt">Em branding, produtos digitais e experiências guiadas por IA.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-footer reveal delay-2">
+      <div class="container">
+        <a href="mailto:cintiapettersen@gmail.com">cintiapettersen@gmail.com</a>
+        <a href="https://www.linkedin.com/in/cintiapettersen/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="index.html" data-lang="en">Portfolio</a>
+        <a href="index.html" data-lang="pt">Portfólio</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
