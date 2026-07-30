@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Why I Design - Cintia Pettersen</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#111111">
   <link rel="stylesheet" href="css/index.css">
   <style>
     /* Base Body Transitions */
@@ -235,7 +239,8 @@
       aspect-ratio: 4 / 3;
     }
 
-    .work-block.reverse .work-img { order: -1; }
+    /* Alterna o lado da mídia: vale tanto pra .work-img direto quanto pra wrapper */
+    .work-block.reverse > *:last-child { order: -1; }
 
     /* Product Designer gallery */
     .gallery-grid {
@@ -259,7 +264,7 @@
         grid-template-columns: 1fr;
         gap: var(--space-4);
       }
-      .work-block.reverse .work-img { order: 0; }
+      .work-block.reverse > *:last-child { order: 0; }
       .gallery-grid {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -369,14 +374,16 @@
     <!-- Sonho de Papel: the precursor -->
     <section class="container work-block">
       <div>
-        <div class="work-tag" style="background-color: #94838F;" data-lang="en">Creative Studio &middot; Sonho de Papel</div>
-        <div class="work-tag" style="background-color: #94838F;" data-lang="pt">Estúdio Criativo &middot; Sonho de Papel</div>
+        <div class="work-tag" style="background-color: #C4A98A;" data-lang="en">Creative Studio &middot; Sonho de Papel</div>
+        <div class="work-tag" style="background-color: #C4A98A;" data-lang="pt">Estúdio Criativo &middot; Sonho de Papel</div>
         <p class="work-text" data-lang="en"><strong>Sonho de Papel: Brands with stories worth telling.</strong> Sonho de Papel is the independent studio I founded, which became my great laboratory for design, product, and business over the past decade. It's where I learned to decode client psychology, interpret complex briefs, and manage the entire product lifecycle — from strategic sourcing and SEO optimization to the final technical handoff. More than crafting visual identities with sensitivity, I transformed stories into consistent, scalable brand ecosystems focused on generating real business results.</p>
         <p class="work-text" data-lang="pt"><strong>Sonho de Papel: Brands with stories worth telling.</strong> A Sonho de Papel é o estúdio independente que fundei e que se tornou meu grande laboratório de design, produto e negócios ao longo da última década. Foi aqui que aprendi a decodificar a psicologia dos clientes, interpretar briefings complexos e gerenciar todo o ciclo de vida do produto — desde a captação estratégica e otimização de SEO até o handoff técnico final. Mais do que criar identidades visuais com sensibilidade, transformei histórias em ecossistemas de marca consistentes, escaláveis e focados em gerar resultados de negócios reais.</p>
         <a href="cases-sonhopapel.html" class="work-link" data-lang="en">See the case →</a>
         <a href="cases-sonhopapel.html" class="work-link" data-lang="pt">Ver o case →</a>
       </div>
-      <video src="assets/images/sonho de papel/sonho-de-papel-cover.mp4" class="work-img" style="aspect-ratio: 9/16; max-width: 340px; margin: 0 auto; display: block;" autoplay loop muted playsinline></video>
+      <div style="max-width: 340px; margin: 0 auto;">
+        <video src="assets/images/sonho de papel/sonho-de-papel-cover-gif.mp4" style="width: 100%; display: block; aspect-ratio: 320/494; mix-blend-mode: multiply;" autoplay loop muted playsinline></video>
+      </div>
     </section>
 
     <!-- Narrative: systems -->
@@ -392,12 +399,14 @@
       <div>
         <div class="work-tag" style="background-color: #BBC7D5;" data-lang="en">AI-Assisted Branding &middot; The Brand Box</div>
         <div class="work-tag" style="background-color: #BBC7D5;" data-lang="pt">Branding Assistido por IA &middot; The Brand Box</div>
-        <p class="work-text" data-lang="en"><strong>The Brand Box: From uncertainty to creative clarity.</strong> The Brand Box was born to solve a classic scaling challenge: turning years of proprietary methodology and a design database into an intelligent SaaS platform. Originally created to absorb high demand from specific niches (such as the medical field), the product automates brand creation by combining artificial intelligence with a system of pre-approved visual rules. The platform guides users through a structured back-end questionnaire to map their psychographic profile and dynamically generate complete identity systems — including palettes, typography, exclusive patterns, brand manifesto, and tone of voice — while also delivering final packaging and stationery files ready for production.</p>
-        <p class="work-text" data-lang="pt"><strong>The Brand Box: From uncertainty to creative clarity.</strong> O The Brand Box nasceu para resolver um desafio clássico de escala: transformar anos de metodologia proprietária e um banco de dados de design em uma plataforma SaaS inteligente. Criado inicialmente para absorver a alta demanda de nichos específicos (como a área médica), o produto automatiza a criação de marcas unindo Inteligência Artificial a um sistema de regras visuais pré-aprovadas. A plataforma guia o usuário por um fluxo de perguntas estruturado no back-end para mapear seu perfil psicográfico e gerar, dinamicamente, sistemas de identidade completos — incluindo paletas, tipografia, estampas exclusivas, manifesto de marca e tom de voz —, além de entregar os arquivos finais de embalagem e papelaria prontos para a produção.</p>
+        <p class="work-text" data-lang="en"><strong>The Brand Box: From uncertainty to creative clarity.</strong> The Brand Box was born to solve a classic scaling challenge: turning years of proprietary methodology and a design database into an intelligent SaaS platform. The product automates brand creation by combining artificial intelligence with a system of pre-approved visual rules. The platform guides users through a structured back-end questionnaire to map their psychographic profile and dynamically generate complete identity systems — including palettes, typography, exclusive patterns, brand manifesto, and tone of voice — while also delivering final packaging and stationery files ready for production.</p>
+        <p class="work-text" data-lang="pt"><strong>The Brand Box: From uncertainty to creative clarity.</strong> O The Brand Box nasceu para resolver um desafio clássico de escala: transformar anos de metodologia proprietária e um banco de dados de design em uma plataforma SaaS inteligente. O produto automatiza a criação de marcas unindo Inteligência Artificial a um sistema de regras visuais pré-aprovadas. A plataforma guia o usuário por um fluxo de perguntas estruturado no back-end para mapear seu perfil psicográfico e gerar, dinamicamente, sistemas de identidade completos — incluindo paletas, tipografia, estampas exclusivas, manifesto de marca e tom de voz —, além de entregar os arquivos finais de embalagem e papelaria prontos para a produção.</p>
         <a href="cases-brandbox.html" class="work-link" data-lang="en">See the case →</a>
         <a href="cases-brandbox.html" class="work-link" data-lang="pt">Ver o case →</a>
       </div>
-      <video src="assets/images/the brand box/brandbox-cover-cropped.mp4" class="work-img" style="aspect-ratio: 1080/1298;" autoplay loop muted playsinline></video>
+      <div style="max-width: 340px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.08);">
+        <video src="assets/images/the brand box/baby-boom-gERAL.mov" style="width: 100%; display: block; aspect-ratio: 1080/2044;" autoplay loop muted playsinline></video>
+      </div>
     </section>
 
     <!-- Narrative: bridge to My Year, My Story -->
