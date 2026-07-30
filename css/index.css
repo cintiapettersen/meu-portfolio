@@ -288,15 +288,21 @@ p {
 
 @media (max-width: 768px) {
   main {
-    padding-top: 160px; /* Offset for wrapped mobile navbar */
+    padding-top: 96px; /* Navbar cabe em uma linha só agora */
   }
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
-  .nav-container { flex-direction: column; gap: var(--space-3); }
-  .nav-links { 
-    display: flex; 
-    flex-wrap: wrap; 
-    justify-content: center; 
-    gap: var(--space-3); 
+  /* Uma linha: logo à esquerda, link + idioma à direita */
+  .nav-container {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-3);
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    gap: var(--space-3);
   }
   :root {
     --space-6: 4rem;
@@ -385,8 +391,22 @@ body.lang-pt [data-lang="en"] { display: none !important; }
 }
 
 @media (max-width: 768px) {
+  /* Discreto no canto: sem caixa, só o rótulo */
   .lang-toggle-btn {
     margin-left: 0;
-    margin-top: var(--space-3);
+    margin-top: 0;
+    padding: 0.2rem 0.1rem;
+    border-color: transparent;
+    background: transparent;
+    color: var(--text-tertiary);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    /* Área de toque confortável sem ocupar espaço visual */
+    min-width: 34px;
+    min-height: 34px;
+  }
+  .lang-toggle-btn:hover {
+    background: transparent;
+    color: var(--text-primary);
   }
 }

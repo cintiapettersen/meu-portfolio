@@ -104,22 +104,15 @@
       box-shadow: 0 20px 40px rgba(0,0,0,0.05);
     }
 
-    /* Vídeo do YouTube: mantém proporção 16:9 em qualquer largura */
-    .case-embed {
+    /* Vídeo institucional: só baixa quando a pessoa dá play */
+    .case-video {
       width: 100%;
       max-width: 1200px;
-      aspect-ratio: 16 / 9;
-      border-radius: 4px;
-      overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-      background-color: #000;
-    }
-
-    .case-embed iframe {
-      width: 100%;
-      height: 100%;
+      height: auto;
       display: block;
-      border: 0;
+      border-radius: 4px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+      background-color: #F8F8F8;
     }
 
     /* Image Placeholder Component */
@@ -254,14 +247,12 @@
       <p class="story-h2 mb-80 reveal" style="color: var(--text-primary); letter-spacing: -0.01em;" data-lang="pt">Empreendedores de repente tiveram acesso a milhares de ferramentas, estilos e referências. Em vez de se sentirem empoderados, muitos se sentiram sobrecarregados. A pergunta mais difícil não era mais: "Como eu crio?" Tornou-se: "Como sei qual direção seguir?"</p>
       
       <div class="case-media-full mb-160 reveal">
-        <div class="case-embed">
-          <iframe src="https://www.youtube-nocookie.com/embed/ZQetgyv3CkQ?rel=0&amp;modestbranding=1"
-                  title="The Brand Box"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen></iframe>
-        </div>
+        <video class="case-video"
+               src="assets/images/the brand box/the-brand-box-full.mp4"
+               poster="assets/images/the brand box/the-brand-box-full-poster.jpg"
+               preload="none"
+               controls
+               playsinline></video>
       </div>
 
       <!-- CAPÍTULO: THE INSIGHT -->
