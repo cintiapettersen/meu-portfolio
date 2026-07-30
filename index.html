@@ -33,12 +33,24 @@
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      color: var(--text-secondary);
+      color: #2A2A2A;
       font-weight: 600;
       margin-bottom: var(--space-5);
       padding: 0.6em 1.5em;
-      border: 1px solid var(--border-color);
+      border: 1px solid transparent;
       border-radius: 100px;
+      background-color: var(--bg-secondary);
+    }
+
+    /* Flip animation for rotating specialties */
+    .role-flip {
+      white-space: nowrap;
+      transition: opacity 0.35s ease, transform 0.35s ease, background-color 0.35s ease;
+    }
+
+    .role-flip.flipping {
+      opacity: 0;
+      transform: translateY(4px);
     }
 
     .cover-quote {
@@ -148,6 +160,7 @@
     @keyframes drawFlow {
       to { stroke-dashoffset: 0; }
     }
+
   </style>
 </head>
 <body>
@@ -162,16 +175,8 @@
           <a href="about.html" data-lang="pt">Por que Desenho</a>
         </li>
         <li>
-          <a href="philosophy.html" data-lang="en">What I Believe</a>
-          <a href="philosophy.html" data-lang="pt">No que Acredito</a>
-        </li>
-        <li>
           <a href="cases.html" data-lang="en">Case Studies</a>
           <a href="cases.html" data-lang="pt">Estudos de Caso</a>
-        </li>
-        <li>
-          <a href="how-i-think.html" data-lang="en">Behind the Work</a>
-          <a href="how-i-think.html" data-lang="pt">Por Trás do Trabalho</a>
         </li>
         <li><button id="lang-toggle" class="lang-toggle-btn">PT</button></li>
       </ul>
@@ -198,19 +203,24 @@
     <div class="container cover-content">
       <div class="reveal">
         <h1 class="cover-title">CINTIA PETTERSEN</h1>
-        <div class="cover-role" data-lang="en">PRODUCT &bull; UX &bull; BRAND SYSTEMS</div>
-        <div class="cover-role" data-lang="pt">PRODUTO &bull; UX &bull; SISTEMAS DE MARCA</div>
+        <div class="cover-role role-flip" data-lang="en">Creative Direction</div>
+        <div class="cover-role role-flip" data-lang="pt">Direção Criativa</div>
       </div>
       
       <div class="slogan-container reveal delay-1">
         <h2 class="cover-quote quote-animated quote-1" data-lang="en">What if design could make decisions easier?</h2>
         <h2 class="cover-quote quote-animated quote-1" data-lang="pt">E se o design pudesse facilitar as decisões?</h2>
         <div class="quote-animated quote-2">
-          <h2 class="cover-quote" data-lang="en">Designing systems that help people make better creative decisions.</h2>
-          <h2 class="cover-quote" data-lang="pt">Desenhando sistemas que ajudam pessoas a tomar melhores decisões criativas.</h2>
-          <p class="cover-subquote" data-lang="en">Across branding, digital products, and AI-assisted experiences.</p>
-          <p class="cover-subquote" data-lang="pt">Em branding, produtos digitais e experiências guiadas por IA.</p>
+          <h2 class="cover-quote" data-lang="en">Visual designer and creative director.</h2>
+          <h2 class="cover-quote" data-lang="pt">Designer visual e diretora criativa.</h2>
+          <p class="cover-subquote" data-lang="en">I turn ideas into brands, visual identities, and creative projects with clarity, intention, and personality.</p>
+          <p class="cover-subquote" data-lang="pt">Transformo ideias em marcas, identidades visuais e projetos criativos com clareza, intenção e personalidade.</p>
         </div>
+      </div>
+
+      <div class="reveal delay-2" style="margin-top: var(--space-6);">
+        <a href="about.html" class="btn btn-primary" data-lang="en">Explore →</a>
+        <a href="about.html" class="btn btn-primary" data-lang="pt">Explorar →</a>
       </div>
     </div>
 
@@ -225,5 +235,53 @@
   </main>
 
   <script src="js/main.js"></script>
+  <script>
+    // Flip animation cycling through specialties under the name
+    document.addEventListener('DOMContentLoaded', () => {
+      const roleEN = [
+        'Creative Direction',
+        'Product • UX • Brand Systems',
+        'Brand Identity Systems',
+        'AI-Assisted Creative Workflows'
+      ];
+      const rolePT = [
+        'Direção Criativa',
+        'Produto • UX • Sistemas de Marca',
+        'Sistemas de Identidade de Marca',
+        'Fluxos Criativos Guiados por IA'
+      ];
+      // Brand palette — one color per specialty, same order as the arrays above
+      const roleColors = ['#94838F', '#BBC7D5', '#BFA68E', '#858E7E'];
+
+      const elEN = document.querySelector('.role-flip[data-lang="en"]');
+      const elPT = document.querySelector('.role-flip[data-lang="pt"]');
+      if (!elEN || !elPT) return;
+
+      const applyColor = (el, color) => {
+        el.style.backgroundColor = color;
+      };
+
+      let roleIndex = 0;
+      applyColor(elEN, roleColors[0]);
+      applyColor(elPT, roleColors[0]);
+
+      const cycleRole = () => {
+        elEN.classList.add('flipping');
+        elPT.classList.add('flipping');
+
+        setTimeout(() => {
+          roleIndex = (roleIndex + 1) % roleEN.length;
+          elEN.textContent = roleEN[roleIndex];
+          elPT.textContent = rolePT[roleIndex];
+          applyColor(elEN, roleColors[roleIndex]);
+          applyColor(elPT, roleColors[roleIndex]);
+          elEN.classList.remove('flipping');
+          elPT.classList.remove('flipping');
+        }, 350);
+      };
+
+      setInterval(cycleRole, 3000);
+    });
+  </script>
 </body>
 </html>

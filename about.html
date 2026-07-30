@@ -10,11 +10,11 @@
     body {
       transition: background-color 0.8s ease, color 0.8s ease;
     }
-    
+
     body.bg-gray {
       background-color: #F4F4F4;
     }
-    
+
     body.bg-dark {
       background-color: #111111;
       color: #FFFFFF;
@@ -23,6 +23,58 @@
     body.bg-dark .nav-logo,
     body.bg-dark .nav-links a {
       color: #FFFFFF;
+    }
+
+    /* Identity anchor at the top of the page */
+    .mini-identity-name {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-4);
+    }
+
+    .mini-identity-role {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #2A2A2A;
+      font-weight: 600;
+      padding: 0.6em 1.5em;
+      border: 1px solid transparent;
+      border-radius: 100px;
+      background-color: var(--bg-secondary);
+    }
+
+    .role-flip {
+      white-space: nowrap;
+      transition: opacity 0.35s ease, transform 0.35s ease, background-color 0.35s ease;
+    }
+
+    .role-flip.flipping {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+
+    .opening-bio {
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      color: var(--text-secondary);
+      font-weight: 300;
+      max-width: 55ch;
+      margin: var(--space-4) auto 0;
+      line-height: 1.6;
+    }
+
+    /* Section label (small eyebrow, reused before the beliefs stack) */
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-tertiary);
+      margin-bottom: var(--space-4);
     }
 
     /* Core Spacing for Sections */
@@ -35,73 +87,56 @@
       padding-bottom: var(--space-6);
     }
 
-    /* Act I: The Realization */
-    .intro-text {
-      font-size: clamp(2rem, 5vw, 4rem);
-      font-weight: 300;
-      line-height: 1.2;
-      max-width: 20ch;
+    /* Opening identity header */
+    .opening-header {
+      padding-top: var(--space-6);
+      padding-bottom: var(--space-4);
+      text-align: center;
     }
 
-    /* Act II: The Chaos */
-    .chaos-text {
-      font-size: clamp(1.5rem, 4vw, 3rem);
-      font-weight: 500;
-      max-width: 30ch;
-      line-height: 1.3;
-      margin-bottom: var(--space-6);
-    }
-    
-    .floating-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--space-4);
-      margin-top: var(--space-5);
-    }
-    
-    .floating-item {
-      font-size: 1.25rem;
-      color: var(--text-secondary);
-      border-top: 1px solid rgba(0,0,0,0.1);
-      padding-top: var(--space-2);
+    /* Narrative card: the ONE standard style for connective text between cases */
+    .narrative-card {
+      max-width: 620px;
+      margin: var(--space-6) auto;
+      padding-left: 2.5rem;
+      position: relative;
     }
 
-    /* Act III: The System */
-    .system-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-5);
-      margin: var(--space-7) 0;
+    .narrative-card::before {
+      content: '\201D';
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 4.5rem;
+      line-height: 1;
+      color: var(--text-tertiary);
+      position: absolute;
+      left: -0.75rem;
+      top: -1.75rem;
     }
 
-    .system-col {
-      border-left: 1px solid var(--border-color);
-      padding-left: var(--space-4);
-    }
-
-    .system-text {
-      font-size: clamp(1.25rem, 2vw, 1.75rem);
-      font-weight: 400;
+    .narrative-card p {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      font-weight: 700;
       line-height: 1.4;
-      color: var(--text-secondary);
-    }
-    
-    .system-intro {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 300;
-      max-width: 25ch;
-      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      max-width: none;
     }
 
-    /* Act IV: The Finale */
+    .narrative-card p + p {
+      margin-top: var(--space-3);
+    }
+
+    /* Act V: The Finale */
     .finale-section {
-      min-height: 100vh;
+      min-height: 70vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding-top: var(--space-7);
+      padding: var(--space-6) 0;
     }
 
     .giant-text {
@@ -148,6 +183,138 @@
       color: #888888;
     }
 
+    /* Work blocks: text + image pairs, each tied to a case */
+    .work-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      align-items: center;
+      padding: var(--space-6) 0;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .work-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #2A2A2A;
+      background-color: var(--bg-secondary);
+      padding: 0.4em 1em;
+      border-radius: 100px;
+      margin-bottom: var(--space-3);
+    }
+
+    .work-text {
+      font-size: clamp(1rem, 1.8vw, 1.35rem);
+      font-weight: 300;
+      line-height: 1.45;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-4);
+    }
+
+    .work-text strong {
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .work-link {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-decoration: none;
+      border-bottom: 1px solid var(--text-primary);
+      padding-bottom: 2px;
+    }
+
+    .work-img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+    }
+
+    .work-block.reverse .work-img { order: -1; }
+
+    /* Product Designer gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--space-3);
+      margin-top: var(--space-5);
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      aspect-ratio: 1 / 1;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    @media (max-width: 768px) {
+      .work-block {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+      }
+      .work-block.reverse .work-img { order: 0; }
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Profile Section */
+    .profile-section {
+      max-width: 600px;
+      margin: var(--space-7) auto var(--space-7);
+      padding: 0 var(--space-4);
+      text-align: center;
+      position: relative;
+      z-index: 20;
+      background-color: var(--bg-color);
+    }
+
+    .profile-img-container {
+      margin-bottom: var(--space-5);
+    }
+
+    .profile-img {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      display: inline-block;
+    }
+
+    .profile-h3 {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: var(--space-3);
+    }
+
+    .profile-text {
+      font-size: clamp(1.125rem, 2vw, 1.25rem);
+      line-height: 1.6;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    /* Footer Connect */
+    .footer-link-area {
+      text-align: center;
+      padding: var(--space-6) 0;
+      border-top: 1px solid var(--border-color);
+      margin-top: var(--space-5);
+      position: relative;
+      z-index: 20;
+      background-color: var(--bg-color);
+    }
+
     /* Mobile Adjustments */
     @media (max-width: 768px) {
       .manifesto-section {
@@ -179,16 +346,8 @@
           <a href="about.html" class="active" data-lang="pt">Por que Desenho</a>
         </li>
         <li>
-          <a href="philosophy.html" data-lang="en">What I Believe</a>
-          <a href="philosophy.html" data-lang="pt">No que Acredito</a>
-        </li>
-        <li>
           <a href="cases.html" data-lang="en">Case Studies</a>
           <a href="cases.html" data-lang="pt">Estudos de Caso</a>
-        </li>
-        <li>
-          <a href="how-i-think.html" data-lang="en">Behind the Work</a>
-          <a href="how-i-think.html" data-lang="pt">Por Trás do Trabalho</a>
         </li>
         <li><button id="lang-toggle" class="lang-toggle-btn">PT</button></li>
       </ul>
@@ -196,169 +355,252 @@
   </nav>
 
   <main>
-    <!-- ACT I: The Realization -->
-    <section class="container manifesto-section" id="act-1">
-      <div class="intro-text reveal" data-lang="en">
-        I spent years designing brands.
-      </div>
-      <div class="intro-text reveal" data-lang="pt">
-        Passei anos desenhando marcas.
-      </div>
-      <div class="intro-text reveal delay-2" style="margin-top: var(--space-4); color: var(--text-secondary);" data-lang="en">
-        But eventually, I realized something.
-      </div>
-      <div class="intro-text reveal delay-2" style="margin-top: var(--space-4); color: var(--text-secondary);" data-lang="pt">
-        Mas, eventualmente, percebi algo.
-      </div>
-    </section>
-
-    <!-- ACT II: The Chaos -->
-    <section class="container manifesto-section" id="act-2" data-bg="bg-gray">
+    <!-- Opening identity -->
+    <section class="container opening-header">
       <div class="reveal">
-        <div class="chaos-text" data-lang="en">
-          People weren't struggling because they lacked creativity. They were struggling to see it clearly—overwhelmed by an endless sea of choices.
-        </div>
-        <div class="chaos-text" data-lang="pt">
-          As pessoas não estavam tendo dificuldades por falta de criatividade. Elas estavam tendo dificuldades para enxergar com clareza — sobrecarregadas por um mar infinito de escolhas.
-        </div>
-      </div>
-      
-      <div class="floating-list" data-lang="en">
-        <div class="floating-item reveal delay-1">The logo.</div>
-        <div class="floating-item reveal delay-2">The colors.</div>
-        <div class="floating-item reveal delay-3">The typography.</div>
-        <div class="floating-item reveal delay-4">The direction.</div>
-        <div class="floating-item reveal delay-5">The first step.</div>
-      </div>
-      <div class="floating-list" data-lang="pt">
-        <div class="floating-item reveal delay-1">O logotipo.</div>
-        <div class="floating-item reveal delay-2">As cores.</div>
-        <div class="floating-item reveal delay-3">A tipografia.</div>
-        <div class="floating-item reveal delay-4">A direção.</div>
-        <div class="floating-item reveal delay-5">O primeiro passo.</div>
+        <div class="mini-identity-name">Cintia Pettersen</div>
+        <span class="mini-identity-role role-flip" data-lang="en">Product &bull; UX &bull; Brand Systems</span>
+        <span class="mini-identity-role role-flip" data-lang="pt">Produto &bull; UX &bull; Sistemas de Marca</span>
+        <p class="opening-bio" data-lang="en">For over ten years, I've developed visual identities, brand systems, and creative projects, connecting strategy, image, and narrative. My work spans from creating brands and collections to developing experiences and original products.</p>
+        <p class="opening-bio" data-lang="pt">Há mais de dez anos, desenvolvo identidades visuais, sistemas de marca e projetos criativos, conectando estratégia, imagem e narrativa. Meu trabalho vai da criação de marcas e coleções ao desenvolvimento de experiências e produtos autorais.</p>
       </div>
     </section>
 
-    <!-- ACT III: The System -->
-    <section class="container manifesto-section" id="act-3" data-bg="default">
-      <div class="system-intro reveal" data-lang="en">
-        Design wasn't simply about making things beautiful.<br>
-        <span style="color: var(--text-secondary);">It was about helping people move forward with confidence.</span>
+    <!-- Sonho de Papel: the precursor -->
+    <section class="container work-block">
+      <div>
+        <div class="work-tag" style="background-color: #94838F;" data-lang="en">Creative Studio &middot; Sonho de Papel</div>
+        <div class="work-tag" style="background-color: #94838F;" data-lang="pt">Estúdio Criativo &middot; Sonho de Papel</div>
+        <p class="work-text" data-lang="en"><strong>Sonho de Papel: Brands with stories worth telling.</strong> Sonho de Papel is the independent studio I founded, which became my great laboratory for design, product, and business over the past decade. It's where I learned to decode client psychology, interpret complex briefs, and manage the entire product lifecycle — from strategic sourcing and SEO optimization to the final technical handoff. More than crafting visual identities with sensitivity, I transformed stories into consistent, scalable brand ecosystems focused on generating real business results.</p>
+        <p class="work-text" data-lang="pt"><strong>Sonho de Papel: Brands with stories worth telling.</strong> A Sonho de Papel é o estúdio independente que fundei e que se tornou meu grande laboratório de design, produto e negócios ao longo da última década. Foi aqui que aprendi a decodificar a psicologia dos clientes, interpretar briefings complexos e gerenciar todo o ciclo de vida do produto — desde a captação estratégica e otimização de SEO até o handoff técnico final. Mais do que criar identidades visuais com sensibilidade, transformei histórias em ecossistemas de marca consistentes, escaláveis e focados em gerar resultados de negócios reais.</p>
+        <a href="cases-sonhopapel.html" class="work-link" data-lang="en">See the case →</a>
+        <a href="cases-sonhopapel.html" class="work-link" data-lang="pt">Ver o case →</a>
       </div>
-      <div class="system-intro reveal" data-lang="pt">
-        O design não era simplesmente sobre deixar as coisas bonitas.<br>
-        <span style="color: var(--text-secondary);">Era sobre ajudar as pessoas a avançarem com confiança.</span>
-      </div>
-      
-      <div class="system-intro reveal mt-80" data-lang="en">
-        That realization changed the way I approach every project.
-      </div>
-      <div class="system-intro reveal mt-80" data-lang="pt">
-        Essa percepção mudou a forma como abordo cada projeto.
-      </div>
-      
-      <div class="system-intro reveal mt-40" style="font-weight: 500;" data-lang="en">
-        Instead of just designing finished solutions, I began designing systems.
-      </div>
-      <div class="system-intro reveal mt-40" style="font-weight: 500;" data-lang="pt">
-        Em vez de apenas desenhar soluções prontas, comecei a desenhar sistemas.
-      </div>
+      <video src="assets/images/sonho de papel/sonho-de-papel-cover.mp4" class="work-img" style="aspect-ratio: 9/16; max-width: 340px; margin: 0 auto; display: block;" autoplay loop muted playsinline></video>
+    </section>
 
-      <div class="system-grid">
-        <div class="system-col reveal delay-1">
-          <div class="system-text" data-lang="en">Systems that guide.</div>
-          <div class="system-text" data-lang="pt">Sistemas que guiam.</div>
-        </div>
-        <div class="system-col reveal delay-2">
-          <div class="system-text" data-lang="en">Systems that simplify.</div>
-          <div class="system-text" data-lang="pt">Sistemas que simplificam.</div>
-        </div>
-        <div class="system-col reveal delay-3">
-          <div class="system-text" data-lang="en">Systems that reduce uncertainty without taking creativity away.</div>
-          <div class="system-text" data-lang="pt">Sistemas que reduzem a incerteza sem tirar a criatividade.</div>
-        </div>
+    <!-- Narrative: systems -->
+    <section class="container">
+      <div class="narrative-card reveal">
+        <p data-lang="en">The role of design has changed. We've stopped designing static answers and started designing intelligent systems, capable of evolving alongside the people who use them.</p>
+        <p data-lang="pt">O papel do design mudou. Deixamos de projetar respostas estáticas para começar a desenhar sistemas inteligentes, capazes de evoluir junto com as pessoas que os utilizam.</p>
       </div>
     </section>
 
-    <!-- ACT IV: The Finale -->
-    <section class="manifesto-section finale-section" id="act-4" data-bg="bg-dark">
+    <!-- The Brand Box -->
+    <section class="container work-block reverse">
+      <div>
+        <div class="work-tag" style="background-color: #BBC7D5;" data-lang="en">AI-Assisted Branding &middot; The Brand Box</div>
+        <div class="work-tag" style="background-color: #BBC7D5;" data-lang="pt">Branding Assistido por IA &middot; The Brand Box</div>
+        <p class="work-text" data-lang="en"><strong>The Brand Box: From uncertainty to creative clarity.</strong> The Brand Box was born to solve a classic scaling challenge: turning years of proprietary methodology and a design database into an intelligent SaaS platform. Originally created to absorb high demand from specific niches (such as the medical field), the product automates brand creation by combining artificial intelligence with a system of pre-approved visual rules. The platform guides users through a structured back-end questionnaire to map their psychographic profile and dynamically generate complete identity systems — including palettes, typography, exclusive patterns, brand manifesto, and tone of voice — while also delivering final packaging and stationery files ready for production.</p>
+        <p class="work-text" data-lang="pt"><strong>The Brand Box: From uncertainty to creative clarity.</strong> O The Brand Box nasceu para resolver um desafio clássico de escala: transformar anos de metodologia proprietária e um banco de dados de design em uma plataforma SaaS inteligente. Criado inicialmente para absorver a alta demanda de nichos específicos (como a área médica), o produto automatiza a criação de marcas unindo Inteligência Artificial a um sistema de regras visuais pré-aprovadas. A plataforma guia o usuário por um fluxo de perguntas estruturado no back-end para mapear seu perfil psicográfico e gerar, dinamicamente, sistemas de identidade completos — incluindo paletas, tipografia, estampas exclusivas, manifesto de marca e tom de voz —, além de entregar os arquivos finais de embalagem e papelaria prontos para a produção.</p>
+        <a href="cases-brandbox.html" class="work-link" data-lang="en">See the case →</a>
+        <a href="cases-brandbox.html" class="work-link" data-lang="pt">Ver o case →</a>
+      </div>
+      <video src="assets/images/the brand box/brandbox-cover-cropped.mp4" class="work-img" style="aspect-ratio: 1080/1298;" autoplay loop muted playsinline></video>
+    </section>
+
+    <!-- Narrative: bridge to My Year, My Story -->
+    <section class="container">
+      <div class="narrative-card reveal">
+        <p data-lang="en">Efficient interfaces are the ones that respect the time and cognitive load of the person on the other side of the screen. Good design is the kind that feels invisible.</p>
+        <p data-lang="pt">Interfaces eficientes são aquelas que respeitam o tempo e a carga cognitiva de quem está do outro lado da tela. Bom design é aquele que parece invisível.</p>
+      </div>
+    </section>
+
+    <!-- My Year, My Story -->
+    <section class="container work-block">
+      <div>
+        <div class="work-tag" style="background-color: #F2E0D1;" data-lang="en">Reflective Journaling &middot; My Year, My Story</div>
+        <div class="work-tag" style="background-color: #F2E0D1;" data-lang="pt">Diário Reflexivo &middot; My Year, My Story</div>
+        <p class="work-text" data-lang="en"><strong>My Year, My Story: Helping people notice who they're becoming, one moment at a time.</strong> My Year, My Story marked my first hands-on immersion in programming and product intelligence, born from the challenge of adapting a published interactive physical book into the mobile environment. The project evolved from a playful dynamic into a mature memory keeper: a reflective diary structured chronologically by month and year. The platform encourages presence and future planning through guided prompts, using a back-end AI system that analyzes the user's writing patterns to automatically generate deep summaries and organize their memories into life chapters.</p>
+        <p class="work-text" data-lang="pt"><strong>My Year, My Story: Helping people notice who they're becoming, one moment at a time.</strong> O My Year, My Story marcou minha primeira imersão prática em programação e inteligência de produto, nascendo do desafio de transpor um livro interativo físico publicado para o ambiente mobile. O projeto evoluiu de uma dinâmica lúdica para um guardião de memórias maduro: um diário reflexivo estruturado de forma cronológica por meses e anos. A plataforma incentiva o exercício de presença e o planejamento do futuro por meio de perguntas direcionadas, utilizando um sistema de Inteligência Artificial no back-end que analisa os padrões de escrita do usuário para gerar automaticamente resumos profundos e organizar suas memórias em capítulos de vida.</p>
+        <a href="cases-myyear.html" class="work-link" data-lang="en">See the case →</a>
+        <a href="cases-myyear.html" class="work-link" data-lang="pt">Ver o case →</a>
+      </div>
+      <div style="max-width: 300px; margin: 0 auto; border-radius: 28px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.08);">
+        <video src="assets/images/Myms/myms-calendar-vertical-cropped.mp4" style="width: 100%; display: block; aspect-ratio: 592/1280; object-fit: cover;" autoplay loop muted playsinline></video>
+      </div>
+    </section>
+
+    <!-- Narrative: bridge to Leve ao Mar -->
+    <section class="container">
+      <div class="narrative-card reveal">
+        <p data-lang="en">Technical structure brings function, but it's visual consistency that builds connection. Design happens at the exact point where logic and sensitivity meet.</p>
+        <p data-lang="pt">A estrutura técnica traz a função, mas é a consistência visual que constrói a conexão. O design acontece no ponto exato onde a lógica e a sensibilidade se encontram.</p>
+      </div>
+    </section>
+
+    <!-- Leve ao Mar -->
+    <section class="container work-block reverse">
+      <div>
+        <div class="work-tag" style="background-color: #DEE9E5;" data-lang="en">Art Collection &middot; Leve ao Mar</div>
+        <div class="work-tag" style="background-color: #DEE9E5;" data-lang="pt">Coleção de Arte &middot; Leve ao Mar</div>
+        <p class="work-text" data-lang="en"><strong>Leve ao Mar: Turning imagination into tangible experiences.</strong> Leve ao Mar represents the fullest expression of my authorial signature, combining the freedom of digital illustration with the engineering of a product built for the physical world. Inspired by the visual energy, culture, and landscapes of my hometown, Rio de Janeiro, I developed the entire creative direction and the brand's modular pattern language. Beyond the aesthetics, the project operates as an automated, scalable e-commerce: I structured the platform on WooCommerce, implemented a dense SEO strategy for organic acquisition, and integrated an external API to automate the full print-on-demand production and shipping flow straight to the end customer.</p>
+        <p class="work-text" data-lang="pt"><strong>Leve ao Mar: Turning imagination into tangible experiences.</strong> O Leve ao Mar representa a expressão máxima da minha assinatura autoral, unindo a liberdade da ilustração digital à engenharia de um produto focado no mundo físico. Inspirada pela energia visual, cultura e paisagens da minha cidade natal, o Rio de Janeiro, desenvolvi toda a direção criativa e a linguagem de padrões modulares da marca. Para além da estética, o projeto opera como um e-commerce automatizado e escalável: estruturei a plataforma em WooCommerce, implementei uma estratégia densa de SEO para aquisição orgânica e integrei uma API externa para automatizar o fluxo completo de produção e envio sob demanda (print-on-demand) direto para o cliente final.</p>
+        <a href="cases-leve.html" class="work-link" data-lang="en">See the case →</a>
+        <a href="cases-leve.html" class="work-link" data-lang="pt">Ver o case →</a>
+      </div>
+      <img src="assets/images/leve ao mar.png" alt="Leve ao Mar" class="work-img">
+    </section>
+
+    <!-- Narrative: bridge to Product Designer -->
+    <section class="container">
+      <div class="narrative-card reveal">
+        <p data-lang="en">Designing products is about finding order in chaos. It's turning complex flows into journeys that feel obvious, natural, and fluid.</p>
+        <p data-lang="pt">Projetar produtos é encontrar ordem no caos. É transformar fluxos complexos em jornadas que parecem óbvias, naturais e fluidas.</p>
+      </div>
+    </section>
+
+    <!-- Product Designer gallery -->
+    <section class="container" id="act-work" style="padding: var(--space-6) 0; background-color: var(--bg-color); position: relative; z-index: 5;">
+      <div class="work-tag" style="background-color: #EEEAE2;" data-lang="en">Product Designer</div>
+      <div class="work-tag" style="background-color: #EEEAE2;" data-lang="pt">Product Designer</div>
+      <p class="work-text" style="max-width: 70ch;" data-lang="en"><strong>Visual Explorations &amp; Art Direction: Crafting consistency and identity.</strong> This gallery brings together visual studies, patterns, and design applications focused on translating concepts into applied aesthetic solutions. The projects explore the fundamental relationships of visual hierarchy, typographic weight, legibility, and color behavior across different surfaces. Each piece is a practical exercise in originality and consistency, focused on understanding how a single identity language unfolds with technical precision across multiple formats and physical reproduction methods.</p>
+      <p class="work-text" style="max-width: 70ch;" data-lang="pt"><strong>Visual Explorations &amp; Art Direction: Crafting consistency and identity.</strong> Esta galeria reúne estudos visuais, estampas e aplicações de design voltados para a tradução de conceitos em soluções estéticas aplicadas. Os projetos exploram as relações fundamentais de hierarquia visual, peso tipográfico, legibilidade e comportamento das cores em diferentes superfícies. Cada peça é um exercício prático de originalidade e consistência, focado em entender como uma mesma linguagem de identidade se desdobra com precisão técnica em múltiplos formatos e métodos de reprodução física.</p>
+      <div style="max-width: 900px; margin: var(--space-5) auto 0;">
+        <video src="assets/images/produtos/Merchandise_products_presented_o…_202607291722.mp4" class="work-img" style="aspect-ratio: 16/9;" autoplay loop muted playsinline></video>
+      </div>
+    </section>
+
+    <!-- ACT V: The Finale -->
+    <section class="manifesto-section finale-section" id="act-5" data-bg="bg-dark">
       <div class="container reveal">
-        <div class="giant-text" data-lang="en">Helping people transform uncertainty into clarity.</div>
-        <div class="giant-text" data-lang="pt">Ajudando pessoas a transformar incerteza em clareza.</div>
+        <div class="giant-text" data-lang="en">Designing systems that connect logic, emotion, and functionality.</div>
+        <div class="giant-text" data-lang="pt">Projetando sistemas que conectam lógica, emoção e funcionalidade.</div>
       </div>
-      
+
       <div class="container reveal delay-1">
         <div style="font-size: 1.25rem; font-weight: 300; max-width: 40ch; margin: 0 auto var(--space-6) auto; color: #AAAAAA; text-align: left;" data-lang="en">
-          Because, to me, good design isn't about decoration. It’s about making complex decisions feel intuitive. Today, whether I’m building an AI-assisted branding platform, creating a visual identity, designing a reflective journaling app, or developing an art collection, I am still solving the exact same problem.
+          Design goes beyond aesthetics. It's about structuring paths so complex decisions feel intuitive. Whether architecting an AI-guided branding platform, building a visual identity, shaping a mobile app flow, or developing an art collection, the pursuit remains the same: creating structured solutions that generate real, intentional value.
         </div>
         <div style="font-size: 1.25rem; font-weight: 300; max-width: 40ch; margin: 0 auto var(--space-6) auto; color: #AAAAAA; text-align: left;" data-lang="pt">
-          Porque, para mim, um bom design não é sobre decoração. É sobre fazer com que decisões complexas pareçam intuitivas. Hoje, seja construindo uma plataforma de branding guiada por IA, criando uma identidade visual, desenhando um aplicativo de diário reflexivo ou desenvolvendo uma coleção de arte, continuo resolvendo exatamente o mesmo problema.
+          O design vai além da estética. Trata-se de estruturar caminhos para que decisões complexas pareçam intuitivas. Seja na arquitetura de uma plataforma de branding guiada por IA, na construção de uma identidade visual, no fluxo de um aplicativo mobile ou no desenvolvimento de uma coleção de arte, a busca permanece a mesma: criar soluções estruturadas que geram valor real e intencional.
         </div>
-        
-        <!-- PROOF OF WORK LINKS -->
-        <div class="proof-links">
-          <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #555555; margin-bottom: var(--space-3);" data-lang="en">Proof of Work</div>
-          <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #555555; margin-bottom: var(--space-3);" data-lang="pt">Provas de Trabalho</div>
-          
-          <a href="cases-brandbox.html" class="proof-link">
-            <span data-lang="en">AI-Assisted Branding</span>
-            <span data-lang="pt">Branding Assistido por IA</span>
-            <span class="proof-tag">The Brand Box</span>
-          </a>
-          
-          <a href="cases-sonhopapel.html" class="proof-link">
-            <span data-lang="en">Creative Studio</span>
-            <span data-lang="pt">Estúdio Criativo</span>
-            <span class="proof-tag">Sonho de Papel</span>
-          </a>
-          
-          <a href="cases-myyear.html" class="proof-link">
-            <span data-lang="en">Reflective Journaling</span>
-            <span data-lang="pt">Diário Reflexivo</span>
-            <span class="proof-tag">My Year My Story</span>
-          </a>
-          
-          <a href="cases-others.html" class="proof-link" style="border-bottom: none;">
-            <span data-lang="en">Art Collection</span>
-            <span data-lang="pt">Coleção de Arte</span>
-            <span class="proof-tag">Leve ao Mar</span>
-          </a>
+
+        <div style="text-align: center; margin-top: var(--space-5);">
+          <a href="cases.html" class="btn btn-primary" data-lang="en">See All Case Studies →</a>
+          <a href="cases.html" class="btn btn-primary" data-lang="pt">Ver Todos os Cases →</a>
         </div>
       </div>
     </section>
+
+    <!-- Profile Section -->
+    <section class="profile-section container reveal">
+      <div style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-tertiary); margin-bottom: var(--space-4);" data-lang="en">Behind the work</div>
+      <div style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-tertiary); margin-bottom: var(--space-4);" data-lang="pt">Por trás do trabalho</div>
+      <div class="profile-img-container">
+        <img src="assets/images/Photo_perfil_cintia.ai-02.png" alt="Cintia Pettersen" class="profile-img">
+      </div>
+      <h3 class="profile-h3" data-lang="en">Hi, I'm Cintia.</h3>
+      <h3 class="profile-h3" data-lang="pt">Oi, sou a Cintia.</h3>
+      <p class="profile-text" data-lang="en">
+        I'm a Brazilian visual designer based in Norway. Instead of designing isolated solutions, I spend my days building systems — whether structuring an AI-guided branding platform, designing an app's flow, or developing a collection of original patterns.
+      </p>
+      <p class="profile-text" data-lang="en">
+        I believe in design that unites logic, aesthetics, and functionality to simplify processes and bring to life ideas that truly need to exist.
+      </p>
+      <p class="profile-text" data-lang="en">
+        When I'm not designing interfaces or organizing visual identities, I'm probably exploring new landscapes or creating art inspired by my roots.
+      </p>
+      <p class="profile-text" data-lang="pt">
+        Sou uma designer visual brasileira baseada na Noruega. Em vez de projetar soluções isoladas, passo meus dias criando sistemas — seja estruturando uma plataforma de branding guiada por IA, desenhando o fluxo de um aplicativo ou desenvolvendo uma coleção de estampas autorais.
+      </p>
+      <p class="profile-text" data-lang="pt">
+        Acredito no design que une lógica, estética e funcionalidade para descomplicar processos e dar vida a ideias que realmente precisam existir.
+      </p>
+      <p class="profile-text" data-lang="pt">
+        Quando não estou desenhando interfaces ou organizando identidades visuais, provavelmente estou explorando novas paisagens ou criando arte inspirada nas minhas raízes.
+      </p>
+    </section>
+
+    <!-- Footer Let's Connect -->
+    <div class="footer-link-area container reveal">
+      <p style="font-size: clamp(1.5rem, 3vw, 2.5rem); font-family: var(--font-display); font-weight: 500; color: var(--text-primary); margin-bottom: var(--space-5); letter-spacing: -0.01em; max-width: 25ch; margin-left: auto; margin-right: auto; line-height: 1.2;" data-lang="en">
+        Let's create experiences that people genuinely enjoy using.
+      </p>
+      <p style="font-size: clamp(1.5rem, 3vw, 2.5rem); font-family: var(--font-display); font-weight: 500; color: var(--text-primary); margin-bottom: var(--space-5); letter-spacing: -0.01em; max-width: 25ch; margin-left: auto; margin-right: auto; line-height: 1.2;" data-lang="pt">
+        Vamos criar experiências que as pessoas genuinamente gostem de usar.
+      </p>
+      <a href="contact.html" class="btn btn-primary" style="font-size: 1.125rem; padding: 1rem 2.5rem; border-radius: 100px;" data-lang="en">Let's Connect →</a>
+      <a href="contact.html" class="btn btn-primary" style="font-size: 1.125rem; padding: 1rem 2.5rem; border-radius: 100px;" data-lang="pt">Vamos Conectar →</a>
+
+      <div style="margin-top: var(--space-6); font-size: 0.75rem; color: var(--text-tertiary); letter-spacing: 0.05em;" data-lang="en">
+        Currently based in Norway &middot; Working globally
+      </div>
+      <div style="margin-top: var(--space-6); font-size: 0.75rem; color: var(--text-tertiary); letter-spacing: 0.05em;" data-lang="pt">
+        Atualmente na Noruega &middot; Trabalhando globalmente
+      </div>
+    </div>
   </main>
 
   <script src="js/main.js"></script>
   <script>
-    // Scroll Background Transition Logic
+    // Nav color inversion while scrolling through the dark finale section
     document.addEventListener('DOMContentLoaded', () => {
-      const sections = document.querySelectorAll('section[data-bg]');
-      
+      const darkSection = document.querySelector('section[data-bg="bg-dark"]');
+      if (!darkSection) return;
+
       const checkBackground = () => {
-        let currentBg = '';
         const scrollPosition = window.scrollY + (window.innerHeight / 2); // Check middle of screen
-        
-        sections.forEach(section => {
-          const rect = section.getBoundingClientRect();
-          const sectionTop = rect.top + window.scrollY;
-          const sectionBottom = sectionTop + rect.height;
-          
-          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-            currentBg = section.getAttribute('data-bg');
-          }
-        });
-        
-        // Reset all classes
-        document.body.classList.remove('bg-gray', 'bg-dark');
-        
-        // Apply new class
-        if (currentBg && currentBg !== 'default') {
-          document.body.classList.add(currentBg);
-        }
+        const rect = darkSection.getBoundingClientRect();
+        const sectionTop = rect.top + window.scrollY;
+        const sectionBottom = sectionTop + rect.height;
+        const inDark = scrollPosition >= sectionTop && scrollPosition < sectionBottom;
+
+        document.body.classList.toggle('bg-dark', inDark);
       };
 
       window.addEventListener('scroll', checkBackground, { passive: true });
       checkBackground(); // init
+    });
+  </script>
+  <script>
+    // Flip animation cycling through specialties under the name
+    document.addEventListener('DOMContentLoaded', () => {
+      const roleEN = [
+        'Product • UX • Brand Systems',
+        'Creative Direction',
+        'Brand Identity Systems',
+        'AI-Assisted Creative Workflows'
+      ];
+      const rolePT = [
+        'Produto • UX • Sistemas de Marca',
+        'Direção Criativa',
+        'Sistemas de Identidade de Marca',
+        'Fluxos Criativos Guiados por IA'
+      ];
+      // Brand palette — one color per specialty, same order as the arrays above
+      const roleColors = ['#BBC7D5', '#94838F', '#BFA68E', '#858E7E'];
+
+      const elEN = document.querySelector('.role-flip[data-lang="en"]');
+      const elPT = document.querySelector('.role-flip[data-lang="pt"]');
+      if (!elEN || !elPT) return;
+
+      const applyColor = (el, color) => {
+        el.style.backgroundColor = color;
+      };
+
+      let roleIndex = 0;
+      applyColor(elEN, roleColors[0]);
+      applyColor(elPT, roleColors[0]);
+
+      const cycleRole = () => {
+        elEN.classList.add('flipping');
+        elPT.classList.add('flipping');
+
+        setTimeout(() => {
+          roleIndex = (roleIndex + 1) % roleEN.length;
+          elEN.textContent = roleEN[roleIndex];
+          elPT.textContent = rolePT[roleIndex];
+          applyColor(elEN, roleColors[roleIndex]);
+          applyColor(elPT, roleColors[roleIndex]);
+          elEN.classList.remove('flipping');
+          elPT.classList.remove('flipping');
+        }, 350);
+      };
+
+      setInterval(cycleRole, 3000);
     });
   </script>
 </body>

@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Arquivos de origem / brutos — ficam só no computador, não vão pro deploy
+assets/images/the brand box/0729.mov
+assets/images/the brand box/the-brand-box-video.mov
+assets/images/Myms/0123.mov
+assets/images/Myms/Animate_mobile_app_calendar_inte*.mp4
+assets/images/sonho de papel/Firefly*.mp4
+assets/images/Finaliza*.mp4

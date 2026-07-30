@@ -53,13 +53,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Slogan crossfade animation on the cover
-  const quote1 = document.querySelector('.quote-1');
+  const quote1s = document.querySelectorAll('.quote-1');
   const quote2 = document.querySelector('.quote-2');
-  
-  if (quote1 && quote2) {
+
+  if (quote1s.length && quote2) {
     // Wait 2.5 seconds before starting the transition to let the user read the first question
     setTimeout(() => {
-      quote1.classList.add('fade-out');
+      quote1s.forEach((el) => el.classList.add('fade-out'));
       quote2.classList.add('fade-in');
     }, 2500);
   }
