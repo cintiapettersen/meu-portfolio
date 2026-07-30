@@ -4,9 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Brand Box - Cintia Pettersen</title>
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta name="description" content="The Brand Box: an AI-assisted SaaS platform that turns a decade of branding methodology into a guided experience, generating complete identity systems ready for production.">
+  <link rel="canonical" href="https://www.cintiapettersen.com/cases-brandbox.html">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta name="theme-color" content="#111111">
   <link rel="stylesheet" href="css/index.css">
   <style>
@@ -22,26 +26,6 @@
       margin-bottom: var(--space-5);
     }
     
-    .case-roles {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-4);
-      font-family: var(--font-body);
-      font-size: 0.875rem;
-      letter-spacing: 0.05em;
-      color: var(--text-primary);
-    }
-    
-    .case-roles span {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .case-roles .dimmed {
-      color: var(--text-tertiary);
-    }
-
     /* STORY THREAD - The new linear/apple layout */
     .story-thread {
       max-width: 800px;
@@ -197,8 +181,8 @@
       <a href="index.html" class="nav-logo">CP.</a>
       <ul class="nav-links">
         <li>
-          <a href="about.html" data-lang="en">Why I Design</a>
-          <a href="about.html" data-lang="pt">Por que Desenho</a>
+          <a href="about.html" data-lang="en">Design Philosophy</a>
+          <a href="about.html" data-lang="pt">Filosofia de Design</a>
         </li>
         <li><button id="lang-toggle" class="lang-toggle-btn">PT</button></li>
       </ul>
@@ -208,26 +192,6 @@
   <main>
     <header class="container case-detail-header reveal">
       
-      <div class="case-roles" style="margin-bottom: var(--space-4);">
-        <span style="font-weight: 600; color: var(--text-tertiary); margin-right: 1rem;" data-lang="en">MY ROLE</span>
-        <span style="font-weight: 600; color: var(--text-tertiary); margin-right: 1rem;" data-lang="pt">MEU PAPEL</span>
-        
-        <span data-lang="en">Product Strategy</span>
-        <span data-lang="pt">Estratégia de Produto</span>
-        <span style="color: var(--text-tertiary);">/</span>
-        
-        <span data-lang="en">UX Design</span>
-        <span data-lang="pt">Design de UX</span>
-        <span style="color: var(--text-tertiary);">/</span>
-        
-        <span data-lang="en">UI Design</span>
-        <span data-lang="pt">Design de UI</span>
-        <span style="color: var(--text-tertiary);">/</span>
-        
-        <span data-lang="en">Branding</span>
-        <span data-lang="pt">Branding</span>
-      </div>
-
       <h1 class="case-detail-title" style="margin-bottom: var(--space-5);">The Brand Box</h1>
       
       <p class="story-h2 mb-80" style="max-width: 25ch; color: var(--text-primary);" data-lang="en">The Brand Box transforms overwhelming creative freedom into a guided experience that helps entrepreneurs build a complete brand through confident decisions, one step at a time.</p>
@@ -250,9 +214,9 @@
         <video class="case-video"
                src="assets/images/the brand box/the-brand-box-full.mp4"
                poster="assets/images/the brand box/the-brand-box-full-poster.jpg"
-               preload="none"
-               controls
-               playsinline></video>
+               preload="metadata"
+               autoplay muted loop playsinline
+               controls></video>
       </div>
 
       <!-- CAPÍTULO: THE INSIGHT -->
@@ -352,5 +316,25 @@
   </main>
 
   <script src="js/main.js"></script>
+  <script>
+    // Vídeo longo: só roda enquanto está visível, pra não gastar CPU/bateria à toa
+    document.addEventListener('DOMContentLoaded', () => {
+      const video = document.querySelector('.case-video');
+      if (!video || !('IntersectionObserver' in window)) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {}); // ignora bloqueio de autoplay
+          } else if (video.muted) {
+            // Se a pessoa tirou o mudo, respeita e não pausa
+            video.pause();
+          }
+        });
+      }, { threshold: 0.25 });
+
+      observer.observe(video);
+    });
+  </script>
 </body>
 </html>
