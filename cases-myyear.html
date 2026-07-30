@@ -11,15 +11,15 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <meta name="theme-color" content="#111111">
+  <meta name="theme-color" content="#FBF7F9">
   <link rel="stylesheet" href="css/index.css">
   <style>
-    /* Dark Mode Aesthetic */
+    /* Paleta clara, alinhada ao tom do app */
     :root {
-      --myms-bg: #111216; /* Deep, calm dark tone */
-      --myms-text: #E2E8F0;
-      --myms-muted: #94A3B8;
-      --myms-border: #272A35;
+      --myms-bg: #FBF7F9; /* Off-white quente, conversa com o rosa do app */
+      --myms-text: #1A1A1A;
+      --myms-muted: #6E6570;
+      --myms-border: #EBE2E7;
     }
 
     body {
@@ -27,10 +27,10 @@
       color: var(--myms-text);
     }
 
-    /* Navbar override for Dark Mode */
-    .navbar { background-color: rgba(17, 18, 22, 0.8); }
+    /* Navbar sobre fundo claro */
+    .navbar { background-color: rgba(251, 247, 249, 0.85); }
     .nav-logo, .nav-links a { color: var(--myms-text); }
-    .nav-links a:hover, .nav-links a.active { color: #FFFFFF; }
+    .nav-links a:hover, .nav-links a.active { color: #1A1A1A; }
     .lang-toggle-btn { color: var(--myms-text); border-color: var(--myms-text); }
     .lang-toggle-btn:hover { background-color: var(--myms-text); color: var(--myms-bg); }
 
@@ -83,7 +83,7 @@
       font-weight: 500;
       letter-spacing: -0.01em;
       margin-bottom: var(--space-4);
-      color: #FFFFFF;
+      color: var(--myms-text);
     }
 
     .myms-text {
@@ -108,10 +108,10 @@
       max-width: 320px; /* Smaller phone size */
       height: auto;
       border-radius: 24px;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 20px 45px rgba(90, 60, 80, 0.14);
       border: 1px solid var(--myms-border);
       transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-      background-color: var(--myms-border);
+      background-color: #F1E9EE;
     }
     
     .myms-phone:hover {
@@ -128,7 +128,7 @@
       font-size: clamp(1.25rem, 3vw, 1.75rem);
       font-family: var(--font-display);
       font-style: italic;
-      color: #FFFFFF;
+      color: var(--myms-text);
       line-height: 1.4;
     }
 
@@ -138,9 +138,9 @@
       margin: 0 auto;
       border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+      box-shadow: 0 20px 45px rgba(90, 60, 80, 0.14);
       border: 1px solid var(--myms-border);
-      background-color: var(--myms-border); /* Flash prevention */
+      background-color: #F1E9EE; /* Evita flash antes do video carregar */
     }
 
     .myms-video-wrapper video {
@@ -160,15 +160,84 @@
       display: inline-block;
       font-size: 1.5rem;
       font-weight: 400;
-      color: #FFFFFF;
+      color: var(--myms-text);
       text-decoration: none;
-      border-bottom: 2px solid #FFFFFF;
+      border-bottom: 2px solid var(--myms-text);
       padding-bottom: 4px;
       transition: opacity 0.3s;
     }
 
     .external-link:hover {
       opacity: 0.7;
+    }
+
+    /* Carrossel horizontal de telas do app */
+    .carousel {
+      position: relative;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: var(--space-4);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: var(--space-3) max(var(--space-4), calc(50vw - 600px));
+      /* Esconde a barra de rolagem sem impedir o gesto de arrastar */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .carousel-track::-webkit-scrollbar { display: none; }
+
+    .carousel-track img {
+      flex: 0 0 auto;
+      width: clamp(200px, 24vw, 280px);
+      height: auto;
+      border-radius: 18px;
+      scroll-snap-align: center;
+      box-shadow: 0 16px 36px rgba(90, 60, 80, 0.16);
+      border: 1px solid var(--myms-border);
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--myms-border);
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      color: var(--myms-text);
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s, background 0.3s;
+    }
+
+    .carousel-btn:hover { background: var(--myms-border); }
+    .carousel-btn[disabled] { opacity: 0.25; cursor: default; }
+    .carousel-btn.prev { left: var(--space-3); }
+    .carousel-btn.next { right: var(--space-3); }
+
+    /* No touch, o gesto de arrastar basta */
+    @media (hover: none) {
+      .carousel-btn { display: none; }
+    }
+
+    /* Duas lojas lado a lado, empilhadas no mobile */
+    .store-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-5);
+      justify-content: center;
     }
 
     /* Footer Back Link */
@@ -187,7 +256,7 @@
       transition: color 0.3s;
     }
     .myms-back:hover {
-      color: #FFFFFF;
+      color: var(--myms-text);
     }
   </style>
 </head>
@@ -241,8 +310,6 @@
       <div class="myms-separator reveal delay-1">
         <p class="myms-separator-text">"Every screen is another chapter in a story that's uniquely yours."</p>
       </div>
-
-      <img src="assets/images/APP_my-year-my-story_print01-91-13-14-14-13.png" alt="MYMS Prompts" class="myms-phone reveal">
     </section>
 
     <!-- The Approach -->
@@ -264,10 +331,20 @@
         <p class="myms-separator-text">"Guiding reflection through thoughtful interactions and meaningful experiences."</p>
       </div>
       
-      <div class="myms-video-wrapper">
-        <video autoplay loop muted playsinline poster="assets/images/Myms/0717(1)-Cover.jpg">
-          <source src="assets/images/Myms/0717(1).mov" type="video/mp4">
-        </video>
+      <div class="carousel reveal">
+        <button class="carousel-btn prev" type="button" aria-label="Previous screens">&#8592;</button>
+        <div class="carousel-track">
+          <img src="assets/images/Myms/slides/myms-slide-01.webp" alt="A safe space for your story" loading="lazy" width="720" height="1558">
+          <img src="assets/images/Myms/slides/myms-slide-02.webp" alt="Write freely and receive reflections on your thoughts" loading="lazy" width="720" height="1558">
+          <img src="assets/images/Myms/slides/myms-slide-03.webp" alt="Turn your days into stories" loading="lazy" width="720" height="1558">
+          <img src="assets/images/Myms/slides/myms-slide-04.webp" alt="Track your moods, understand yourself" loading="lazy" width="720" height="1558">
+          <img src="assets/images/Myms/slides/myms-slide-05.webp" alt="Discover who you are" loading="lazy" width="720" height="1558">
+          <img src="assets/images/Myms/slides/myms-slide-06.webp" alt="Explore your personality through fun quizzes" loading="lazy" width="720" height="1558">
+          <img src="assets/images/Myms/slides/myms-slide-07.webp" alt="Capture the story of someone special" loading="lazy" width="720" height="1558">
+          <img src="assets/images/Myms/slides/myms-slide-08.webp" alt="A month full of possibilities" loading="lazy" width="720" height="1558">
+          <img src="assets/images/Myms/slides/myms-slide-09.webp" alt="A message for the future: write today, remember tomorrow" loading="lazy" width="720" height="1558">
+        </div>
+        <button class="carousel-btn next" type="button" aria-label="Next screens">&#8594;</button>
       </div>
     </section>
 
@@ -289,7 +366,10 @@
       
       <!-- External Link -->
       <div class="external-link-container reveal delay-1">
-        <a href="#" class="external-link">→ Visit App Store</a>
+        <div class="store-links">
+          <a href="https://apps.apple.com/app/id6759055359" target="_blank" rel="noopener noreferrer" class="external-link">→ App Store</a>
+          <a href="https://play.google.com/store/apps/details?id=com.myyear.myyearmystory" target="_blank" rel="noopener noreferrer" class="external-link">→ Google Play</a>
+        </div>
       </div>
     </section>
 
@@ -300,5 +380,36 @@
   </main>
 
   <script src="js/main.js"></script>
+  <script>
+    // Setas do carrossel: rolam ~uma "página" de slides por clique
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.carousel').forEach((carousel) => {
+        const track = carousel.querySelector('.carousel-track');
+        const prev = carousel.querySelector('.prev');
+        const next = carousel.querySelector('.next');
+        if (!track || !prev || !next) return;
+
+        const step = () => {
+          const card = track.querySelector('img');
+          if (!card) return track.clientWidth;
+          const gap = parseFloat(getComputedStyle(track).gap) || 0;
+          const per = Math.max(1, Math.floor(track.clientWidth / (card.clientWidth + gap)));
+          return (card.clientWidth + gap) * per;
+        };
+
+        const sync = () => {
+          const max = track.scrollWidth - track.clientWidth;
+          prev.disabled = track.scrollLeft <= 2;
+          next.disabled = track.scrollLeft >= max - 2;
+        };
+
+        prev.addEventListener('click', () => track.scrollBy({ left: -step() }));
+        next.addEventListener('click', () => track.scrollBy({ left: step() }));
+        track.addEventListener('scroll', sync, { passive: true });
+        window.addEventListener('resize', sync);
+        sync();
+      });
+    });
+  </script>
 </body>
 </html>
