@@ -55,6 +55,7 @@
 
     .role-flip {
       white-space: nowrap;
+      max-width: 100%;
       transition: opacity 0.35s ease, transform 0.35s ease, background-color 0.35s ease;
     }
 
@@ -268,6 +269,26 @@
       .gallery-grid {
         grid-template-columns: repeat(3, 1fr);
       }
+      /* Badge não cabe numa linha só em tela estreita: deixa quebrar */
+      .role-flip {
+        white-space: normal;
+        font-size: 0.7rem;
+        padding: 0.6em 1.2em;
+      }
+      /* Frase gigante do final: evita palavra longa estourar a largura */
+      .giant-text {
+        font-size: clamp(2rem, 9vw, 4rem);
+        max-width: 100%;
+      }
+      /* Aspas decorativas não podem empurrar pra fora */
+      .narrative-card {
+        padding-left: 1.5rem;
+      }
+      .narrative-card::before {
+        left: -0.25rem;
+        font-size: 3rem;
+        top: -1.25rem;
+      }
     }
 
     /* Profile Section */
@@ -424,7 +445,7 @@
         <a href="cases-myyear.html" class="work-link" data-lang="pt">Ver o case →</a>
       </div>
       <div style="max-width: 300px; margin: 0 auto; border-radius: 28px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.08);">
-        <video src="assets/images/Myms/myms-calendar-vertical-cropped.mp4" style="width: 100%; display: block; aspect-ratio: 592/1280; object-fit: cover;" autoplay loop muted playsinline></video>
+        <video src="assets/images/Myms/myms-app-walkthrough.mp4" style="width: 100%; display: block; aspect-ratio: 1080/2338; object-fit: cover;" autoplay loop muted playsinline></video>
       </div>
     </section>
 

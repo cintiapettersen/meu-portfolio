@@ -64,6 +64,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  /* Palavra longa quebra em vez de estourar a largura e comer o padding lateral */
+  overflow-wrap: break-word;
+}
+
+/* Nenhuma mídia pode ultrapassar a largura do seu container */
+img, video {
+  max-width: 100%;
 }
 
 /* Typography Base */

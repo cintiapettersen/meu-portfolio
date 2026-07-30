@@ -49,7 +49,23 @@
     /* Flip animation for rotating specialties */
     .role-flip {
       white-space: nowrap;
+      max-width: 100%;
       transition: opacity 0.35s ease, transform 0.35s ease, background-color 0.35s ease;
+    }
+
+    @media (max-width: 768px) {
+      /* Badge não cabe numa linha só em tela estreita: deixa quebrar */
+      .role-flip {
+        white-space: normal;
+        font-size: 0.7rem;
+        padding: 0.6em 1.2em;
+      }
+      .cover-title {
+        font-size: clamp(2.25rem, 11vw, 4rem);
+      }
+      .slogan-container {
+        min-height: 260px;
+      }
     }
 
     .role-flip.flipping {
