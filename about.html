@@ -141,7 +141,8 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: var(--space-6) 0;
+      padding-top: var(--space-6);
+      padding-bottom: var(--space-6);
     }
 
     .giant-text {
@@ -194,7 +195,9 @@
       grid-template-columns: 1fr 1fr;
       gap: var(--space-6);
       align-items: center;
-      padding: var(--space-6) 0;
+      /* Vertical só: o atalho zerava o padding lateral do .container */
+      padding-top: var(--space-6);
+      padding-bottom: var(--space-6);
       border-top: 1px solid var(--border-color);
     }
 
@@ -333,7 +336,8 @@
     /* Footer Connect */
     .footer-link-area {
       text-align: center;
-      padding: var(--space-6) 0;
+      padding-top: var(--space-6);
+      padding-bottom: var(--space-6);
       border-top: 1px solid var(--border-color);
       margin-top: var(--space-5);
       position: relative;
@@ -479,7 +483,7 @@
     </section>
 
     <!-- Product Designer gallery -->
-    <section class="container" id="act-work" style="padding: var(--space-6) 0; background-color: var(--bg-color); position: relative; z-index: 5;">
+    <section class="container" id="act-work" style="padding-top: var(--space-6); padding-bottom: var(--space-6); background-color: var(--bg-color); position: relative; z-index: 5;">
       <div class="work-tag" style="background-color: #EEEAE2;" data-lang="en">Product Designer</div>
       <div class="work-tag" style="background-color: #EEEAE2;" data-lang="pt">Product Designer</div>
       <p class="work-text" style="max-width: 70ch;" data-lang="en"><strong>Visual Explorations &amp; Art Direction: Crafting consistency and identity.</strong> This gallery brings together visual studies, patterns, and design applications focused on translating concepts into applied aesthetic solutions. The projects explore the fundamental relationships of visual hierarchy, typographic weight, legibility, and color behavior across different surfaces. Each piece is a practical exercise in originality and consistency, focused on understanding how a single identity language unfolds with technical precision across multiple formats and physical reproduction methods.</p>
