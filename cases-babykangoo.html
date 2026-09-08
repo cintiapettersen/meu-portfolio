@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baby Kangoo - Cintia Pettersen</title>
+  <meta name="description" content="Baby Kangoo: a pediatric health companion and AI-assisted memory book that turns early childhood milestones into calm, guided stories.">
+  <link rel="canonical" href="https://www.cintiapettersen.com/cases-babykangoo.html">
+  <link rel="icon" href="favicon.ico?v=3" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=3">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png?v=3">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=3">
+  <meta name="theme-color" content="#FBF9F6">
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    :root {
+      --bk-bg: #FBF9F6;
+      --bk-text: #1E2321;
+      --bk-muted: #646E69;
+      --bk-border: #E8E3DC;
+      --bk-accent: #4D7260;
+      --bk-tag-bg: #EAE5DE;
+    }
+
+    body {
+      background-color: var(--bk-bg);
+      color: var(--bk-text);
+    }
+
+    .navbar {
+      background-color: rgba(251, 249, 246, 0.9);
+      backdrop-filter: blur(12px);
+    }
+
+    .case-detail-header {
+      padding-top: var(--space-7);
+      padding-bottom: var(--space-6);
+      text-align: center;
+    }
+
+    .case-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--bk-muted);
+      margin-bottom: var(--space-4);
+      display: inline-block;
+      border: 1px solid var(--bk-border);
+      background-color: var(--bk-tag-bg);
+      padding: 0.35rem 1.1rem;
+      border-radius: 100px;
+    }
+
+    .case-detail-title {
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+      margin-bottom: var(--space-4);
+      color: var(--bk-text);
+    }
+
+    .case-subtitle {
+      font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+      color: var(--bk-muted);
+      max-width: 38ch;
+      margin: 0 auto;
+      line-height: 1.5;
+      font-weight: 300;
+    }
+
+    /* Video Hero / Institutional Video */
+    .video-hero-wrapper {
+      max-width: 1100px;
+      margin: var(--space-6) auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(30, 45, 38, 0.12);
+      border: 1px solid var(--bk-border);
+      background-color: #000;
+      position: relative;
+    }
+
+    .video-hero-wrapper video {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Story Section */
+    .story-thread {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: var(--space-6) var(--space-4);
+    }
+
+    .story-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--bk-bg);
+      background-color: var(--bk-accent);
+      display: inline-block;
+      padding: 0.3rem 0.9rem;
+      border-radius: 100px;
+      font-weight: 500;
+      margin-bottom: var(--space-4);
+    }
+
+    .story-h2 {
+      font-size: clamp(1.75rem, 4vw, 2.6rem);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      color: var(--bk-text);
+      margin-bottom: var(--space-4);
+    }
+
+    .story-p {
+      font-size: clamp(1.15rem, 2vw, 1.35rem);
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--bk-muted);
+      margin-bottom: var(--space-6);
+    }
+
+    /* Grid Highlights - Wider Container */
+    .highlight-section {
+      max-width: 1140px;
+      margin: var(--space-6) auto;
+      padding: 0 var(--space-4);
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-5);
+    }
+
+    .highlight-card {
+      background: #FFFFFF;
+      border: 1px solid var(--bk-border);
+      border-radius: 20px;
+      padding: var(--space-6) var(--space-5);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .highlight-num {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--bk-accent);
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-2);
+      text-transform: uppercase;
+    }
+
+    .highlight-title {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: var(--space-3);
+      color: var(--bk-text);
+      letter-spacing: -0.01em;
+    }
+
+    .highlight-desc {
+      font-size: 1rem;
+      color: var(--bk-muted);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    @media (max-width: 860px) {
+      .highlight-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+      }
+    }
+
+    /* Carousel for App Screens */
+    .carousel-section {
+      max-width: 1240px;
+      margin: var(--space-7) auto;
+      padding: 0 var(--space-4);
+      position: relative;
+    }
+
+    .carousel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: var(--space-5);
+      gap: var(--space-4);
+    }
+
+    .carousel-header-text {
+      max-width: 650px;
+    }
+
+    .carousel-nav-controls {
+      display: flex;
+      gap: var(--space-3);
+      flex-shrink: 0;
+    }
+
+    .carousel-btn {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid var(--bk-border);
+      background: #FFFFFF;
+      color: var(--bk-text);
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+
+    .carousel-btn:hover:not(:disabled) {
+      background: var(--bk-accent);
+      color: #FFFFFF;
+      border-color: var(--bk-accent);
+    }
+
+    .carousel-btn:disabled {
+      opacity: 0.25;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: var(--space-4);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: var(--space-2) 4px var(--space-5) 4px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-item {
+      flex: 0 0 auto;
+      width: clamp(260px, 25vw, 290px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      scroll-snap-align: start;
+    }
+
+    /* Fixed uniform frame to ensure all screenshots align cleanly */
+    .carousel-img-frame {
+      width: 100%;
+      height: 580px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 24px;
+      background: #FAF6F1;
+      border: 1px solid var(--bk-border);
+      box-shadow: 0 16px 36px rgba(35, 50, 42, 0.1);
+      overflow: hidden;
+      padding: 12px;
+    }
+
+    .carousel-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      border-radius: 16px;
+    }
+
+    .carousel-item-caption {
+      margin-top: var(--space-3);
+      font-size: 0.95rem;
+      color: var(--bk-muted);
+      text-align: center;
+      line-height: 1.45;
+      max-width: 95%;
+    }
+
+    /* Footer */
+    .case-footer {
+      text-align: center;
+      padding: var(--space-7) 0 var(--space-6);
+      border-top: 1px solid var(--bk-border);
+      margin-top: var(--space-7);
+    }
+
+    .case-footer-link {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--bk-muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .case-footer-link:hover {
+      color: var(--bk-text);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">CP.</a>
+      <ul class="nav-links">
+        <li>
+          <a href="about.html" data-lang="en">Design Philosophy</a>
+          <a href="about.html" data-lang="pt">Filosofia de Design</a>
+        </li>
+        <li><button id="lang-toggle" class="lang-toggle-btn">PT</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Header -->
+    <header class="container case-detail-header reveal">
+      <div class="case-tag" data-lang="en">Direction for parenthood.</div>
+      <div class="case-tag" data-lang="pt">Direção para a parentalidade.</div>
+      
+      <h1 class="case-detail-title">Baby Kangoo</h1>
+      
+      <p class="case-subtitle" data-lang="en">Organizing health, milestones, and memories into a calm, guided companion for early parenthood.</p>
+      <p class="case-subtitle" data-lang="pt">Organizando saúde, marcos e memórias em uma experiência acolhedora e guiada para a parentalidade.</p>
+    </header>
+
+    <!-- Institutional Video Section -->
+    <section class="container reveal delay-1">
+      <div class="video-hero-wrapper">
+        <video autoplay loop muted playsinline controls preload="metadata">
+          <source src="assets/images/baby kangoo/baby kangoo institucional(1).mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+
+    <!-- Story Thread: Challenge -->
+    <div class="container story-thread">
+      <div class="story-label reveal" data-lang="en">The Challenge</div>
+      <div class="story-label reveal" data-lang="pt">O Desafio</div>
+
+      <h2 class="story-h2 reveal" data-lang="en">When life gets overwhelming, design must bring reassurance and order.</h2>
+      <h2 class="story-h2 reveal" data-lang="pt">Quando a rotina se torna intensa, o design precisa trazer acolhimento e ordem.</h2>
+
+      <p class="story-p reveal" data-lang="en">
+        The first years of a child's life are marked by intense emotion and continuous responsibility. Parents navigate pediatric visits, complex immunization calendars, growth curves, fever tracking, and fleeting first smiles — often relying on scattered paper notes, fragmented chat messages, and impersonal medical forms.
+      </p>
+      <p class="story-p reveal" data-lang="pt">
+        Os primeiros anos de vida de um bebê são marcados por profunda emoção e responsabilidade contínua. Pais e mães precisam conciliar consultas pediátricas, calendários vacinais complexos, curvas de crescimento, episódios de febre e os primeiros sorrisos passageiros — frequentemente recorrendo a cadernetas de papel soltas, mensagens fragmentadas e formulários médicos impessoais.
+      </p>
+      <p class="story-p reveal" data-lang="en">
+        The foundational question guiding this project was: <em>How can we design an app that comforts families with aesthetic warmth, without ever sacrificing the technical rigor and precision that child healthcare demands?</em>
+      </p>
+      <p class="story-p reveal" data-lang="pt">
+        A pergunta essencial que orientou este projeto foi: <em>Como criar um aplicativo que acolha a família com leveza estética e afeto, sem nunca perder o rigor e a precisão técnica que a saúde infantil exige?</em>
+      </p>
+    </div>
+
+    <!-- Highlights Grid - Wider Layout -->
+    <section class="container highlight-section reveal">
+      <div class="highlight-grid">
+        <div class="highlight-card">
+          <div class="highlight-num">01 &middot; Health</div>
+          <h3 class="highlight-title" data-lang="en">Pediatric Rigor</h3>
+          <h3 class="highlight-title" data-lang="pt">Rigor Pediátrico</h3>
+          <p class="highlight-desc" data-lang="en">Comprehensive health records including growth charts, official immunization schedules, symptom history, and pediatric visit summaries.</p>
+          <p class="highlight-desc" data-lang="pt">Registros completos de saúde com gráficos de crescimento, vacinação oficial, histórico de sintomas e preparação para consultas pediátricas.</p>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-num">02 &middot; Memory</div>
+          <h3 class="highlight-title" data-lang="en">Emotional Keepsake</h3>
+          <h3 class="highlight-title" data-lang="pt">Memória Afetiva</h3>
+          <p class="highlight-desc" data-lang="en">An AI-assisted Story Book that turns quick milestone notes and photos into beautifully crafted narrative chapters.</p>
+          <p class="highlight-desc" data-lang="pt">Um Livro de Memórias assistido por IA que transforma anotações rápidas de marcos e fotos em capítulos narrativos inesquecíveis.</p>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-num">03 &middot; Clarity</div>
+          <h3 class="highlight-title" data-lang="en">Calm Interface</h3>
+          <h3 class="highlight-title" data-lang="pt">Interface Serena</h3>
+          <p class="highlight-desc" data-lang="en">A gentle palette of warm creams and soft sage greens, soft typography, and a friendly mascot that reduces cognitive strain.</p>
+          <p class="highlight-desc" data-lang="pt">Uma paleta suave de tons quentes e verde sálvia, tipografia acolhedora e um mascote amigável que reduzem o cansaço cognitivo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story Thread: Approach -->
+    <div class="container story-thread">
+      <div class="story-label reveal" data-lang="en">The Experience</div>
+      <div class="story-label reveal" data-lang="pt">A Experiência</div>
+
+      <h2 class="story-h2 reveal" data-lang="en">Everything parents need, right when they need it.</h2>
+      <h2 class="story-h2 reveal" data-lang="pt">Tudo o que os pais precisam, no momento exato em que precisam.</h2>
+
+      <p class="story-p reveal" data-lang="en">
+        Baby Kangoo was built around a human-centered design approach. The interface separates urgent medical checkups from reflective storytelling, giving each aspect of parenting its own dedicated rhythm. Parents can log a quick temperature check or dose in seconds with one hand, or sit down at the end of the month to reflect on milestones like first words, steps, and playful routines.
+      </p>
+      <p class="story-p reveal" data-lang="pt">
+        O Baby Kangoo foi construído com foco na experiência humana. A interface separa as rotinas médicas urgentes dos momentos de contemplação e narrativa, dando a cada aspecto da parentalidade o seu próprio ritmo. Os pais conseguem registrar uma medição ou vacina em segundos com apenas uma mão, ou sentar ao final do mês para apreciar conquistas como primeiras palavras, passos e memórias afetivas.
+      </p>
+    </div>
+
+    <!-- Screen Carousel -->
+    <section class="carousel-section reveal">
+      <div class="carousel-header">
+        <div class="carousel-header-text">
+          <div class="story-label" data-lang="en">Product Interface</div>
+          <div class="story-label" data-lang="pt">Interface do Produto</div>
+          <h2 class="story-h2" style="margin-bottom: 0;" data-lang="en">Designed for care, crafted for memories.</h2>
+          <h2 class="story-h2" style="margin-bottom: 0;" data-lang="pt">Desenhado para o cuidado, criado para memórias.</h2>
+        </div>
+        <div class="carousel-nav-controls">
+          <button class="carousel-btn prev" type="button" aria-label="Previous screens">&#8592;</button>
+          <button class="carousel-btn next" type="button" aria-label="Next screens">&#8594;</button>
+        </div>
+      </div>
+
+      <div class="carousel">
+        <div class="carousel-track">
+          <!-- Slide 1: Home / Mascot -->
+          <div class="carousel-item">
+            <div class="carousel-img-frame">
+              <img src="assets/images/baby kangoo/Screenshots_BabyKangoo_Dashboard.png" alt="Baby Kangoo Home Overview" loading="lazy">
+            </div>
+            <p class="carousel-item-caption" data-lang="en">Your baby's little world in one place, guided by mascot Baby Leo.</p>
+            <p class="carousel-item-caption" data-lang="pt">O universo do bebê em um só lugar, guiado pelo mascote Baby Leo.</p>
+          </div>
+          <!-- Slide 2: Health & Development Hub -->
+          <div class="carousel-item">
+            <div class="carousel-img-frame">
+              <img src="assets/images/baby kangoo/+Screenshots_BabyKangoo_en-11.png" alt="Health & Development" loading="lazy">
+            </div>
+            <p class="carousel-item-caption" data-lang="en">Health, growth &amp; care, beautifully organized.</p>
+            <p class="carousel-item-caption" data-lang="pt">Saúde, crescimento e cuidados organizados com clareza.</p>
+          </div>
+          <!-- Slide 3: Growth History -->
+          <div class="carousel-item">
+            <div class="carousel-img-frame">
+              <img src="assets/images/baby kangoo/+Screenshots_BabyKangoo_en-12.png" alt="Growth History" loading="lazy">
+            </div>
+            <p class="carousel-item-caption" data-lang="en">Follow growth over time with intuitive tracking curves.</p>
+            <p class="carousel-item-caption" data-lang="pt">Acompanhamento da evolução com curvas e medições intuitivas.</p>
+          </div>
+          <!-- Slide 4: Pediatric Visits -->
+          <div class="carousel-item">
+            <div class="carousel-img-frame">
+              <img src="assets/images/baby kangoo/+Screenshots_BabyKangoo_en-13.png" alt="Pediatric Visits" loading="lazy">
+            </div>
+            <p class="carousel-item-caption" data-lang="en">Prepare questions, record findings, and follow up after every visit.</p>
+            <p class="carousel-item-caption" data-lang="pt">Prepare dúvidas, registre orientações e acompanhe cada consulta.</p>
+          </div>
+          <!-- Slide 5: Vaccines -->
+          <div class="carousel-item">
+            <div class="carousel-img-frame">
+              <img src="assets/images/baby kangoo/-Screenshots_BabyKangoo__Artboard 3-08-08.png" alt="Vaccines Schedule" loading="lazy">
+            </div>
+            <p class="carousel-item-caption" data-lang="en">Official CDC/AAP immunization schedule, always within reach.</p>
+            <p class="carousel-item-caption" data-lang="pt">Calendário oficial de vacinas e reações sempre ao seu alcance.</p>
+          </div>
+          <!-- Slide 6: Milestones -->
+          <div class="carousel-item">
+            <div class="carousel-img-frame">
+              <img src="assets/images/baby kangoo/-Screenshots_BabyKangoo__Artboard 3-08-07.png" alt="Milestones Tracker" loading="lazy">
+            </div>
+            <p class="carousel-item-caption" data-lang="en">Celebrate every little first, organized by developmental stages.</p>
+            <p class="carousel-item-caption" data-lang="pt">Celebre cada primeira conquista por fase de desenvolvimento.</p>
+          </div>
+          <!-- Slide 7: Growth Gallery -->
+          <div class="carousel-item">
+            <div class="carousel-img-frame">
+              <img src="assets/images/baby kangoo/-Screenshots_BabyKangoo__Artboard 3-08-05.png" alt="Growth Gallery" loading="lazy">
+            </div>
+            <p class="carousel-item-caption" data-lang="en">Watch them grow, month by month, with memory photo stages.</p>
+            <p class="carousel-item-caption" data-lang="pt">Acompanhe o crescimento mês a mês em um mural visual afetivo.</p>
+          </div>
+          <!-- Slide 8: Timeline -->
+          <div class="carousel-item">
+            <div class="carousel-img-frame">
+              <img src="assets/images/baby kangoo/-Screenshots_BabyKangoo__Artboard 3-08-06.png" alt="Memory Timeline" loading="lazy">
+            </div>
+            <p class="carousel-item-caption" data-lang="en">Keep daily thoughts, routines, and sweet moments close.</p>
+            <p class="carousel-item-caption" data-lang="pt">Guarde anotações diárias, rotinas e momentos especiais.</p>
+          </div>
+          <!-- Slide 9: AI Story Book -->
+          <div class="carousel-item">
+            <div class="carousel-img-frame">
+              <img src="assets/images/baby kangoo/-Screenshots_BabyKangoo__Artboard 3-08-04.png" alt="AI Story Book" loading="lazy">
+            </div>
+            <p class="carousel-item-caption" data-lang="en">Turn fleeting memories into heartfelt keepsake stories with Kangoo AI.</p>
+            <p class="carousel-item-caption" data-lang="pt">Transforme memórias em histórias emocionantes com Kangoo IA.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Outcome -->
+    <div class="container story-thread">
+      <div class="story-label reveal" data-lang="en">The Outcome</div>
+      <div class="story-label reveal" data-lang="pt">O Resultado</div>
+
+      <h2 class="story-h2 reveal" data-lang="en">A digital sanctuary that preserves childhood.</h2>
+      <h2 class="story-h2 reveal" data-lang="pt">Um santuário digital que eterniza a infância.</h2>
+
+      <p class="story-p reveal" data-lang="en">
+        Baby Kangoo proves how digital product design can ease anxiety and spark delight in one of the most vulnerable and precious phases of life. By merging medical precision with warmth and AI narrative generation, the platform stands out not merely as an organizer, but as a living time capsule that families will treasure for decades.
+      </p>
+      <p class="story-p reveal" data-lang="pt">
+        O Baby Kangoo comprova como o design de produto digital pode diminuir a ansiedade e despertar afeto em uma das fases mais vulneráveis e precisas da vida. Ao unir o rigor pediátrico ao aconchego visual e à narrativa gerada por IA, a plataforma se consolida não apenas como um gerenciador, mas como uma cápsula do tempo viva que as famílias guardarão com carinho por décadas.
+      </p>
+    </div>
+
+    <!-- Back Footer Link -->
+    <footer class="container case-footer reveal">
+      <a href="about.html" class="case-footer-link" data-lang="en">← Back to Overview</a>
+      <a href="about.html" class="case-footer-link" data-lang="pt">← Voltar à Filosofia &amp; Projetos</a>
+    </footer>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const carousel = document.querySelector('.carousel-section');
+      if (!carousel) return;
+
+      const track = carousel.querySelector('.carousel-track');
+      const prev = carousel.querySelector('.prev');
+      const next = carousel.querySelector('.next');
+      if (!track || !prev || !next) return;
+
+      const step = () => {
+        const item = track.querySelector('.carousel-item');
+        if (!item) return 300;
+        const gap = parseFloat(getComputedStyle(track).gap) || 20;
+        return item.offsetWidth + gap;
+      };
+
+      const sync = () => {
+        const max = track.scrollWidth - track.clientWidth;
+        prev.disabled = track.scrollLeft <= 5;
+        next.disabled = track.scrollLeft >= max - 5;
+      };
+
+      prev.addEventListener('click', () => {
+        track.scrollBy({ left: -step(), behavior: 'smooth' });
+      });
+
+      next.addEventListener('click', () => {
+        track.scrollBy({ left: step(), behavior: 'smooth' });
+      });
+
+      track.addEventListener('scroll', sync, { passive: true });
+      window.addEventListener('resize', sync);
+      sync();
+    });
+  </script>
+</body>
+</html>
