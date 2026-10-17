@@ -356,6 +356,52 @@
       background-color: var(--bg-color);
     }
 
+    /* Refined iPhone Mockup */
+    .iphone-mockup-wrapper {
+      max-width: 295px;
+      margin: 0 auto;
+    }
+
+    .iphone-mockup-frame {
+      position: relative;
+      background: #1C1D21;
+      border-radius: 48px;
+      padding: 9px;
+      box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.12),
+        0 1px 3px rgba(0, 0, 0, 0.12),
+        0 20px 50px -10px rgba(0, 0, 0, 0.25),
+        0 30px 60px -15px rgba(20, 24, 20, 0.18);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .iphone-mockup-frame:hover {
+      transform: translateY(-4px);
+      box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.16),
+        0 1px 3px rgba(0, 0, 0, 0.15),
+        0 25px 60px -10px rgba(0, 0, 0, 0.28),
+        0 35px 70px -15px rgba(20, 24, 20, 0.22);
+    }
+
+    .iphone-screen {
+      position: relative;
+      border-radius: 39px;
+      overflow: hidden;
+      background-color: #FAF7F2;
+      aspect-ratio: 1206 / 2622;
+      line-height: 0;
+    }
+
+    .iphone-screen video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      margin: 0;
+      padding: 0;
+    }
+
     /* Mobile Adjustments */
     @media (max-width: 768px) {
       .manifesto-section {
@@ -413,8 +459,12 @@
         <a href="cases-babykangoo.html" class="work-link" data-lang="en">See the case →</a>
         <a href="cases-babykangoo.html" class="work-link" data-lang="pt">Ver o case →</a>
       </div>
-      <div style="max-width: 290px; margin: 0 auto; border-radius: 32px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.08); background-color: #FAF7F2;">
-        <video src="assets/images/baby kangoo/video baby kangoo winner.mp4" style="width: 100%; display: block; aspect-ratio: 1080/2028; object-fit: cover; transform: scale(1.15); transform-origin: center 36%;" autoplay loop muted playsinline></video>
+      <div class="iphone-mockup-wrapper">
+        <div class="iphone-mockup-frame">
+          <div class="iphone-screen">
+            <video src="assets/images/baby kangoo/baby-kangoo-preview.mp4" autoplay loop muted playsinline preload="metadata"></video>
+          </div>
+        </div>
       </div>
     </section>
 
