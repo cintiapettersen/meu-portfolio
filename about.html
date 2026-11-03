@@ -402,6 +402,25 @@
       padding: 0;
     }
 
+    /* Framed 16:9 mockup video cropped to vertical showcase */
+    .mamand-preview-wrapper {
+      max-width: 330px;
+      margin: 0 auto;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+      aspect-ratio: 9 / 16;
+      background-color: #EAE8DF;
+    }
+
+    .mamand-preview-wrapper video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
     /* Mobile Adjustments */
     @media (max-width: 768px) {
       .manifesto-section {
@@ -444,13 +463,40 @@
         <div class="mini-identity-name">Cintia Pettersen</div>
         <span class="mini-identity-role role-flip" data-lang="en">Product &bull; UX &bull; Brand Systems</span>
         <span class="mini-identity-role role-flip" data-lang="pt">Produto &bull; UX &bull; Sistemas de Marca</span>
-        <p class="opening-bio" data-lang="en">For over ten years, I've developed visual identities, brand systems, and creative projects, connecting strategy, image, and narrative. My work spans from creating brands and collections to developing experiences and original products.</p>
-        <p class="opening-bio" data-lang="pt">Há mais de dez anos, desenvolvo identidades visuais, sistemas de marca e projetos criativos, conectando estratégia, imagem e narrativa. Meu trabalho vai da criação de marcas e coleções ao desenvolvimento de experiências e produtos autorais.</p>
+        <p class="opening-bio" data-lang="en">For over ten years, I've designed brand systems, digital products, and human-centered platforms — connecting product strategy, interface design, front-end implementation, and responsible AI workflows.</p>
+        <p class="opening-bio" data-lang="pt">Há mais de dez anos, desenvolvo sistemas de marca, produtos digitais e plataformas centradas nas pessoas — conectando estratégia de produto, design de interface, implementação front-end e fluxos guiados por IA.</p>
+      </div>
+    </section>
+
+    <!-- MAMAND: Maternal & Infant Health -->
+    <section class="container work-block">
+      <div>
+        <div class="work-tag" style="background-color: #E8D5C8;" data-lang="en">Maternal &amp; Infant Health &middot; MAMAND</div>
+        <div class="work-tag" style="background-color: #E8D5C8;" data-lang="pt">Saúde Materno-Infantil &middot; MAMAND</div>
+        <p class="work-text" data-lang="en"><strong>MAMAND: Supporting the mother-baby dyad across the first 1,000 days.</strong> MAMAND is an open-source, offline-first digital companion designed to bridge everyday family life and primary healthcare services. Unlike traditional baby trackers, it places maternal well-being at the center — combining simple daily emotional check-ins, pregnancy and infant care journals, practical support network coordination, and exportable summaries for medical visits. Built as a zero-login Progressive Web App (React &amp; TypeScript) with local-first storage and 179 automated tests, it protects family privacy in low-connectivity contexts while exploring safety-first, evidence-grounded AI governance.</p>
+        <p class="work-text" data-lang="pt"><strong>MAMAND: Cuidado acessível para a dupla mãe-bebê nos primeiros 1.000 dias.</strong> O MAMAND é um companheiro digital de código aberto e foco offline, projetado para conectar o cotidiano familiar aos serviços de saúde. Diferente dos aplicativos tradicionais de acompanhamento infantil, ele coloca o bem-estar materno no centro — unindo registros emocionais diários, diários da gestação e do bebê, organização prática da rede de apoio e resumos exportáveis para consultas. Construído como um PWA sem login (React e TypeScript), com armazenamento local e 179 testes automatizados, garante privacidade mesmo com acesso limitado à internet, aliado a uma frente experimental de IA responsável pautada pela segurança clínica.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
+          <a href="cases-mamand.html" class="work-link" data-lang="en">See the case →</a>
+          <a href="cases-mamand.html" class="work-link" data-lang="pt">Ver o case →</a>
+          <a href="https://mamand.app" target="_blank" rel="noopener noreferrer" class="work-link" style="color: var(--text-secondary); border-bottom-color: var(--text-tertiary);" data-lang="en">mamand.app ↗</a>
+          <a href="https://mamand.app" target="_blank" rel="noopener noreferrer" class="work-link" style="color: var(--text-secondary); border-bottom-color: var(--text-tertiary);" data-lang="pt">mamand.app ↗</a>
+        </div>
+      </div>
+      <div class="mamand-preview-wrapper">
+        <video src="assets/images/mamand/mamand-mockup.mp4" autoplay loop muted playsinline preload="metadata"></video>
+      </div>
+    </section>
+
+    <!-- Narrative: bridge to Baby Kangoo -->
+    <section class="container">
+      <div class="narrative-card reveal">
+        <p data-lang="en">Technology in healthcare must do more than store data. It should respect vulnerability, protect privacy, and bring clarity to the moments between clinical visits.</p>
+        <p data-lang="pt">A tecnologia na saúde precisa fazer mais do que armazenar dados. Ela deve respeitar vulnerabilidades, proteger a privacidade e trazer clareza ao intervalo entre as consultas.</p>
       </div>
     </section>
 
     <!-- Baby Kangoo: Care & Childhood -->
-    <section class="container work-block">
+    <section class="container work-block reverse">
       <div>
         <div class="work-tag" style="background-color: #CAD7CD;" data-lang="en">Parenthood &middot; Baby Kangoo</div>
         <div class="work-tag" style="background-color: #CAD7CD;" data-lang="pt">Parentalidade &middot; Baby Kangoo</div>
@@ -477,7 +523,7 @@
     </section>
 
     <!-- The Brand Box -->
-    <section class="container work-block reverse">
+    <section class="container work-block">
       <div>
         <div class="work-tag" style="background-color: #BBC7D5;" data-lang="en">AI-Assisted Branding &middot; The Brand Box</div>
         <div class="work-tag" style="background-color: #BBC7D5;" data-lang="pt">Branding Assistido por IA &middot; The Brand Box</div>
@@ -500,7 +546,7 @@
     </section>
 
     <!-- My Year, My Story -->
-    <section class="container work-block">
+    <section class="container work-block reverse">
       <div>
         <div class="work-tag" style="background-color: #F2E0D1;" data-lang="en">Reflective Journaling &middot; My Year, My Story</div>
         <div class="work-tag" style="background-color: #F2E0D1;" data-lang="pt">Diário Reflexivo &middot; My Year, My Story</div>
@@ -527,7 +573,7 @@
     </section>
 
     <!-- Leve ao Mar -->
-    <section class="container work-block reverse">
+    <section class="container work-block">
       <div>
         <div class="work-tag" style="background-color: #DEE9E5;" data-lang="en">Art Collection &middot; Leve ao Mar</div>
         <div class="work-tag" style="background-color: #DEE9E5;" data-lang="pt">Coleção de Arte &middot; Leve ao Mar</div>
@@ -548,7 +594,7 @@
     </section>
 
     <!-- Sonho de Papel: the foundation -->
-    <section class="container work-block">
+    <section class="container work-block reverse">
       <div>
         <div class="work-tag" style="background-color: #C4A98A;" data-lang="en">Creative Studio &middot; Sonho de Papel</div>
         <div class="work-tag" style="background-color: #C4A98A;" data-lang="pt">Estúdio Criativo &middot; Sonho de Papel</div>
@@ -613,7 +659,7 @@
       <h3 class="profile-h3" data-lang="en">Hi, I'm Cintia.</h3>
       <h3 class="profile-h3" data-lang="pt">Oi, sou a Cintia.</h3>
       <p class="profile-text" data-lang="en">
-        I'm a Brazilian visual designer based in Norway. Rather than creating isolated solutions, I design connected systems — whether I'm shaping an AI-assisted branding platform, developing a digital product, or building a collection of original patterns.
+        I'm a Brazilian product and visual designer. Rather than creating isolated solutions, I design connected systems — whether I'm building an offline-first maternal health companion, shaping an AI-assisted branding platform, or developing an original collection.
       </p>
       <p class="profile-text" data-lang="en">
         My work lives where art, design, and technology meet: art brings emotion, design gives it purpose, and technology opens new possibilities. What interests me most is finding the right balance between the three.
@@ -622,7 +668,7 @@
         When I'm not working, I'm usually observing and collecting ideas — landscapes, textures, and small everyday details. Many of my projects began with something I noticed long before I knew what it would become.
       </p>
       <p class="profile-text" data-lang="pt">
-        Sou uma designer visual brasileira baseada na Noruega. Em vez de criar soluções isoladas, desenho sistemas conectados — seja dando forma a uma plataforma de branding assistida por IA, desenvolvendo um produto digital ou construindo uma coleção de estampas autorais.
+        Sou uma designer brasileira de produto e identidade visual. Em vez de criar soluções isoladas, desenho sistemas conectados — seja construindo um companheiro digital de saúde materno-infantil, dando forma a uma plataforma de branding assistida por IA ou desenvolvendo uma coleção autoral.
       </p>
       <p class="profile-text" data-lang="pt">
         Meu trabalho vive onde arte, design e tecnologia se encontram: a arte traz a emoção, o design dá propósito a ela e a tecnologia abre novas possibilidades. O que mais me interessa é encontrar o equilíbrio certo entre os três.
@@ -644,10 +690,10 @@
       <a href="contact.html" class="btn btn-primary" style="font-size: 1.125rem; padding: 1rem 2.5rem; border-radius: 100px;" data-lang="pt">Vamos Conectar →</a>
 
       <div style="margin-top: var(--space-6); font-size: 0.75rem; color: var(--text-tertiary); letter-spacing: 0.05em;" data-lang="en">
-        Currently based in Norway &middot; Working globally
+        Brazil &middot; Working globally
       </div>
       <div style="margin-top: var(--space-6); font-size: 0.75rem; color: var(--text-tertiary); letter-spacing: 0.05em;" data-lang="pt">
-        Atualmente na Noruega &middot; Trabalhando globalmente
+        Brasil &middot; Trabalhando globalmente
       </div>
     </div>
   </main>

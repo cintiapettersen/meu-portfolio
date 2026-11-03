@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAMAND - Cintia Pettersen</title>
+  <meta name="description" content="MAMAND: An open-source, offline-first digital companion supporting maternal well-being and infant care across the first 1,000 days. Designed and built by Cintia Pettersen.">
+  <meta property="og:title" content="MAMAND — Maternal &amp; Infant Health Companion | Cintia Pettersen">
+  <meta property="og:description" content="Open-source, offline-first Progressive Web App supporting the mother-baby dyad during the first 1,000 days, bridging daily care and primary healthcare services.">
+  <meta property="og:image" content="https://www.cintiapettersen.com/assets/images/mamand/Screenshots_MAMAND_01_Today.png">
+  <meta property="og:url" content="https://www.cintiapettersen.com/cases-mamand.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MAMAND — Maternal &amp; Infant Health Companion">
+  <meta name="twitter:description" content="Open-source, offline-first PWA supporting maternal well-being and infant care across the first 1,000 days.">
+  <meta name="twitter:image" content="https://www.cintiapettersen.com/assets/images/mamand/Screenshots_MAMAND_01_Today.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "MAMAND",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Web, iOS, Android (PWA)",
+    "license": "https://www.apache.org/licenses/LICENSE-2.0",
+    "creator": {
+      "@type": "Person",
+      "name": "Cintia Pettersen",
+      "jobTitle": "Principal Product Designer & Founder",
+      "url": "https://www.cintiapettersen.com"
+    },
+    "description": "Open-source, offline-first digital companion designed to support mothers and babies during the first 1,000 days of life, bridging everyday care and public health services."
+  }
+  </script>
+  <link rel="canonical" href="https://www.cintiapettersen.com/cases-mamand.html">
+  <link rel="icon" href="favicon.ico?v=3" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=3">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=3">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png?v=3">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=3">
+  <meta name="theme-color" content="#FBF8F4">
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    :root {
+      --mm-bg: #FBF8F4;
+      --mm-text: #1F2421;
+      --mm-muted: #626A65;
+      --mm-border: #E8E1D7;
+      --mm-accent: #C06342;
+      --mm-sage: #486856;
+      --mm-tag-bg: #EFE7DD;
+    }
+
+    body {
+      background-color: var(--mm-bg);
+      color: var(--mm-text);
+    }
+
+    .navbar {
+      background-color: rgba(251, 248, 244, 0.9);
+      backdrop-filter: blur(12px);
+    }
+
+    .case-detail-header {
+      padding-top: var(--space-7);
+      padding-bottom: var(--space-5);
+      text-align: center;
+    }
+
+    .case-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--mm-muted);
+      margin-bottom: var(--space-4);
+      display: inline-block;
+      border: 1px solid var(--mm-border);
+      background-color: var(--mm-tag-bg);
+      padding: 0.35rem 1.1rem;
+      border-radius: 100px;
+    }
+
+    .case-detail-title {
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+      margin-bottom: var(--space-4);
+      color: var(--mm-text);
+    }
+
+    .case-subtitle {
+      font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+      color: var(--mm-muted);
+      max-width: 44ch;
+      margin: 0 auto var(--space-5);
+      line-height: 1.5;
+      font-weight: 300;
+    }
+
+    /* Meta Pills Row */
+    .meta-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .meta-pill {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--mm-text);
+      background: #FFFFFF;
+      border: 1px solid var(--mm-border);
+      padding: 0.4rem 0.95rem;
+      border-radius: 100px;
+    }
+
+    /* Video Hero */
+    .video-hero-wrapper {
+      max-width: 1100px;
+      margin: var(--space-6) auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(31, 36, 33, 0.1);
+      border: 1px solid var(--mm-border);
+      background-color: #EAE8DF;
+      position: relative;
+    }
+
+    .video-hero-wrapper video {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Story Section */
+    .story-thread {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: var(--space-6) var(--space-4);
+    }
+
+    .story-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #FFFFFF;
+      background-color: var(--mm-sage);
+      display: inline-block;
+      padding: 0.3rem 0.9rem;
+      border-radius: 100px;
+      font-weight: 500;
+      margin-bottom: var(--space-4);
+    }
+
+    .story-label.terracotta {
+      background-color: var(--mm-accent);
+    }
+
+    .story-h2 {
+      font-size: clamp(1.75rem, 4vw, 2.6rem);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      color: var(--mm-text);
+      margin-bottom: var(--space-4);
+    }
+
+    .story-p {
+      font-size: clamp(1.125rem, 1.9vw, 1.3rem);
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--mm-muted);
+      margin-bottom: var(--space-5);
+      max-width: 68ch;
+    }
+
+    /* Grid Highlights */
+    .highlight-section {
+      max-width: 1140px;
+      margin: var(--space-5) auto;
+      padding: 0 var(--space-4);
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-5);
+    }
+
+    .highlight-card {
+      background: #FFFFFF;
+      border: 1px solid var(--mm-border);
+      border-radius: 20px;
+      padding: var(--space-5);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .highlight-num {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--mm-accent);
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-2);
+      text-transform: uppercase;
+    }
+
+    .highlight-title {
+      font-size: 1.35rem;
+      font-weight: 500;
+      margin-bottom: var(--space-3);
+      color: var(--mm-text);
+      letter-spacing: -0.01em;
+    }
+
+    .highlight-desc {
+      font-size: 1rem;
+      color: var(--mm-muted);
+      line-height: 1.65;
+      font-weight: 300;
+      margin-bottom: 0;
+    }
+
+    /* Roadmap 4-Column / 2x2 Grid */
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+
+    .roadmap-card {
+      background: #FFFFFF;
+      border: 1px solid var(--mm-border);
+      border-radius: 16px;
+      padding: var(--space-4);
+    }
+
+    .roadmap-phase {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--mm-sage);
+      margin-bottom: var(--space-2);
+    }
+
+    .roadmap-text {
+      font-size: 0.98rem;
+      color: var(--mm-muted);
+      line-height: 1.6;
+      font-weight: 300;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 860px) {
+      .highlight-grid,
+      .roadmap-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+      }
+    }
+
+    /* Carousel for App Screens */
+    .carousel-section {
+      max-width: 1240px;
+      margin: var(--space-7) auto;
+      padding: 0 var(--space-4);
+      position: relative;
+    }
+
+    .carousel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: var(--space-5);
+      gap: var(--space-4);
+    }
+
+    .carousel-header-text {
+      max-width: 650px;
+    }
+
+    .carousel-nav-controls {
+      display: flex;
+      gap: var(--space-3);
+      flex-shrink: 0;
+    }
+
+    .carousel-btn {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid var(--mm-border);
+      background: #FFFFFF;
+      color: var(--mm-text);
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+
+    .carousel-btn:hover:not(:disabled) {
+      background: var(--mm-sage);
+      color: #FFFFFF;
+      border-color: var(--mm-sage);
+    }
+
+    .carousel-btn:disabled {
+      opacity: 0.25;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: var(--space-4);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: var(--space-2) 4px var(--space-5) 4px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-item {
+      flex: 0 0 auto;
+      width: clamp(260px, 25vw, 290px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      scroll-snap-align: start;
+    }
+
+    .carousel-img-frame {
+      width: 100%;
+      height: 560px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 24px;
+      background: #EAE8DF;
+      border: 1px solid var(--mm-border);
+      box-shadow: 0 16px 36px rgba(35, 50, 42, 0.08);
+      overflow: hidden;
+      padding: 8px;
+    }
+
+    .carousel-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      border-radius: 18px;
+    }
+
+    .carousel-item-caption {
+      margin-top: var(--space-3);
+      font-size: 0.95rem;
+      color: var(--mm-muted);
+      text-align: center;
+      line-height: 1.45;
+      max-width: 95%;
+    }
+
+    /* Footer */
+    .case-footer {
+      text-align: center;
+      padding: var(--space-7) 0 var(--space-6);
+      border-top: 1px solid var(--mm-border);
+      margin-top: var(--space-7);
+    }
+
+    .case-footer-link {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--mm-muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .case-footer-link:hover {
+      color: var(--mm-text);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="/" class="nav-logo">CP.</a>
+      <ul class="nav-links">
+        <li>
+          <a href="about.html" data-lang="en">Design Philosophy</a>
+          <a href="about.html" data-lang="pt">Filosofia de Design</a>
+        </li>
+        <li><button id="lang-toggle" class="lang-toggle-btn">PT</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Header -->
+    <header class="container case-detail-header reveal">
+      <div class="case-tag" data-lang="en">Direction for maternal &amp; infant care.</div>
+      <div class="case-tag" data-lang="pt">Direção para o cuidado materno-infantil.</div>
+
+      <h1 class="case-detail-title">MAMAND</h1>
+
+      <p class="case-subtitle" data-lang="en">An open-source, offline-first digital companion supporting the mother-baby dyad across the first 1,000 days.</p>
+      <p class="case-subtitle" data-lang="pt">Um companheiro digital de código aberto e foco offline, projetado para apoiar mães e bebês durante os primeiros 1.000 dias.</p>
+
+      <div class="meta-pills">
+        <span class="meta-pill" data-lang="en">Open Source (Apache 2.0)</span>
+        <span class="meta-pill" data-lang="pt">Código Aberto (Apache 2.0)</span>
+        <span class="meta-pill" data-lang="en">Offline-First PWA &middot; React &amp; TypeScript</span>
+        <span class="meta-pill" data-lang="pt">PWA Offline-First &middot; React &amp; TypeScript</span>
+        <span class="meta-pill" data-lang="en">Zero-Login &middot; On-Device Privacy</span>
+        <span class="meta-pill" data-lang="pt">Sem Login &middot; Dados Locais no Dispositivo</span>
+        <span class="meta-pill" data-lang="en">PT / EN Bilingual</span>
+        <span class="meta-pill" data-lang="pt">Bilíngue PT / EN</span>
+      </div>
+
+      <div style="margin-top: var(--space-4);">
+        <a href="https://mamand.app" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="border-color: var(--mm-sage); color: var(--mm-sage); border-radius: 100px; padding: 0.65rem 1.6rem; font-weight: 500;" data-lang="en">Explore Live Prototype (mamand.app) ↗</a>
+        <a href="https://mamand.app" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="border-color: var(--mm-sage); color: var(--mm-sage); border-radius: 100px; padding: 0.65rem 1.6rem; font-weight: 500;" data-lang="pt">Acessar Protótipo (mamand.app) ↗</a>
+      </div>
+    </header>
+
+    <!-- Walkthrough Video Section -->
+    <section class="container reveal delay-1">
+      <div class="video-hero-wrapper">
+        <video autoplay loop muted playsinline controls preload="metadata">
+          <source src="assets/images/mamand/mamand-mockup.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+
+    <!-- Story Thread: The Challenge -->
+    <div class="container story-thread">
+      <div class="story-label reveal" data-lang="en">The Challenge</div>
+      <div class="story-label reveal" data-lang="pt">O Desafio</div>
+
+      <h2 class="story-h2 reveal" data-lang="en">Bridging the everyday gap between healthcare visits.</h2>
+      <h2 class="story-h2 reveal" data-lang="pt">Preenchendo a lacuna cotidiana no intervalo entre as consultas de saúde.</h2>
+
+      <p class="story-p reveal" data-lang="en">
+        In Brazil and many underserved contexts, women often navigate pregnancy and early motherhood with limited practical support between clinical appointments. Questions, emotional overload, breastfeeding difficulties, and sudden shifts in routine arise daily — while mobilizing family help or reaching primary health services can be challenging. For mothers facing economic barriers or unstable internet connectivity, important experiences and health observations are easily fragmented or forgotten.
+      </p>
+      <p class="story-p reveal" data-lang="pt">
+        No Brasil, muitas mulheres vivenciam a gestação e o início da maternidade com pouco apoio prático no intervalo entre as consultas de saúde. Dúvidas, sobrecarga emocional, dificuldades na amamentação e mudanças na rotina surgem frequentemente no dia a dia, enquanto obter auxílio de familiares ou serviços de saúde pode ser um desafio. Para mulheres que enfrentam barreiras econômicas ou acesso limitado à internet, essa lacuna torna-se ainda maior, fazendo com que vivências e necessidades importantes acabem fragmentadas ou esquecidas.
+      </p>
+
+      <p class="story-p reveal" data-lang="en">
+        Unlike traditional baby-tracking apps that focus solely on infant metrics, <strong>MAMAND places maternal well-being at the center</strong> of the first 1,000 days — helping mothers reflect on how they feel, coordinate a practical support network, record essential pregnancy and baby care notes, and export clear summaries to prepare for primary care visits.
+      </p>
+      <p class="story-p reveal" data-lang="pt">
+        Diferente dos aplicativos tradicionais de acompanhamento infantil, <strong>o MAMAND coloca o bem-estar materno no centro</strong> dos primeiros 1.000 dias — auxiliando as mulheres a refletir sobre como se sentem, organizar auxílio prático com uma rede de apoio, registrar cuidados essenciais da gestação e do bebê e exportar resumos claros na preparação para consultas de saúde.
+      </p>
+    </div>
+
+    <!-- Highlights Grid -->
+    <section class="container highlight-section reveal">
+      <div class="highlight-grid">
+        <div class="highlight-card">
+          <div class="highlight-num">01 &middot; Care</div>
+          <h3 class="highlight-title" data-lang="en">Mother-Baby Dyad</h3>
+          <h3 class="highlight-title" data-lang="pt">Foco na Dupla Mãe-Bebê</h3>
+          <p class="highlight-desc" data-lang="en">Daily maternal check-ins, pregnancy and infant journals, exam and screening logs, birth records, emergency contacts, practical support planning, and exportable visit preparation summaries.</p>
+          <p class="highlight-desc" data-lang="pt">Acompanhamento do bem-estar materno, diários da gestação e do bebê, registros de exames e triagens, planejamento de rede de apoio, contatos de emergência e resumos para preparação de consultas.</p>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-num">02 &middot; Architecture</div>
+          <h3 class="highlight-title" data-lang="en">Offline-First &amp; Local</h3>
+          <h3 class="highlight-title" data-lang="pt">Offline-First e Local</h3>
+          <p class="highlight-desc" data-lang="en">A functional React &amp; TypeScript PWA requiring no login. Family records stay on the user's device with local backup and restore, validated by 179 automated tests and 58 production checks.</p>
+          <p class="highlight-desc" data-lang="pt">PWA funcional em React e TypeScript que não exige login. Os dados permanecem no dispositivo da usuária com backup e restauração local, validado por 179 testes automatizados e 58 verificações em produção.</p>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-num">03 &middot; Safety</div>
+          <h3 class="highlight-title" data-lang="en">Responsible AI Governance</h3>
+          <h3 class="highlight-title" data-lang="pt">Governança de IA Segura</h3>
+          <p class="highlight-desc" data-lang="en">An experimental RAG assistant (Google Gemini) with rule-based red-flag detection, intentionally held from public release until clinical validation and supervised safety testing are completed.</p>
+          <p class="highlight-desc" data-lang="pt">Assistente experimental em RAG (Google Gemini) com camada de detecção de sinais de alerta, mantido suspenso na versão pública até a conclusão de validação clínica e testes supervisionados.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen Carousel -->
+    <section class="carousel-section reveal">
+      <div class="carousel-header">
+        <div class="carousel-header-text">
+          <div class="story-label" data-lang="en">Product Interface</div>
+          <div class="story-label" data-lang="pt">Interface do Produto</div>
+          <h2 class="story-h2" style="margin-bottom: 0;" data-lang="en">Designed for low connectivity, emotional clarity, and everyday support.</h2>
+          <h2 class="story-h2" style="margin-bottom: 0;" data-lang="pt">Projetado para baixa conectividade, clareza emocional e apoio cotidiano.</h2>
+        </div>
+        <div class="carousel-nav-controls">
+          <button class="carousel-btn prev" type="button" aria-label="Previous screens">&#8592;</button>
+          <button class="carousel-btn next" type="button" aria-label="Next screens">&#8594;</button>
+        </div>
+      </div>
+
+      <div class="carousel">
+        <div class="carousel-track">
+          <!-- Slide 1 -->
+          <div class="carousel-item">
+            <div class="carousel-img-frame">
+              <img src="assets/images/mamand/Screenshots_MAMAND_01_Today.png" alt="MAMAND Daily Check-in" loading="lazy">
+            </div>
+            <p class="carousel-item-caption" data-lang="en">Daily maternal well-being check-in and gentle emotional reflection.</p>
+            <p class="carousel-item-caption" data-lang="pt">Check-in diário de bem-estar materno e acolhimento emocional.</p>
+          </div>
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <div class="carousel-img-frame">
+              <img src="assets/images/mamand/Screenshots_MAMAND_06_SupportNetwork.png" alt="My Support Network" loading="lazy">
+            </div>
+            <p class="carousel-item-caption" data-lang="en">My Support Network: turning practical needs into a shareable letter for family.</p>
+            <p class="carousel-item-caption" data-lang="pt">Rede de Apoio: transformando tarefas práticas em um convite compartilhável.</p>
+          </div>
+          <!-- Slide 3 -->
+          <div class="carousel-item">
+            <div class="carousel-img-frame">
+              <img src="assets/images/mamand/Screenshots_MAMAND_03_MomentForMe.png" alt="A Moment for Me" loading="lazy">
+            </div>
+            <p class="carousel-item-caption" data-lang="en">"A moment for me": rest timer, guided breathing, and offline calming sounds.</p>
+            <p class="carousel-item-caption" data-lang="pt">"Um momento para mim": pausa guiada, respiração e sons relaxantes offline.</p>
+          </div>
+          <!-- Slide 4 -->
+          <div class="carousel-item">
+            <div class="carousel-img-frame">
+              <img src="assets/images/mamand/Screenshots_MAMAND_09_Journey.png" alt="Your Journey Timeline & Local Backup" loading="lazy">
+            </div>
+            <p class="carousel-item-caption" data-lang="en">Chronological timeline for Baby, Mother, and Memories with local device backup.</p>
+            <p class="carousel-item-caption" data-lang="pt">Linha do tempo para Bebê, Mãe e Memórias com backup local no dispositivo.</p>
+          </div>
+          <!-- Slide 5 -->
+          <div class="carousel-item">
+            <div class="carousel-img-frame">
+              <img src="assets/images/mamand/Screenshots_MAMAND_02_HospitalBag.png" alt="Hospital Bag Checklist" loading="lazy">
+            </div>
+            <p class="carousel-item-caption" data-lang="en">Structured checklists for the baby, mother, documents, and birth partner.</p>
+            <p class="carousel-item-caption" data-lang="pt">Checklists práticos para o bebê, a mãe, documentos e acompanhante.</p>
+          </div>
+          <!-- Slide 6 -->
+          <div class="carousel-item">
+            <div class="carousel-img-frame">
+              <img src="assets/images/mamand/Screenshots_MAMAND_04_BirthCard.png" alt="Birth Keepsake Card" loading="lazy">
+            </div>
+            <p class="carousel-item-caption" data-lang="en">On-device birth record and customizable keepsake card.</p>
+            <p class="carousel-item-caption" data-lang="pt">Registro de nascimento salvo no dispositivo e cartão afetivo personalizável.</p>
+          </div>
+          <!-- Slide 7 -->
+          <div class="carousel-item">
+            <div class="carousel-img-frame">
+              <img src="assets/images/mamand/Screenshots_MAMAND_05_Guidance.png" alt="Practical Guidance" loading="lazy">
+            </div>
+            <p class="carousel-item-caption" data-lang="en">Stage-aware guidance cards structured for clinical review and local adaptation.</p>
+            <p class="carousel-item-caption" data-lang="pt">Orientações práticas por fase, estruturadas para revisão e validação clínica.</p>
+          </div>
+          <!-- Slide 8 -->
+          <div class="carousel-item">
+            <div class="carousel-img-frame">
+              <img src="assets/images/mamand/Screenshots_MAMAND_07_Emergency.png" alt="Emergency Contacts & Warning Signs" loading="lazy">
+            </div>
+            <p class="carousel-item-caption" data-lang="en">Quick access to public health hotlines (SAMU 192 / Disque Saúde 136) and warning signs.</p>
+            <p class="carousel-item-caption" data-lang="pt">Acesso rápido a canais de emergência (SAMU 192 / Disque Saúde 136) e sinais de alerta.</p>
+          </div>
+          <!-- Slide 9 -->
+          <div class="carousel-item">
+            <div class="carousel-img-frame">
+              <img src="assets/images/mamand/Screenshots_MAMAND_08_AssistantRAG.png" alt="Experimental RAG Assistant" loading="lazy">
+            </div>
+            <p class="carousel-item-caption" data-lang="en">Experimental RAG sandbox grounding responses in documented public health sources.</p>
+            <p class="carousel-item-caption" data-lang="pt">Ambiente experimental em RAG associando dúvidas a fontes documentadas de saúde pública.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Validation & Safety-First AI -->
+    <div class="container story-thread">
+      <div class="story-label terracotta reveal" data-lang="en">Validation &amp; Responsible AI</div>
+      <div class="story-label terracotta reveal" data-lang="pt">Validação Técnica &amp; IA Responsável</div>
+
+      <h2 class="story-h2 reveal" data-lang="en">Why citing sources isn't enough: designing AI around clinical safety.</h2>
+      <h2 class="story-h2 reveal" data-lang="pt">Por que citar fontes não basta: desenvolvimento guiado pela segurança clínica.</h2>
+
+      <p class="story-p reveal" data-lang="en">
+        Alongside the core offline prototype, MAMAND explored an experimental Retrieval-Augmented Generation (RAG) assistant using Google Gemini, paired with a rule-based safety layer for red-flag symptoms. Designed to ground pregnancy and early childhood questions in documented public health sources, cite references, and abstain when evidence is insufficient, internal testing with fictional prompts confirmed technical feasibility (4 grounded answers, 1 appropriate refusal, zero hallucinated citations) — but revealed a crucial qualitative limitation: <em>simply citing trusted sources does not guarantee safe responses for sensitive health questions</em>, as some replies conveyed excessive reassurance around potentially serious symptoms.
+      </p>
+      <p class="story-p reveal" data-lang="pt">
+        Paralelamente ao protótipo funcional offline, o MAMAND desenvolveu um assistente experimental utilizando geração aumentada por recuperação (RAG) com o Google Gemini e uma camada de segurança baseada em regras para sinais de alerta. Projetado para associar dúvidas a fontes documentadas de saúde pública, fornecer referências e abster-se quando não há evidências suficientes, o teste interno com perguntas fictícias comprovou a viabilidade técnica (quatro respostas fundamentadas, uma recusa adequada e nenhuma referência inventada), mas revelou uma limitação qualitativa essencial: <em>a simples citação de fontes confiáveis não garante respostas seguras para questões de saúde sensíveis</em>, pois algumas respostas transmitiram tranquilidade excessiva diante de sintomas potencialmente graves.
+      </p>
+
+      <p class="story-p reveal" data-lang="en">
+        This insight directly shaped our product governance: <strong>we suspended the assistant from the public distribution</strong>, prioritized risk detection and evidence verification, and established clinical review, regulatory assessment, and supervised evaluation as strict prerequisites before any public release. Meanwhile, the offline-first PWA operates independently of AI, and personal family health records remain stored locally on the device — never used in AI testing.
+      </p>
+      <p class="story-p reveal" data-lang="pt">
+        Essa constatação moldou diretamente nossa estratégia de produto: <strong>suspendemos o assistente da distribuição pública</strong>, priorizamos a detecção de riscos e a verificação de evidências, e estabelecemos a revisão clínica, a avaliação regulatória e os testes supervisionados como pré-requisitos indispensáveis antes de qualquer lançamento. Enquanto isso, o PWA offline funciona de forma totalmente independente de IA, e os registros pessoais permanecem armazenados localmente no dispositivo.
+      </p>
+    </div>
+
+    <!-- Roadmap & Public Health Vision -->
+    <div class="container story-thread" style="padding-top: var(--space-4);">
+      <div class="story-label reveal" data-lang="en">12-Month Roadmap &amp; Impact</div>
+      <div class="story-label reveal" data-lang="pt">Roadmap de 12 Meses &amp; Impacto</div>
+
+      <h2 class="story-h2 reveal" data-lang="en">From founder-built prototype to community health pilot.</h2>
+      <h2 class="story-h2 reveal" data-lang="pt">Do protótipo construído pela fundadora ao piloto em saúde comunitária.</h2>
+
+      <p class="story-p reveal" data-lang="en">
+        Built entirely through founder contributions across product strategy, research, UI/UX design, front-end engineering, automated testing, and documentation — drawing on prior experience from <a href="cases-babykangoo.html" style="color: var(--mm-text); font-weight: 500;">Baby Kangoo</a> and pediatric health materials — MAMAND is structured as a modular Digital Public Good ready for clinical validation and community deployment alongside primary healthcare services in Brazil (SUS).
+      </p>
+      <p class="story-p reveal" data-lang="pt">
+        Desenvolvido integralmente por meio da atuação da fundadora nas frentes de estratégia de produto, pesquisa, design de interface, desenvolvimento front-end, testes automatizados e documentação — somando aprendizados do <a href="cases-babykangoo.html" style="color: var(--mm-text); font-weight: 500;">Baby Kangoo</a> e de materiais voltados à saúde pediátrica —, o MAMAND foi concebido com arquitetura modular para validação clínica junto a especialistas e implementação piloto com famílias e serviços de atenção primária no Brasil (SUS).
+      </p>
+
+      <div class="roadmap-grid reveal">
+        <div class="roadmap-card">
+          <div class="roadmap-phase" data-lang="en">Months 1–3 &middot; Foundation &amp; Governance</div>
+          <div class="roadmap-phase" data-lang="pt">Meses 1–3 &middot; Base Aberta &amp; Governança</div>
+          <p class="roadmap-text" data-lang="en">Release updated open-source prototype (Apache 2.0), onboard clinical reviewers, initiate privacy, regulatory, and content licensing reviews, and advance institutional dialogues with Brazil's public health system (SUS).</p>
+          <p class="roadmap-text" data-lang="pt">Lançar o protótipo de código aberto atualizado (Apache 2.0), envolver avaliadores clínicos, iniciar avaliações de privacidade, regulação e licenciamento, e avançar na articulação institucional com o SUS.</p>
+        </div>
+        <div class="roadmap-card">
+          <div class="roadmap-phase" data-lang="en">Months 4–6 &middot; Clinical Validation &amp; Usability</div>
+          <div class="roadmap-phase" data-lang="pt">Meses 4–6 &middot; Validação Clínica &amp; Usabilidade</div>
+          <p class="roadmap-text" data-lang="en">Validate priority maternal health content and exam catalogs, enhance accessibility, conduct usability testing with 20 families and 5 healthcare professionals, and refine AI safety guardrails under clinical supervision.</p>
+          <p class="roadmap-text" data-lang="pt">Validar conteúdos prioritários de saúde materna e catálogos de exames, aprimorar a acessibilidade, realizar testes de usabilidade com 20 famílias e 5 profissionais de saúde e refinar travas de segurança da IA sob supervisão.</p>
+        </div>
+        <div class="roadmap-card">
+          <div class="roadmap-phase" data-lang="en">Months 7–10 &middot; Community Health Pilot</div>
+          <div class="roadmap-phase" data-lang="pt">Meses 7–10 &middot; Projeto-Piloto Comunitário</div>
+          <p class="roadmap-text" data-lang="en">Run a community pilot with 50–100 families in Brazil alongside primary care services and community health workers, evaluating maternal well-being, support network coordination, and visit preparation.</p>
+          <p class="roadmap-text" data-lang="pt">Realizar projeto-piloto com 50 a 100 famílias no Brasil em parceria com serviços de atenção primária e agentes comunitários de saúde, avaliando bem-estar materno, rede de apoio e preparação para consultas.</p>
+        </div>
+        <div class="roadmap-card">
+          <div class="roadmap-phase" data-lang="en">Months 11–12 &middot; Open Publication &amp; Expansion</div>
+          <div class="roadmap-phase" data-lang="pt">Meses 11–12 &middot; Publicação Aberta &amp; Expansão</div>
+          <p class="roadmap-text" data-lang="en">Publish pilot findings and open-source improvements, assess readiness for supervised AI evaluation, and prepare expansion across additional municipalities and primary healthcare contexts.</p>
+          <p class="roadmap-text" data-lang="pt">Publicar os resultados do piloto e melhorias no código aberto, avaliar a prontidão para avaliação supervisionada da IA e estruturar a expansão para novos municípios e contextos de atenção primária à saúde.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Strategic Dialogues & Partnerships -->
+    <div class="container story-thread reveal" style="padding-top: var(--space-5); padding-bottom: var(--space-4); border-top: 1px solid var(--mm-border); margin-top: var(--space-5);">
+      <div class="story-label" data-lang="en">Public Health &amp; Grant Partnerships</div>
+      <div class="story-label" data-lang="pt">Parcerias em Saúde Pública &amp; Fomento</div>
+
+      <p class="story-p" style="font-size: 1.05rem; line-height: 1.6; margin-bottom: var(--space-4);" data-lang="en">
+        Interested in reviewing the technical documentation, clinical validation protocol, open-source repository, or collaborating on our pilot with families and primary healthcare partners in Brazil?
+      </p>
+      <p class="story-p" style="font-size: 1.05rem; line-height: 1.6; margin-bottom: var(--space-4);" data-lang="pt">
+        Tem interesse em conhecer a documentação técnica, o protocolo de validação clínica, o repositório de código aberto ou colaborar com o piloto junto a famílias e parceiros de saúde comunitária no Brasil?
+      </p>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+        <a href="https://mamand.app" target="_blank" rel="noopener noreferrer" class="work-link" style="font-size: 0.95rem; font-weight: 600; color: var(--mm-sage); text-decoration: none; border-bottom: 1px solid var(--mm-sage); padding-bottom: 2px;" data-lang="en">Visit mamand.app ↗</a>
+        <a href="https://mamand.app" target="_blank" rel="noopener noreferrer" class="work-link" style="font-size: 0.95rem; font-weight: 600; color: var(--mm-sage); text-decoration: none; border-bottom: 1px solid var(--mm-sage); padding-bottom: 2px;" data-lang="pt">Acessar mamand.app ↗</a>
+
+        <a href="mailto:cintiapettersen@gmail.com?subject=%5BMAMAND%5D%20Public%20Health%20%26%20Grant%20Dialogue" class="work-link" style="font-size: 0.95rem; font-weight: 600; color: var(--mm-text); text-decoration: none; border-bottom: 1px solid var(--mm-text); padding-bottom: 2px;" data-lang="en">Start a conversation →</a>
+        <a href="mailto:cintiapettersen@gmail.com?subject=%5BMAMAND%5D%20Di%C3%A1logo%20Institucional%20%2F%20Sa%C3%BAde%20P%C3%BAblica" class="work-link" style="font-size: 0.95rem; font-weight: 600; color: var(--mm-text); text-decoration: none; border-bottom: 1px solid var(--mm-text); padding-bottom: 2px;" data-lang="pt">Iniciar uma conversa →</a>
+      </div>
+    </div>
+
+    <!-- Back Footer Link -->
+    <footer class="container case-footer reveal">
+      <a href="about.html" class="case-footer-link" data-lang="en">← Back to Overview</a>
+      <a href="about.html" class="case-footer-link" data-lang="pt">← Voltar à Filosofia &amp; Projetos</a>
+    </footer>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const carousel = document.querySelector('.carousel-section');
+      if (!carousel) return;
+
+      const track = carousel.querySelector('.carousel-track');
+      const prev = carousel.querySelector('.prev');
+      const next = carousel.querySelector('.next');
+      if (!track || !prev || !next) return;
+
+      const step = () => {
+        const item = track.querySelector('.carousel-item');
+        if (!item) return 300;
+        const gap = parseFloat(getComputedStyle(track).gap) || 20;
+        return item.offsetWidth + gap;
+      };
+
+      const sync = () => {
+        const max = track.scrollWidth - track.clientWidth;
+        prev.disabled = track.scrollLeft <= 5;
+        next.disabled = track.scrollLeft >= max - 5;
+      };
+
+      prev.addEventListener('click', () => {
+        track.scrollBy({ left: -step(), behavior: 'smooth' });
+      });
+
+      next.addEventListener('click', () => {
+        track.scrollBy({ left: step(), behavior: 'smooth' });
+      });
+
+      track.addEventListener('scroll', sync, { passive: true });
+      window.addEventListener('resize', sync);
+      sync();
+    });
+  </script>
+</body>
+</html>
