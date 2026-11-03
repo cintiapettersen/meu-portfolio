@@ -481,8 +481,8 @@
           <div class="highlight-num">02 &middot; Architecture</div>
           <h3 class="highlight-title" data-lang="en">Offline-First &amp; Local</h3>
           <h3 class="highlight-title" data-lang="pt">Offline-First e Local</h3>
-          <p class="highlight-desc" data-lang="en">A functional React &amp; TypeScript PWA requiring no login. Family records stay on the user's device with local backup and restore, validated by 179 automated tests and 58 production checks.</p>
-          <p class="highlight-desc" data-lang="pt">PWA funcional em React e TypeScript que não exige login. Os dados permanecem no dispositivo da usuária com backup e restauração local, validado por 179 testes automatizados e 58 verificações em produção.</p>
+          <p class="highlight-desc" data-lang="en">A functional React &amp; TypeScript PWA requiring no login. Family records stay on the user's device with local backup and restore — validated through automated testing and internal browser checks across mobile and desktop environments.</p>
+          <p class="highlight-desc" data-lang="pt">PWA funcional em React e TypeScript que não exige login. Os dados permanecem no dispositivo da usuária com backup e restauração local — validado por meio de testes automatizados e verificações internas em navegadores nos ambientes mobile e desktop.</p>
         </div>
         <div class="highlight-card">
           <div class="highlight-num">03 &middot; Safety</div>
@@ -592,21 +592,21 @@
       <div class="story-label terracotta reveal" data-lang="en">Validation &amp; Responsible AI</div>
       <div class="story-label terracotta reveal" data-lang="pt">Validação Técnica &amp; IA Responsável</div>
 
-      <h2 class="story-h2 reveal" data-lang="en">Why citing sources isn't enough: designing AI around clinical safety.</h2>
-      <h2 class="story-h2 reveal" data-lang="pt">Por que citar fontes não basta: desenvolvimento guiado pela segurança clínica.</h2>
+      <h2 class="story-h2 reveal" data-lang="en">Reliable sources are necessary, but not sufficient for safe medical guidance.</h2>
+      <h2 class="story-h2 reveal" data-lang="pt">Fontes confiáveis são necessárias, mas não suficientes para uma orientação segura em saúde.</h2>
 
       <p class="story-p reveal" data-lang="en">
-        Alongside the core offline prototype, MAMAND explored an experimental Retrieval-Augmented Generation (RAG) assistant using Google Gemini, paired with a rule-based safety layer for red-flag symptoms. Designed to ground pregnancy and early childhood questions in documented public health sources, cite references, and abstain when evidence is insufficient, internal testing with fictional prompts confirmed technical feasibility (4 grounded answers, 1 appropriate refusal, zero hallucinated citations) — but revealed a crucial qualitative limitation: <em>simply citing trusted sources does not guarantee safe responses for sensitive health questions</em>, as some replies conveyed excessive reassurance around potentially serious symptoms.
+        During development, we explored an experimental RAG assistant (Google Gemini) with a rule-based safety layer to ground pregnancy and infant care questions in documented public health sources. While internal tests confirmed technical feasibility without fabricated citations, they revealed a critical limitation: even when citing trusted references, responses could still sound overly reassuring around potentially serious symptoms.
       </p>
       <p class="story-p reveal" data-lang="pt">
-        Paralelamente ao protótipo funcional offline, o MAMAND desenvolveu um assistente experimental utilizando geração aumentada por recuperação (RAG) com o Google Gemini e uma camada de segurança baseada em regras para sinais de alerta. Projetado para associar dúvidas a fontes documentadas de saúde pública, fornecer referências e abster-se quando não há evidências suficientes, o teste interno com perguntas fictícias comprovou a viabilidade técnica (quatro respostas fundamentadas, uma recusa adequada e nenhuma referência inventada), mas revelou uma limitação qualitativa essencial: <em>a simples citação de fontes confiáveis não garante respostas seguras para questões de saúde sensíveis</em>, pois algumas respostas transmitiram tranquilidade excessiva diante de sintomas potencialmente graves.
+        Durante o desenvolvimento, testamos um assistente experimental em RAG (Google Gemini) com uma camada de regras para sinais de alerta, associando dúvidas a fontes documentadas de saúde pública. Embora os testes internos tenham comprovado a viabilidade técnica sem referências inventadas, eles revelaram uma limitação essencial: mesmo citando fontes confiáveis, algumas respostas transmitiam tranquilidade excessiva diante de sintomas potencialmente graves.
       </p>
 
       <p class="story-p reveal" data-lang="en">
-        This insight directly shaped our product governance: <strong>we suspended the assistant from the public distribution</strong>, prioritized risk detection and evidence verification, and established clinical review, regulatory assessment, and supervised evaluation as strict prerequisites before any public release. Meanwhile, the offline-first PWA operates independently of AI, and personal family health records remain stored locally on the device — never used in AI testing.
+        That finding directly guided our engineering decisions: <strong>we suspended the assistant from the public build</strong>, prioritized risk detection and evidence verification, and established clinical review and supervised evaluation as strict prerequisites before release. Meanwhile, the offline-first PWA operates independently of AI, keeping personal health records strictly on the user's device.
       </p>
       <p class="story-p reveal" data-lang="pt">
-        Essa constatação moldou diretamente nossa estratégia de produto: <strong>suspendemos o assistente da distribuição pública</strong>, priorizamos a detecção de riscos e a verificação de evidências, e estabelecemos a revisão clínica, a avaliação regulatória e os testes supervisionados como pré-requisitos indispensáveis antes de qualquer lançamento. Enquanto isso, o PWA offline funciona de forma totalmente independente de IA, e os registros pessoais permanecem armazenados localmente no dispositivo.
+        Essa constatação orientou diretamente nossas decisões técnicas: <strong>suspendemos o assistente da versão pública</strong>, priorizamos a detecção de riscos e a verificação de evidências, e estabelecemos a revisão clínica e a avaliação supervisionada como pré-requisitos antes de qualquer lançamento. Paralelamente, o aplicativo offline funciona de forma independente de IA, mantendo os registros pessoais exclusivamente no dispositivo da usuária.
       </p>
     </div>
 
@@ -619,18 +619,25 @@
       <h2 class="story-h2 reveal" data-lang="pt">Do protótipo construído pela fundadora ao piloto em saúde comunitária.</h2>
 
       <p class="story-p reveal" data-lang="en">
-        Built entirely through founder contributions across product strategy, research, UI/UX design, front-end engineering, automated testing, and documentation — drawing on prior experience from <a href="cases-babykangoo.html" style="color: var(--mm-text); font-weight: 500;">Baby Kangoo</a> and pediatric health materials — MAMAND is structured as a modular Digital Public Good ready for clinical validation and community deployment alongside primary healthcare services in Brazil (SUS).
+        Developed through the founder's contributions in product strategy, research, UI/UX design, front-end engineering, testing, and documentation, MAMAND is an open-source digital health project that builds on experience from <a href="cases-babykangoo.html" style="color: var(--mm-text); font-weight: 500;">Baby Kangoo</a> and pediatric healthcare projects.
       </p>
       <p class="story-p reveal" data-lang="pt">
-        Desenvolvido integralmente por meio da atuação da fundadora nas frentes de estratégia de produto, pesquisa, design de interface, desenvolvimento front-end, testes automatizados e documentação — somando aprendizados do <a href="cases-babykangoo.html" style="color: var(--mm-text); font-weight: 500;">Baby Kangoo</a> e de materiais voltados à saúde pediátrica —, o MAMAND foi concebido com arquitetura modular para validação clínica junto a especialistas e implementação piloto com famílias e serviços de atenção primária no Brasil (SUS).
+        Desenvolvido por meio da atuação da fundadora em estratégia de produto, pesquisa, design de UI/UX, engenharia front-end, testes e documentação, o MAMAND é um projeto de saúde digital em código aberto que se baseia na experiência adquirida com o <a href="cases-babykangoo.html" style="color: var(--mm-text); font-weight: 500;">Baby Kangoo</a> e projetos voltados à saúde pediátrica.
+      </p>
+
+      <p class="story-p reveal" data-lang="en">
+        The next stage focuses on independent clinical validation, responsible AI development, and community-based pilots, including exploring potential collaboration with primary healthcare services within Brazil's Unified Health System (SUS).
+      </p>
+      <p class="story-p reveal" data-lang="pt">
+        A próxima etapa concentra-se na validação clínica independente, no desenvolvimento de IA responsável e em projetos-piloto comunitários, incluindo a exploração de uma potencial colaboração com serviços de atenção primária no âmbito do Sistema Único de Saúde (SUS).
       </p>
 
       <div class="roadmap-grid reveal">
         <div class="roadmap-card">
           <div class="roadmap-phase" data-lang="en">Months 1–3 &middot; Foundation &amp; Governance</div>
           <div class="roadmap-phase" data-lang="pt">Meses 1–3 &middot; Base Aberta &amp; Governança</div>
-          <p class="roadmap-text" data-lang="en">Release updated open-source prototype (Apache 2.0), onboard clinical reviewers, initiate privacy, regulatory, and content licensing reviews, and advance institutional dialogues with Brazil's public health system (SUS).</p>
-          <p class="roadmap-text" data-lang="pt">Lançar o protótipo de código aberto atualizado (Apache 2.0), envolver avaliadores clínicos, iniciar avaliações de privacidade, regulação e licenciamento, e avançar na articulação institucional com o SUS.</p>
+          <p class="roadmap-text" data-lang="en">Release updated open-source prototype (Apache 2.0), onboard clinical reviewers, initiate privacy, regulatory, and content licensing reviews, and continue institutional outreach to explore potential collaboration with Brazil's Unified Health System (SUS).</p>
+          <p class="roadmap-text" data-lang="pt">Lançar o protótipo de código aberto atualizado (Apache 2.0), envolver avaliadores clínicos, iniciar avaliações de privacidade, regulação e licenciamento, e dar continuidade à articulação institucional para explorar uma possível colaboração com o SUS.</p>
         </div>
         <div class="roadmap-card">
           <div class="roadmap-phase" data-lang="en">Months 4–6 &middot; Clinical Validation &amp; Usability</div>
@@ -641,14 +648,14 @@
         <div class="roadmap-card">
           <div class="roadmap-phase" data-lang="en">Months 7–10 &middot; Community Health Pilot</div>
           <div class="roadmap-phase" data-lang="pt">Meses 7–10 &middot; Projeto-Piloto Comunitário</div>
-          <p class="roadmap-text" data-lang="en">Run a community pilot with 50–100 families in Brazil alongside primary care services and community health workers, evaluating maternal well-being, support network coordination, and visit preparation.</p>
-          <p class="roadmap-text" data-lang="pt">Realizar projeto-piloto com 50 a 100 famílias no Brasil em parceria com serviços de atenção primária e agentes comunitários de saúde, avaliando bem-estar materno, rede de apoio e preparação para consultas.</p>
+          <p class="roadmap-text" data-lang="en">Pilot MAMAND with 50–100 families in Brazil, exploring participation through primary care services and community health workers via institutional agreements, evaluating maternal well-being, support networks, and visit preparation.</p>
+          <p class="roadmap-text" data-lang="pt">Realizar projeto-piloto com 50 a 100 famílias no Brasil, explorando a participação por meio de serviços de atenção primária e agentes comunitários de saúde mediante acordos institucionais, avaliando bem-estar materno, rede de apoio e preparação para consultas.</p>
         </div>
         <div class="roadmap-card">
           <div class="roadmap-phase" data-lang="en">Months 11–12 &middot; Open Publication &amp; Expansion</div>
           <div class="roadmap-phase" data-lang="pt">Meses 11–12 &middot; Publicação Aberta &amp; Expansão</div>
-          <p class="roadmap-text" data-lang="en">Publish pilot findings and open-source improvements, assess readiness for supervised AI evaluation, and prepare expansion across additional municipalities and primary healthcare contexts.</p>
-          <p class="roadmap-text" data-lang="pt">Publicar os resultados do piloto e melhorias no código aberto, avaliar a prontidão para avaliação supervisionada da IA e estruturar a expansão para novos municípios e contextos de atenção primária à saúde.</p>
+          <p class="roadmap-text" data-lang="en">Publish pilot findings and open-source improvements, assess readiness for supervised AI evaluation, and explore expansion to additional primary healthcare contexts.</p>
+          <p class="roadmap-text" data-lang="pt">Publicar os resultados do piloto e melhorias no código aberto, avaliar a prontidão para avaliação supervisionada da IA e explorar a expansão para outros contextos de atenção à saúde.</p>
         </div>
       </div>
     </div>
